@@ -6,6 +6,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Register } from "./pages/register";
+import { Service } from "./pages/service";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -29,11 +30,14 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
 						<Route exact path="/register">
 							<Register />
+						</Route>
+						<Route exact path="/service/:id">
+							<Service />
+						</Route>
+						<Route exact path="/single/:theid">
+							<Single />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
