@@ -4,18 +4,7 @@ import { Row, Col, ListGroup, Image, Button, Card } from "react-bootstrap";
 export const PerfilUsuario = () => {
 	return (
 		<Row>
-			<Col sm={3}>
-				<Card bg="dark" style={{ width: "18rem", height: "160%" }}>
-					<Card.Body>
-						<ListGroup>
-							<ListGroup.Item>Crear Publicación</ListGroup.Item>
-							<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
-							<ListGroup.Item>Mensajes</ListGroup.Item>
-						</ListGroup>
-					</Card.Body>
-				</Card>
-			</Col>
-			<Col>
+			<Col md={{ span: 4, offset: 4 }}>
 				<Card style={{ width: "54rem" }}>
 					<Card.Body>
 						<Image
@@ -23,7 +12,6 @@ export const PerfilUsuario = () => {
 							rounded
 							style={{ margin: "0 0 0 1rem" }}
 						/>
-
 						<ListGroup variant="flush">
 							<ListGroup.Item>Nombre:</ListGroup.Item>
 							<ListGroup.Item>Apellido:</ListGroup.Item>

@@ -20,14 +20,14 @@ export const NavBar = () => {
 	const [open, setOpen] = useState(false);
 	return (
 		<>
-			<Navbar collapseOnSelect expand="fluid" bg="dark" variant="dark">
+			<Navbar bg="dark" variant="dark">
 				<Col className="fixed-top">
 					<Button
 						variant="dark"
 						onClick={() => setOpen(!open)}
 						aria-controls="example-collapse-text"
 						aria-expanded={open}>
-						<i className="fas fa-bars text-white" style={{ fontSize: "20pt" }} />
+						<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
 					</Button>
 					<Navbar.Brand className="ml-3" href="#home">
 						<b>OurAppName</b>
@@ -39,18 +39,23 @@ export const NavBar = () => {
 				</Form>
 			</Navbar>
 			<Collapse in={open} timeout={25}>
-				<div style={{ width: "12rem" }}>
-					<ListGroup variant="dark">
-						<ListGroup.Item action variant="dark">
-							Crear Publicación
-						</ListGroup.Item>
-						<ListGroup.Item action variant="dark">
-							Perfil de Servicio
-						</ListGroup.Item>
-						<ListGroup.Item action variant="dark">
-							Mensajes
-						</ListGroup.Item>
-					</ListGroup>
+				<div
+					style={{
+						position: "absolute",
+						zIndex: "1",
+						width: "12rem",
+						marginTop: "54px",
+						height: "680px"
+					}}>
+					<Card bg="dark" style={{ width: "18rem", height: window.outerHeight }}>
+						<Card.Body>
+							<ListGroup>
+								<ListGroup.Item>Crear Publicación</ListGroup.Item>
+								<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
+								<ListGroup.Item>Mensajes</ListGroup.Item>
+							</ListGroup>
+						</Card.Body>
+					</Card>{" "}
 				</div>
 			</Collapse>
 		</>
