@@ -4,8 +4,8 @@ import { Row, Col, ListGroup, Image, Button, Card } from "react-bootstrap";
 export const PerfilUsuario = () => {
 	return (
 		<Row>
-			<Col md={{ span: 4, offset: 4 }}>
-				<Card style={{ width: "54rem" }}>
+			<Col md={{ span: 4, offset: 3 }}>
+				<Card style={{ width: "54rem", marginTop: "7rem" }}>
 					<Card.Body>
 						<Image
 							src="https://fakeimg.pl/100x100/?text=Profile Pic"
@@ -23,7 +23,7 @@ export const PerfilUsuario = () => {
 				</Card>
 			</Col>
 			<Col>
-				<Button variant="dark" style={{ margin: "0 1rem 0 1rem" }}>
+				<Button variant="dark" style={{ margin: "9rem 1rem 0 15rem" }}>
 					<i className="fas fa-edit"> Editar</i>
 				</Button>
 			</Col>
