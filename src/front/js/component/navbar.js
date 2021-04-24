@@ -1,20 +1,5 @@
 import React, { useState } from "react";
-import {
-	Nav,
-	NavDropdown,
-	Navbar,
-	Button,
-	Dropdown,
-	Container,
-	Row,
-	Col,
-	Collapse,
-	Card,
-	ListGroup,
-	Form,
-	FormControl,
-	DropdownButton
-} from "react-bootstrap";
+import { Navbar, Button, Col, Collapse, Card, ListGroup, Form, FormControl } from "react-bootstrap";
 
 export const NavBar = () => {
 	const [open, setOpen] = useState(false);
