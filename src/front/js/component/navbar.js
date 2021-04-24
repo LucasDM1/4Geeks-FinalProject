@@ -5,7 +5,7 @@ export const NavBar = () => {
 	const [open, setOpen] = useState(false);
 	return (
 		<>
-			<Navbar bg="dark" variant="dark">
+			<Navbar bg="dark" variant="dark" className="sticky-top">
 				<Col className="fixed-top">
 					<Button
 						variant="dark"

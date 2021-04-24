@@ -29,32 +29,32 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<NavBar />
-          <Container fluid>
-					<Switch>
-						<Route exact path="/">
-							<Carousel />
-							<Home />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/register">
-							<Register />
-						</Route>
-            <Route exact path="/perfil">
-							<PerfilUsuario />
-						</Route>
-						<Route exact path="/service/:id">
-							<Service />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
-          </Container>
+					<Container fluid>
+						<Switch>
+							<Route exact path="/">
+								<Carousel />
+								<Home />
+							</Route>
+							<Route exact path="/demo">
+								<Demo />
+							</Route>
+							<Route exact path="/register">
+								<Register />
+							</Route>
+							<Route exact path="/perfil">
+								<PerfilUsuario />
+							</Route>
+							<Route exact path="/service/:id">
+								<Service />
+							</Route>
+							<Route exact path="/single/:theid">
+								<Single />
+							</Route>
+							<Route>
+								<h1>Not found!</h1>
+							</Route>
+						</Switch>
+					</Container>
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
