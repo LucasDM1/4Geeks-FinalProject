@@ -19,8 +19,8 @@ export const NavBar = () => {
 					</Navbar.Brand>
 				</Col>
 				<Form inline style={{ marginLeft: "30rem" }}>
-					<FormControl type="text" placeholder="Search" className="mr-sm-2" style={{ width: "30rem" }} />
-					<Button variant="outline-info">Search</Button>
+					<FormControl type="text" placeholder="Buscar" className="mr-sm-2" style={{ width: "30rem" }} />
+					<Button variant="outline-info">Buscar</Button>
 				</Form>
 			</Navbar>
 			<Collapse in={open} timeout={25}>
