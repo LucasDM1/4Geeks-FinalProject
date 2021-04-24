@@ -16,7 +16,8 @@ export const Carousel = () => {
 						id="carouselExampleIndicators"
 						className="carousel slide"
 						data-bs-ride="carousel"
-						style={{ backgroundColor: "gray" }}>
+						// style={{ backgroundColor: "gray" }}
+					>
 						<ol className="carousel-indicators">
 							<li
 								data-target="#carouselExampleIndicators"
