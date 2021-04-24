@@ -16,6 +16,7 @@ import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Carousel } from "./component/carousel";
 
 //create your first component
 const Layout = () => {
@@ -31,6 +32,7 @@ const Layout = () => {
           <Container fluid>
 					<Switch>
 						<Route exact path="/">
+							<Carousel />
 							<Home />
 						</Route>
 						<Route exact path="/demo">

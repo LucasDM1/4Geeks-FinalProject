@@ -1,99 +1,273 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
+// import "bootstrap/dist/css/bootstrap.css";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="container-fluid">
-			<div className="row">
-				<div className="col-12">
-					<div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-						<div className="carousel-inner">
-							<div className="carousel-item active">
-								<div className="container">
-									<div className="row">
-										<div className="col-sm-12 col-lg-4">
-											<div className="card bg-dark text-white" style={{ width: "300px" }}>
-												<img
-													src="https://picsum.photos/200/300"
-													className="card-img"
-													alt="..."
-												/>
-												<div className="card-img-overlay">
-													<h5 className="card-title">Card title</h5>
-													<p className="card-text">
-														This is a wider card with supporting text below as a natural
-														lead to additional content. This content is a little bit longer.
-													</p>
-													<p className="card-text">Last updated 3 mins ago</p>
-												</div>
-											</div>
-										</div>
-										<div className="col-sm-12 col-lg-4">
-											<div className="card bg-dark text-white" style={{ width: "300px" }}>
-												<img
-													src="https://picsum.photos/200/300"
-													className="card-img"
-													alt="..."
-												/>
-												<div className="card-img-overlay">
-													<h5 className="card-title">Card title</h5>
-													<p className="card-text">
-														This is a wider card with supporting text below as a natural
-														lead to additional content. This content is a little bit longer.
-													</p>
-													<p className="card-text">Last updated 3 mins ago</p>
-												</div>
-											</div>
-										</div>
-										<div className="col-sm-12 col-lg-4">
-											<div className="card bg-dark text-white" style={{ width: "300px" }}>
-												<img src="https://picsum.photos/200/300" className="card-img" />
-												<div className="card-img-overlay">
-													<h5 className="card-title">Card title</h5>
-													<p className="card-text">
-														This is a wider card with supporting text below as a natural
-														lead to additional content. This content is a little bit longer.
-													</p>
-													<p className="card-text">Last updated 3 mins ago</p>
-												</div>
-											</div>
-										</div>
-									</div>
+			<div className="row m-4">
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
 								</div>
 							</div>
 						</div>
-						<button
-							className="carousel-control-prev p-0"
-							type="button"
-							data-bs-target="#carouselExampleControls"
-							data-bs-slide="prev">
-							<span className="carousel-control-prev-icon" aria-hidden="true" />
-							<span className="visually-hidden">Previous</span>
-						</button>
-						<button
-							className="carousel-control-next p-0"
-							type="button"
-							data-bs-target="#carouselExampleControls"
-							data-bs-slide="next">
-							<span className="carousel-control-next-icon" aria-hidden="true" />
-							<span className="visually-hidden">Next</span>
-						</button>
+					</div>
+				</div>
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			{/* <div className="container">
-				<div className="row text-center">
+			<div className="row m-4">
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="row m-4">
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+					<div className="card mb-3" style={{ maxwidth: "540px" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src="https://picsum.photos/200/200" style={{ width: "200px", height: "200px" }} />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">
+										<b>Nombre del servicio</b>
+									</h5>
+									<p>
+										<b>Categoria</b>
+									</p>
+									<p>
+										<b>Ubicacion</b>
+									</p>
+									<p className="card-text">
+										<button type="button" className="btn btn-outline-dark">
+											More information
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* // aca empieza el sector de anuncios */}
+
+			{/* <div className="row text-center">
 					<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
 						<div className="thumbnail">
-							{" "}
 							<img
-								src="https://picsum.photos/200/300"
+								src="https://picsum.photos/200/200"
 								alt="Thumbnail Image 1"
-								className="img-responsive"
+                                className="img-responsive"
+                                style={{ width: "250px", height: "250px" }}
 							/>
 							<div className="caption">
 								<h3>Product</h3>
@@ -205,8 +379,7 @@ export const Home = () => {
 							</div>
 						</div>
 					</div>
-				</div>
-			</div> */}
+				</div> */}
 		</div>
 	);
 };
