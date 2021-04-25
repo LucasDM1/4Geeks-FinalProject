@@ -5,7 +5,7 @@ export const NavBar = () => {
 	const [open, setOpen] = useState(false);
 	return (
 		<>
-			<Navbar bg="dark" variant="dark" className="sticky-top">
+			<Navbar bg="dark" variant="dark" className="sticky-top ">
 				<Col className="fixed-top">
 					<Button
 						variant="dark"
@@ -19,7 +19,12 @@ export const NavBar = () => {
 					</Navbar.Brand>
 				</Col>
 				<Form inline style={{ marginLeft: "30rem" }}>
-					<FormControl type="text" placeholder="Buscar" className="mr-sm-2" style={{ width: "30rem" }} />
+					<FormControl
+						type="text"
+						placeholder="Buscar"
+						className=" mr-sm-2 ml-sm-2"
+						style={{ width: "30rem" }}
+					/>
 					<Button variant="outline-info">Buscar</Button>
 				</Form>
 			</Navbar>

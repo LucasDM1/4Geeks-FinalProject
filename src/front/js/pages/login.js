@@ -14,7 +14,7 @@ export const Login = () => {
 						</div>
 						<form action="" method="post" name="login">
 							<div className="form-group">
-								<label>Email</label>
+								<label>Correo electrónico</label>
 								<input
 									type="email"
 									name="email"
@@ -25,14 +25,14 @@ export const Login = () => {
 								/>
 							</div>
 							<div className="form-group">
-								<label>Password</label>
+								<label>Contraseña</label>
 								<input
 									type="password"
 									name="password"
 									id="password"
 									className="form-control"
 									aria-describedby="emailHelp"
-									placeholder="Password"
+									placeholder=""
 								/>
 							</div>
 							<div className="form-group">

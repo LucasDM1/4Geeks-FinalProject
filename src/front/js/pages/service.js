@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 
 export const Service = () => {
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid pt-3">
 			<div className="row justify-content-center">
 				<div className="col-10">
 					<div className="card" style={{ width: "100%" }}>
