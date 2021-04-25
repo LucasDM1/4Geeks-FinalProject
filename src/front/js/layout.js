@@ -33,7 +33,7 @@ const Layout = () => {
 						<Route exact path="/register">
 							<Register />
 						</Route>
-						<Route exact path="/service/:id">
+						<Route exact path="/servicio/:id">
 							<Service />
 						</Route>
 						<Route exact path="/single/:theid">
