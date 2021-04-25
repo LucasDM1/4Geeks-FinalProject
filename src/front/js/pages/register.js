@@ -10,6 +10,8 @@ export const Register = () => {
 	const [password1, setPassword1] = useState("");
 	const [email, setEmail] = useState("");
 	const [terminos, setTerminos] = useState("");
+	const [alertP, setAlertP] = useState(false);
+	const [alertC, setAlertC] = useState(false);
 
 	return (
 		<div className="container-fluid ">
@@ -61,10 +63,17 @@ export const Register = () => {
 									value={cedula}
 									onChange={e => setCedula(e.target.value)}
 									id="cedula"
-									placeholder="111561587"
+									placeholder="123456789"
 									required
 								/>
 							</div>
+							{alertC == true ? (
+								<div className="alert alert-danger" role="alert">
+									Digite un número de cédula valido
+								</div>
+							) : (
+								""
+							)}
 							<div className="mb-3">
 								<label htmlFor="email" className="form-label">
 									Email
@@ -93,15 +102,13 @@ export const Register = () => {
 							</div>
 
 							<div className="mb-3">
-								<label htmlFor="ConfirmPassword" className="form-label">
-									Password
-								</label>
 								<input
 									type="password"
 									value={password1}
 									onChange={e => setPassword1(e.target.value)}
 									className="form-control"
 									id="ConfirmPassword"
+									placeholder="Confirm password"
 									required
 								/>
 							</div>
@@ -119,10 +126,24 @@ export const Register = () => {
 									Acepto los <a href="#">Terminos de servicio y Condiciones</a>
 								</label>
 							</div>
+							{alertP == true ? (
+								<div className="alert alert-danger" role="alert">
+									La contraseña no coincide
+								</div>
+							) : (
+								""
+							)}
 							<button
 								type="button"
 								onClick={() => {
-									console.log(name, lastname, cedula, email, password, password1, terminos);
+									if (password == password1) {
+										console.log(name, lastname, cedula, email, password, password1, terminos);
+										setAlertP(false);
+										//setAlertC(false);
+									} else {
+										setAlertP(true);
+										//setAlertC(true);
+									}
 								}}
 								className="btn btn-primary mr-auto">
 								Registrarse
