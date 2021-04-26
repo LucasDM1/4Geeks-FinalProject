@@ -14,7 +14,7 @@ export const Register = () => {
 	const [alertC, setAlertC] = useState(false);
 
 	return (
-		<div className="container-fluid ">
+		<div className="container-fluid pt-3 ">
 			<div className="row d-flex justify-content-center">
 				<div className="card">
 					<div className="card-body py-2">
@@ -76,7 +76,7 @@ export const Register = () => {
 							)}
 							<div className="mb-3">
 								<label htmlFor="email" className="form-label">
-									Email
+									Correo electrónico
 								</label>
 								<input
 									type="email"
@@ -89,7 +89,7 @@ export const Register = () => {
 							</div>
 							<div className="mb-3">
 								<label htmlFor="password" className="form-label">
-									Password
+									Contraseña
 								</label>
 								<input
 									type="password"
@@ -102,13 +102,15 @@ export const Register = () => {
 							</div>
 
 							<div className="mb-3">
+								<label htmlFor="password" className="form-label">
+									Confirma la constraseña
+								</label>
 								<input
 									type="password"
 									value={password1}
 									onChange={e => setPassword1(e.target.value)}
 									className="form-control"
 									id="ConfirmPassword"
-									placeholder="Confirm password"
 									required
 								/>
 							</div>

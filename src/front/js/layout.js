@@ -9,6 +9,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
 import { PerfilUsuario } from "./pages/perfilUsuario";
+import { ServiceProfile } from "./pages/serviceprofile";
 import { Single } from "./pages/single";
 import { Register } from "./pages/register";
 import { Service } from "./pages/service";
@@ -38,7 +39,7 @@ const Layout = () => {
 							<Route exact path="/demo">
 								<Demo />
 							</Route>
-							<Route exact path="/register">
+							<Route exact path="/registro">
 								<Register />
 							</Route>
 							<Route exact path="/login">
@@ -47,7 +48,10 @@ const Layout = () => {
 							<Route exact path="/perfil">
 								<PerfilUsuario />
 							</Route>
-							<Route exact path="/service/:id">
+							<Route exact path="/perfildeservicio">
+								<ServiceProfile />
+							</Route>
+							<Route exact path="/servicio/:id">
 								<Service />
 							</Route>
 							<Route exact path="/single/:theid">
