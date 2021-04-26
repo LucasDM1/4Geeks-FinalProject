@@ -9,6 +9,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
 import { PerfilUsuario } from "./pages/perfilUsuario";
+import { PerfilEdicion } from "./pages/perfilEdicion";
 import { ServiceProfile } from "./pages/serviceprofile";
 import { Single } from "./pages/single";
 import { Register } from "./pages/register";
@@ -48,6 +49,10 @@ const Layout = () => {
 							<Route exact path="/perfil">
 								<PerfilUsuario />
 							</Route>
+							<Route exact path="/perfiledicion">
+								<PerfilEdicion />
+							</Route>
+
 							<Route exact path="/perfildeservicio">
 								<ServiceProfile />
 							</Route>
