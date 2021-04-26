@@ -5,7 +5,7 @@ export const PerfilUsuario = () => {
 	return (
 		<Row>
 			<Col md={{ span: 4, offset: 3 }}>
-				<Card style={{ width: "54rem", marginTop: "7rem" }}>
+				<Card style={{ width: "54rem", margin: "3rem 0 3rem 0" }}>
 					<Card.Body>
 						<Image
 							src="https://fakeimg.pl/100x100/?text=Profile Pic"

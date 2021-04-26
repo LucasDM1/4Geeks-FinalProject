@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, Nav, Form, FormControl, Button, Container, Col } from "react-bootstrap";
+import { Navbar, Container, Col } from "react-bootstrap";
 
 export const Footer = () => (
 	<Navbar bg="dark" variant="dark" fixed="bottom" style={{ height: "3rem" }}>
