@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Button, Col, Collapse, Card, ListGroup, Form, FormControl } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 
 export const NavBar = () => {
 	const [open, setOpen] = useState(false);
@@ -14,9 +15,11 @@ export const NavBar = () => {
 						aria-expanded={open}>
 						<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
 					</Button>
-					<Navbar.Brand className="ml-3" href="#home">
-						<b>OurAppName</b>
-					</Navbar.Brand>
+					<Link to="/">
+						<Navbar.Brand className="ml-3" href="#home">
+							<b>OurAppName</b>
+						</Navbar.Brand>
+					</Link>
 				</Col>
 				<Form inline style={{ marginLeft: "30rem" }}>
 					<FormControl
@@ -41,7 +44,9 @@ export const NavBar = () => {
 						<Card.Body>
 							<ListGroup>
 								<ListGroup.Item>Crear Publicación</ListGroup.Item>
-								<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
+								<Link to="/perfildeservicio">
+									<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
+								</Link>
 								<ListGroup.Item>Mensajes</ListGroup.Item>
 							</ListGroup>
 						</Card.Body>
