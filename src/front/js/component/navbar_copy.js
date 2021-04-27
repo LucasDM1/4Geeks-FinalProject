@@ -7,20 +7,21 @@ export const NavBar = () => {
 	return (
 		<>
 			<Navbar bg="dark" variant="dark" className="fixed-top" style={{ height: "3rem" }}>
-				<Button
-					variant="dark"
-					onClick={() => setOpen(!open)}
-					aria-controls="example-collapse-text"
-					aria-expanded={open}>
-					<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
-				</Button>
-				<Link to="/">
-					<Navbar.Brand className="ml-3" href="#home">
-						<b>OurAppName</b>
-					</Navbar.Brand>
-				</Link>
-
-				<Form inline style={{ marginLeft: "15rem" }}>
+				<Col className="fixed-top">
+					<Button
+						variant="dark"
+						onClick={() => setOpen(!open)}
+						aria-controls="example-collapse-text"
+						aria-expanded={open}>
+						<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
+					</Button>
+					<Link to="/">
+						<Navbar.Brand className="ml-3" href="#home">
+							<b>OurAppName</b>
+						</Navbar.Brand>
+					</Link>
+				</Col>
+				<Form inline style={{ marginLeft: "30rem" }}>
 					<FormControl
 						type="text"
 						placeholder="Buscar"
@@ -29,17 +30,6 @@ export const NavBar = () => {
 					/>
 					<Button variant="outline-info">Buscar</Button>
 				</Form>
-				{/*Conditional format:
-                <Button variant="danger" style={{ marginLeft: "15rem" }}>
-					Log out
-				</Button>
-                */}
-				<Button variant="info" style={{ marginLeft: "18rem" }}>
-					Login
-				</Button>
-				<Button variant="warning" className="ml-3">
-					Register
-				</Button>
 			</Navbar>
 			<Collapse in={open} timeout={25}>
 				<div
