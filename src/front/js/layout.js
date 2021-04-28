@@ -54,10 +54,11 @@ const Layout = () => {
 								<Publish />
 							</Route>
 							<Route exact path="/service/:id">
+								<Service />
+							</Route>
 							<Route exact path="/perfiledicion">
 								<PerfilEdicion />
 							</Route>
-
 							<Route exact path="/perfildeservicio">
 								<ServiceProfile />
 							</Route>

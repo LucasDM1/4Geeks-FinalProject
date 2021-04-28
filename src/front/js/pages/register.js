@@ -6,6 +6,7 @@ export const Register = () => {
 	const [name, setName] = useState("");
 	const [lastname, setLastname] = useState("");
 	const [cedula, setCedula] = useState("");
+	const [number, setNumber] = useState("");
 	const [password, setPassword] = useState("");
 	const [password1, setPassword1] = useState("");
 	const [email, setEmail] = useState("");
@@ -14,7 +15,6 @@ export const Register = () => {
 	const [alertC, setAlertC] = useState(false);
 
 	return (
-
 		<div className="container-fluid" style={{ margin: "5rem 0 5rem 0" }}>
 			<div className="row d-flex justify-content-center">
 				<div className="card my-3">
@@ -75,6 +75,20 @@ export const Register = () => {
 							) : (
 								""
 							)}
+							<div className="mb-3">
+								<label htmlFor="cedula" className="form-label">
+									Número de teléfono
+								</label>
+								<input
+									type="text"
+									className="form-control"
+									value={number}
+									onChange={e => setNumber(e.target.value)}
+									id="number"
+									placeholder="88888888"
+									required
+								/>
+							</div>
 							<div className="mb-3">
 								<label htmlFor="email" className="form-label">
 									Correo electrónico
