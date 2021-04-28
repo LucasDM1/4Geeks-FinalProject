@@ -14,7 +14,6 @@ export const Register = () => {
 	const [alertC, setAlertC] = useState(false);
 
 	return (
-
 		<div className="container-fluid" style={{ margin: "5rem 0 5rem 0" }}>
 			<div className="row d-flex justify-content-center">
 				<div className="card my-3">

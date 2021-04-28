@@ -2,6 +2,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, jsonify, url_for
 
 db = SQLAlchemy()
+class Provincia(enum.Enum):
+    San_Jose=1
+    Alajuela=2
+    Cartago=3
+    Heredia=4
+    Guanacaste=5
+    Puntarenas=6
+    Limon=7
+
+
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -30,6 +41,15 @@ class User(db.Model):
 
 class Publication(db.Model):
     id_publi = db.Column(db.Integer, primary_key=True)
+    url = Column(String(250), nullable=False)
+    PublicationName = Column(String(250), nullable=False)
+    schedule = Column(String(250), nullable=False)
+    Pricerange = Column(String(250), nullable=False)
+    descrition_service= Column(String(250), nullable=False)
+    provincia = Column(Enum(Provincia)) 
+    
+
+
 
     
     def __repr__(self):
