@@ -9,14 +9,14 @@ export const Register = () => {
 	const [password, setPassword] = useState("");
 	const [password1, setPassword1] = useState("");
 	const [email, setEmail] = useState("");
-	const [terminos, setTerminos] = useState("");
+	const [terminos, setTerminos] = useState(false);
 	const [alertP, setAlertP] = useState(false);
 	const [alertC, setAlertC] = useState(false);
 
 	return (
-		<div className="container-fluid pt-3 ">
+		<div className="container-fluid">
 			<div className="row d-flex justify-content-center">
-				<div className="card">
+				<div className="card my-3">
 					<div className="card-body py-2">
 						<h1 className="card-title">Registrate</h1>
 						<form>
@@ -119,7 +119,7 @@ export const Register = () => {
 								<input
 									type="checkbox"
 									value={terminos}
-									onChange={e => setTerminos(e.target.value)}
+									onClick={e => setTerminos(e.target.checked)}
 									className="form-check-input"
 									id="condiciones"
 									required
