@@ -14,6 +14,7 @@ import { ServiceProfile } from "./pages/serviceprofile";
 import { Single } from "./pages/single";
 import { Register } from "./pages/register";
 import { Service } from "./pages/service";
+import { Publish } from "./pages/publicacion";
 import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
@@ -49,6 +50,10 @@ const Layout = () => {
 							<Route exact path="/perfil">
 								<PerfilUsuario />
 							</Route>
+							<Route exact path="/publicar">
+								<Publish />
+							</Route>
+							<Route exact path="/service/:id">
 							<Route exact path="/perfiledicion">
 								<PerfilEdicion />
 							</Route>
