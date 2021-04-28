@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 
 export const Login = () => {
 	return (
-		<div className="container-fluid pt-3">
+		<div className="container-fluid pt-3" style={{ margin: "6rem 0 8rem 0" }}>
 			<div className="col-md-5 mx-auto">
 				<div className="card">
 					<div className="card-body">

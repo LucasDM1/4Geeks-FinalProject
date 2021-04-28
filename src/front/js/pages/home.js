@@ -6,7 +6,7 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid" style={{ marginBottom: "5rem" }}>
 			<div className="row m-4">
 				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
 					<div className="card mb-3" style={{ maxwidth: "540px" }}>
