@@ -9,14 +9,15 @@ export const Register = () => {
 	const [password, setPassword] = useState("");
 	const [password1, setPassword1] = useState("");
 	const [email, setEmail] = useState("");
-	const [terminos, setTerminos] = useState("");
+	const [terminos, setTerminos] = useState(false);
 	const [alertP, setAlertP] = useState(false);
 	const [alertC, setAlertC] = useState(false);
 
 	return (
-		<div className="container-fluid ">
+
+		<div className="container-fluid" style={{ margin: "5rem 0 5rem 0" }}>
 			<div className="row d-flex justify-content-center">
-				<div className="card">
+				<div className="card my-3">
 					<div className="card-body py-2">
 						<h1 className="card-title">Registrate</h1>
 						<form>
@@ -76,7 +77,7 @@ export const Register = () => {
 							)}
 							<div className="mb-3">
 								<label htmlFor="email" className="form-label">
-									Email
+									Correo electrónico
 								</label>
 								<input
 									type="email"
@@ -89,7 +90,7 @@ export const Register = () => {
 							</div>
 							<div className="mb-3">
 								<label htmlFor="password" className="form-label">
-									Password
+									Contraseña
 								</label>
 								<input
 									type="password"
@@ -102,13 +103,15 @@ export const Register = () => {
 							</div>
 
 							<div className="mb-3">
+								<label htmlFor="password" className="form-label">
+									Confirma la constraseña
+								</label>
 								<input
 									type="password"
 									value={password1}
 									onChange={e => setPassword1(e.target.value)}
 									className="form-control"
 									id="ConfirmPassword"
-									placeholder="Confirm password"
 									required
 								/>
 							</div>
@@ -117,7 +120,7 @@ export const Register = () => {
 								<input
 									type="checkbox"
 									value={terminos}
-									onChange={e => setTerminos(e.target.value)}
+									onClick={e => setTerminos(e.target.checked)}
 									className="form-check-input"
 									id="condiciones"
 									required

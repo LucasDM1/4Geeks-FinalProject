@@ -1,27 +1,45 @@
 import React, { useState } from "react";
 import { Navbar, Button, Col, Collapse, Card, ListGroup, Form, FormControl } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 
 export const NavBar = () => {
 	const [open, setOpen] = useState(false);
 	return (
 		<>
-			<Navbar bg="dark" variant="dark" className="sticky-top">
-				<Col className="fixed-top">
-					<Button
-						variant="dark"
-						onClick={() => setOpen(!open)}
-						aria-controls="example-collapse-text"
-						aria-expanded={open}>
-						<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
-					</Button>
+			<Navbar bg="dark" variant="dark" className="fixed-top" style={{ height: "3rem" }}>
+				<Button
+					variant="dark"
+					onClick={() => setOpen(!open)}
+					aria-controls="example-collapse-text"
+					aria-expanded={open}>
+					<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
+				</Button>
+				<Link to="/">
 					<Navbar.Brand className="ml-3" href="#home">
 						<b>OurAppName</b>
 					</Navbar.Brand>
-				</Col>
-				<Form inline style={{ marginLeft: "30rem" }}>
-					<FormControl type="text" placeholder="Search" className="mr-sm-2" style={{ width: "30rem" }} />
-					<Button variant="outline-info">Search</Button>
+				</Link>
+
+				<Form inline style={{ marginLeft: "15rem" }}>
+					<FormControl
+						type="text"
+						placeholder="Buscar"
+						className="mr-sm-2 ml-sm-2"
+						style={{ width: "30rem" }}
+					/>
+					<Button variant="outline-info">Buscar</Button>
 				</Form>
+				{/*Conditional format:
+                <Button variant="danger" style={{ marginLeft: "15rem" }}>
+					Log out
+				</Button>
+                */}
+				<Button variant="info" style={{ marginLeft: "18rem" }}>
+					Login
+				</Button>
+				<Button variant="warning" className="ml-3">
+					Register
+				</Button>
 			</Navbar>
 			<Collapse in={open} timeout={25}>
 				<div
@@ -36,7 +54,9 @@ export const NavBar = () => {
 						<Card.Body>
 							<ListGroup>
 								<ListGroup.Item>Crear Publicación</ListGroup.Item>
-								<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
+								<Link to="/perfildeservicio">
+									<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
+								</Link>
 								<ListGroup.Item>Mensajes</ListGroup.Item>
 							</ListGroup>
 						</Card.Body>
