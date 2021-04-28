@@ -4,7 +4,7 @@ import "../../styles/home.scss";
 
 export const ServiceProfile = () => {
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid" style={{ margin: "6rem 0 4rem 0" }}>
 			<div className="row m-4">
 				<div className="col-sm-4 col-md-4 col-lg-4 col-xs-6">
 					<div className="card mb-3" style={{ maxwidth: "540px" }}>
