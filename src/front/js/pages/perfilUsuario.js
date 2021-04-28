@@ -3,8 +3,8 @@ import { Row, Col, ListGroup, Image, Button, Card } from "react-bootstrap";
 
 export const PerfilUsuario = () => {
 	return (
-		<Row>
-			<Col md={{ span: 4, offset: 3 }}>
+		<Row style={{ width: "54rem", margin: "3rem 0 3rem 0" }}>
+			<Col md={{ span: 4, offset: 4 }}>
 				<Card style={{ width: "54rem", margin: "3rem 0 3rem 0" }}>
 					<Card.Body>
 						<Image
