@@ -9,7 +9,7 @@ export const Carousel = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid" style={{ margin: "5rem 0 5rem 0" }}>
 			<div className="row justify-content-center">
 				<div className="col-10">
 					<div

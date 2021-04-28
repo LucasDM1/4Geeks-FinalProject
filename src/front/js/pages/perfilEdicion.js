@@ -52,7 +52,7 @@ export const PerfilEdicion = () => {
 				</Modal.Footer>
 			</Modal>
 
-			<Row className="mb-5">
+			<Row className="my-5">
 				<Col md={{ span: 4, offset: 3 }}>
 					<Card style={{ width: "54rem", margin: "3rem 0 3rem 0" }}>
 						<Card.Body>
