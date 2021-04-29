@@ -1,18 +1,25 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+import os
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Post
 from api.utils import generate_sitemap, APIException
-from flask_jwt_extended import JWTManager, create_access_token
+
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+
 
 api = Blueprint('api', __name__)
-app.config["JWT_SECRET_KEY"] = "\xb1}\xea\xf5\xad\xbf\xda2|\xaaII7|$\xef\x84q\x80\x11t\x08p\xb5\xf4\x0f\x81\x89\xfb:\xb3\x8c"  # Change this "super secret" with something else!
-jwt = JWTManager(app)
 
-#Token
 
-@app.route("/token", methods=["POST"])
+
+
+#Routes
+
+#Login
+@api.route("/login", methods=["POST"])
 def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
@@ -26,3 +33,21 @@ def create_token():
     access_token = create_access_token(identity=user.id)
     return jsonify({ "token": access_token, "user_id": user.id })
 
+@api.route('/user', methods=['GET'])
+def get_user():
+   
+  return jsonify(User.getAllusers()), 200
+
+@api.route('/servicios', methods=['GET'])
+def get_service():
+   
+  return jsonify(Post.getAllservices()), 200
+
+@api.route('/hello', methods=['GET'])
+def handle_hello():
+
+    response_body = {
+        "message": "Hello! I'm a message that came from the backend"
+    }
+
+    return jsonify(response_body), 200
