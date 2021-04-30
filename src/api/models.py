@@ -40,7 +40,7 @@ class User(db.Model):
         return(all_users)
 
     def add_user(request_body_user):
-        user = User(name=request_body_user["name"], lastname=request_body_user["lastname"], cedula=request_body_user["cedula"], phone=request_body_user["phone"], description=request_body_user["description"], email=request_body_user["email"], password=request_body_user["password"])
+        user = User(name=request_body_user["name"], lastname=request_body_user["lastname"], cedula=request_body_user["cedula"], phone=request_body_user["phone"], email=request_body_user["email"], password=request_body_user["password"])
         db.session.add(user)
         db.session.commit()
         return("The user has been created")
