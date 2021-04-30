@@ -3,8 +3,8 @@ import { Context } from "../store/appContext";
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState(null);
+	const [password, setPassword] = useState(null);
 
 	console.log("This is your token: ", store.token);
 	const handleClick = () => {
@@ -57,7 +57,7 @@ export const Login = () => {
 									</div>
 									<div className="col-md-12 text-center ">
 										<button
-											type="submit"
+											type="button"
 											className=" btn btn-block mybtn btn-primary tx-tfm"
 											onClick={handleClick}>
 											Login
