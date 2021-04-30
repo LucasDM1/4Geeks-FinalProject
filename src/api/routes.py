@@ -39,7 +39,7 @@ def handle_allUsers():
     print("estos son los usuarios")
     return jsonify(User.getAllusers()), 200
 
-@api.route('/user', methods=['POST'])
+@api.route('/register', methods=['POST'])
 def handle_register():
     request_body_user=request.data
     decoded_object = json.loads(request_body_user)

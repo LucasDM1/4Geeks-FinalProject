@@ -6,7 +6,7 @@ export const Register = () => {
 	const [name, setName] = useState("");
 	const [lastname, setLastname] = useState("");
 	const [cedula, setCedula] = useState("");
-	const [number, setNumber] = useState("");
+	const [phone, setPhone] = useState("");
 	const [password, setPassword] = useState("");
 	const [password1, setPassword1] = useState("");
 	const [email, setEmail] = useState("");
@@ -82,9 +82,9 @@ export const Register = () => {
 								<input
 									type="text"
 									className="form-control"
-									value={number}
-									onChange={e => setNumber(e.target.value)}
-									id="number"
+									value={phone}
+									onChange={e => setPhone(e.target.value)}
+									id="phone"
 									placeholder="88888888"
 									required
 								/>
@@ -143,24 +143,18 @@ export const Register = () => {
 									Acepto los <a href="#">Terminos de servicio y Condiciones</a>
 								</label>
 							</div>
-							{alertP == true ? (
-								<div className="alert alert-danger" role="alert">
-									La contraseña no coincide
-								</div>
-							) : (
-								""
-							)}
 							<button
-								type="button"
-								onClick={() => {
-									if (password == password1) {
-										console.log(name, lastname, cedula, email, password, password1, terminos);
-										setAlertP(false);
-										//setAlertC(false);
-									} else {
-										setAlertP(true);
-										//setAlertC(true);
-									}
+								type="submit"
+								onClick={e => {
+									e.preventDefault();
+									// if (password == password1) {
+									console.log(name, lastname, cedula, email, password, password1, terminos);
+									actions.handleRegister(name, lastname, cedula, phone, email, password); // 	setAlertP(false);
+									// 	//setAlertC(false);
+									// } else {
+									// 	setAlertP(true);
+									// 	//setAlertC(true);
+									// }
 								}}
 								className="btn btn-primary mr-auto">
 								Registrarse
