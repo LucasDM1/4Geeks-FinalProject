@@ -25,7 +25,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "name":self.name,
-            "last":self.lastname,
+            "lastname":self.lastname,
             "phone":self.phone, 
             "cedula":self.cedula,
             "description":self.description,
@@ -38,6 +38,13 @@ class User(db.Model):
         users_query = User.query.all()
         all_users = list(map(lambda x: x.serialize(), users_query))
         return(all_users)
+
+    def add_user(request_body_user):
+        user = User(name=request_body_user["name"], lastname=request_body_user["lastname"], cedula=request_body_user["cedula"], phone=request_body_user["phone"], email=request_body_user["email"], password=request_body_user["password"])
+        db.session.add(user)
+        db.session.commit()
+        return("The user has been created")
+
 
 class Post(db.Model):
     __tablename__='post'

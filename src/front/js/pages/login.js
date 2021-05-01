@@ -2,6 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 
 export const Login = () => {
+	const { store, actions } = useContext(Context);
+	const [email, setEmail] = useState(null);
+	const [password, setPassword] = useState(null);
+
+	console.log("This is your token: ", store.token);
+	const handleClick = () => {
+		actions.login(email, password);
+	};
 	return (
 		<div className="container-fluid pt-3" style={{ margin: "6rem 0 8rem 0" }}>
 			<div className="col-md-5 mx-auto">
@@ -24,6 +32,8 @@ export const Login = () => {
 											id="email"
 											aria-describedby="emailHelp"
 											placeholder="Indique su correo electronico"
+											value={email}
+											onChange={e => setEmail(e.target.value)}
 										/>
 									</div>
 									<div className="form-group">
@@ -35,6 +45,8 @@ export const Login = () => {
 											className="form-control"
 											aria-describedby="emailHelp"
 											placeholder=""
+											value={password}
+											onChange={e => setPassword(e.target.value)}
 										/>
 									</div>
 									<div className="form-group">
@@ -44,7 +56,10 @@ export const Login = () => {
 										</p>
 									</div>
 									<div className="col-md-12 text-center ">
-										<button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">
+										<button
+											type="button"
+											className=" btn btn-block mybtn btn-primary tx-tfm"
+											onClick={handleClick}>
 											Login
 										</button>
 									</div>

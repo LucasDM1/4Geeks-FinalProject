@@ -2,6 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 import os
+import json
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Post
 from api.utils import generate_sitemap, APIException
@@ -34,9 +35,15 @@ def create_token():
     return jsonify({ "token": access_token, "user_id": user.id })
 
 @api.route('/user', methods=['GET'])
-def get_user():
-   
-  return jsonify(User.getAllusers()), 200
+def handle_allUsers():
+    print("estos son los usuarios")
+    return jsonify(User.getAllusers()), 200
+
+@api.route('/register', methods=['POST'])
+def handle_register():
+    request_body_user=request.data
+    decoded_object = json.loads(request_body_user)
+    return jsonify(User.add_user(decoded_object)), 200
 
 @api.route('/servicios', methods=['GET'])
 def get_service():
