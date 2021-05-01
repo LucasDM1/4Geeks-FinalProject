@@ -1,9 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
+
 		store: {
 			token: null,
 			registerProblem: null
 		},
+
 		actions: {
 			login: async (myEmail, myPassword) => {
 				
