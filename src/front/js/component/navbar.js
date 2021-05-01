@@ -1,45 +1,114 @@
-import React, { useState } from "react";
-import { Navbar, Button, Col, Collapse, Card, ListGroup, Form, FormControl } from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import {
+	InputGroup,
+	Nav,
+	Navbar,
+	Button,
+	Container,
+	Row,
+	Col,
+	Collapse,
+	Card,
+	ListGroup,
+	Form,
+	FormControl
+} from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
+import { useHistory } from "react-router";
 
 export const NavBar = () => {
 	const [open, setOpen] = useState(false);
+	const { store, actions } = useContext(Context);
+	const history = useHistory();
+
+	// return (
+	// 	<>
+	// 		<Navbar bg="dark" variant="dark" classNameName="fixed-top">
+	// 			<Container className="d-flex" fluid>
+	// 				<Row classNameName="d-flex flex-row" style={{ alignContent: "center" }}>
+	// 					<Col classNameName="flex-fill" xs="auto" md="auto">
+	// 						<Button
+	// 							variant="dark"
+	// 							onClick={() => setOpen(!open)}
+	// 							aria-controls="example-collapse-text"
+	// 							aria-expanded={open}>
+	// 							<i
+	// 								classNameName="fas fa-bars text-white"
+	// 								style={{ position: "relative", fontSize: "20pt" }}
+	// 							/>
+	// 						</Button>
+	// 					</Col>
+	// 					<Col classNameName="flex-fill" xs="auto" md="auto">
+	// 					</Col>
+	// 					<Col classNameName="flex-fill" xs="auto" md="auto">
+	// 					</Col>
+	// 				</Row>
+	// 			</Container>
+	// 		</Navbar>
+	//
+	// 	</>
+	// );
 	return (
 		<>
-			<Navbar bg="dark" variant="dark" className="fixed-top" style={{ height: "3rem" }}>
-				<Button
-					variant="dark"
-					onClick={() => setOpen(!open)}
-					aria-controls="example-collapse-text"
-					aria-expanded={open}>
-					<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
-				</Button>
-				<Link to="/">
-					<Navbar.Brand className="ml-3" href="#home">
-						<b>OurAppName</b>
-					</Navbar.Brand>
-				</Link>
-
-				<Form inline style={{ marginLeft: "15rem" }}>
-					<FormControl
-						type="text"
-						placeholder="Buscar"
-						className="mr-sm-2 ml-sm-2"
-						style={{ width: "30rem" }}
-					/>
-					<Button variant="outline-info">Buscar</Button>
-				</Form>
-				{/*Conditional format:
-                <Button variant="danger" style={{ marginLeft: "15rem" }}>
-					Log out
-				</Button>
-                */}
-				<Button variant="info" style={{ marginLeft: "18rem" }}>
-					Login
-				</Button>
-				<Button variant="warning" className="ml-3">
-					Register
-				</Button>
+			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
+				<Nav className="mr-auto my-1">
+					<InputGroup>
+						<Button
+							variant="dark"
+							onClick={() => setOpen(!open)}
+							aria-controls="example-collapse-text"
+							aria-expanded={open}>
+							<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
+						</Button>{" "}
+						<Link to="/">
+							<Navbar.Brand className="ml-3" href="#home">
+								<b>OurAppName</b>
+							</Navbar.Brand>
+						</Link>
+					</InputGroup>
+				</Nav>
+				<Nav className="mr-auto  my-1">
+					<Form className="navbar-form navbar-right" inline>
+						<InputGroup>
+							<Form>
+								<Form.Group controlId="exampleForm.SelectCustom">
+									<FormControl
+										placeholder="Buscar"
+										aria-label="buscar"
+										aria-describedby="basic-addon2"
+									/>
+									<Form.Control className="ml-2" as="select" custom>
+										<option>San José</option>
+										<option>Alajuela</option>
+										<option>Heredia</option>
+										<option>Cartago</option>
+										<option>Limón</option>
+										<option>Puntarenas</option>
+										<option>Guanacaste</option>
+									</Form.Control>
+									<Button className="ml-2" variant="info">
+										<i className="fas fa-search" />
+									</Button>
+								</Form.Group>
+							</Form>
+						</InputGroup>
+					</Form>
+				</Nav>
+				<Nav className="my-1">
+					{store.token !== null && store.token !== undefined ? (
+						<Button variant="danger">Log out</Button>
+					) : (
+						<>
+							<InputGroup>
+								<Button variant="info">Login</Button>
+								<Button variant="warning" className="ml-3">
+									Register
+								</Button>
+							</InputGroup>
+						</>
+					)}
+				</Nav>
 			</Navbar>
 			<Collapse in={open} timeout={25}>
 				<div

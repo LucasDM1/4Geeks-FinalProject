@@ -20,7 +20,7 @@ export const Login = () => {
 	return (
 		<div className="container-fluid pt-3" style={{ margin: "6rem 0 8rem 0" }}>
 			{store.token !== null && store.token !== undefined ? (
-				<h1>You are being redirected!!</h1>
+				history.push("/")
 			) : (
 				<div className="col-md-5 mx-auto">
 					<div className="card">
