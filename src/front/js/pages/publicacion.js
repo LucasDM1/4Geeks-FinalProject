@@ -43,9 +43,9 @@ export const Publish = () => {
 
 								<h5>¿Cómo se ven tus servicios?</h5>
 								<input
-									type="file"
+									type="text" //cambiar a file
 									name="imagen"
-									onChange={e => SetImage(e.target.value)}
+									onChange={e => (SetImage(e.target.value), console.log(image))}
 									value={image}
 									className="form-control mb-2 p-1"
 									id="imagenPublicacion"
@@ -58,7 +58,7 @@ export const Publish = () => {
 										<select
 											id="inittime"
 											className="form-control mb-2"
-											onChange={e => (setAbierto(e.target.value), setHorario(abierto))}
+											onChange={e => setAbierto(e.target.value)}
 											value={abierto}>
 											<option value>Hora de Inicio...</option>
 											<option>00:00 AM</option>
@@ -92,9 +92,7 @@ export const Publish = () => {
 										<select
 											id="endtime"
 											className="form-control mb-2"
-											onChange={e => (
-												setCerrado(e.target.value), setHorario(horario + "-" + cerrado)
-											)}
+											onChange={e => setCerrado(e.target.value)}
 											value={cerrado}>
 											<option value>Hora de fin...</option>
 											<option>00:00 AM</option>
@@ -177,7 +175,19 @@ export const Publish = () => {
 						<div className="row justify-content-center">
 							<button
 								type="button"
-								onClick={console.log(nombre, image, categoria, descripcion, provincia)}
+								onClick={() =>
+									actions.handlePublication(
+										nombre,
+										image,
+										categoria,
+										descripcion,
+										provincia,
+										abierto,
+										cerrado,
+										max,
+										min
+									)
+								}
 								className="btn btn-primary">
 								Crear Publicación
 							</button>

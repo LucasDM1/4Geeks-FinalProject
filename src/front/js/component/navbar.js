@@ -21,8 +21,9 @@ export const NavBar = () => {
 	const [open, setOpen] = useState(false);
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
+	const token = sessionStorage.getItem("token");
 	const handleGoHome = () => {
-		store.token !== null ? history.push("/") : history.push("/login");
+		token !== null ? history.push("/") : history.push("/login");
 	};
 
 	return (
@@ -30,7 +31,7 @@ export const NavBar = () => {
 			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
 				<Nav className="mr-auto my-1">
 					<InputGroup>
-						{store.token !== null ? (
+						{token !== null ? (
 							<Button
 								variant="dark"
 								onClick={() => setOpen(!open)}
@@ -76,15 +77,21 @@ export const NavBar = () => {
 					</Form>
 				</Nav>
 				<Nav className="my-1">
-					{store.token !== null && store.token !== undefined ? (
-						<Button variant="danger">Log out</Button>
+					{token !== "null" && token !== undefined ? (
+						<Button onClick={() => actions.logOut()} variant="danger">
+							Log out
+						</Button>
 					) : (
 						<>
 							<InputGroup>
-								<Button variant="info">Login</Button>
-								<Button variant="warning" className="ml-3">
-									Register
-								</Button>
+								<Link to="/login">
+									<Button variant="info">Login</Button>
+								</Link>
+								<Link to="/registro">
+									<Button variant="warning" className="ml-3">
+										Register
+									</Button>
+								</Link>
 							</InputGroup>
 						</>
 					)}

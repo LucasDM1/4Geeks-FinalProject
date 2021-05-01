@@ -1,6 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
-
 		store: {
 			token: null,
 			registerProblem: null
@@ -40,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.error("There has been an error login in!!", error));
 			},
 			handleRegister: async (name, lastname, cedula, phone, email, password) => {
-				await fetch("https://3001-gold-pike-f5h0w49z.ws-us04.gitpod.io/api/register", {
+				await fetch(process.env.BACKEND_URL + "/api/register", {
 					method: "POST",
 					body: JSON.stringify({
 						name: name,
@@ -56,11 +55,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => {
 						if (res.status != 200) {
-							setStore({ registerProblem: "Some fields are missing" });
 						} else {
-							setStore({ registerProblem: null });
 							return res.json();
 						}
+					})
+					.then(data => {
+						console.log("data: ", data);
+					})
+					.catch(err => console.error("Error ", err));
+			},
+			handlePublication: async (nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max) => {
+				const mytoken = sessionStorage.getItem("token");
+				await fetch(process.env.BACKEND_URL + "/api/publicar", {
+					method: "POST",
+					body: JSON.stringify({
+						image: image,
+						nombre: nombre,
+						categoria: categoria,
+						descripcion: descripcion,
+						provincia: provincia,
+						horario: abierto + "- " + cerrado,
+						rango: "¢" + min + "-" + "¢" + max
+					}),
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + mytoken
+					}
+				})
+					.then(res => {
+						// if (res.status != 200) {
+
+						// } else {
+
+						// }
+						return res.json();
 					})
 					.then(data => {
 						console.log("data: ", data);

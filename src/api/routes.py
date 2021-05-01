@@ -31,7 +31,7 @@ def create_token():
         return jsonify({"msg": "Bad username or password"}), 401
     
     # create a new token with the user id inside
-    access_token = create_access_token(identity=user.id)
+    access_token = create_access_token(identity=user.email)
     return jsonify({ "token": access_token, "user_id": user.id })
 
 @api.route('/user', methods=['GET'])
@@ -49,6 +49,22 @@ def handle_register():
 def get_service():
    
   return jsonify(Post.getAllservices()), 200
+
+@api.route('/publicar', methods=['POST'])
+@jwt_required()
+def publish_service():
+
+    current_user_email=get_jwt_identity()
+    user=User.query.filter_by(email=current_user_email).first()
+
+    request_body_data=request.data
+    decoded_publication = json.loads(request_body_data)
+
+    print(user.id, decoded_publication)
+
+    return jsonify(Post.newService(decoded_publication, user.id)), 200
+
+
 
 @api.route('/hello', methods=['GET'])
 def handle_hello():
