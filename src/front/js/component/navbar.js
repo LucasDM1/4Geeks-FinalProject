@@ -21,51 +21,31 @@ export const NavBar = () => {
 	const [open, setOpen] = useState(false);
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
+	const handleGoHome = () => {
+		store.token !== null ? history.push("/") : history.push("/login");
+	};
 
-	// return (
-	// 	<>
-	// 		<Navbar bg="dark" variant="dark" classNameName="fixed-top">
-	// 			<Container className="d-flex" fluid>
-	// 				<Row classNameName="d-flex flex-row" style={{ alignContent: "center" }}>
-	// 					<Col classNameName="flex-fill" xs="auto" md="auto">
-	// 						<Button
-	// 							variant="dark"
-	// 							onClick={() => setOpen(!open)}
-	// 							aria-controls="example-collapse-text"
-	// 							aria-expanded={open}>
-	// 							<i
-	// 								classNameName="fas fa-bars text-white"
-	// 								style={{ position: "relative", fontSize: "20pt" }}
-	// 							/>
-	// 						</Button>
-	// 					</Col>
-	// 					<Col classNameName="flex-fill" xs="auto" md="auto">
-	// 					</Col>
-	// 					<Col classNameName="flex-fill" xs="auto" md="auto">
-	// 					</Col>
-	// 				</Row>
-	// 			</Container>
-	// 		</Navbar>
-	//
-	// 	</>
-	// );
 	return (
 		<>
 			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
 				<Nav className="mr-auto my-1">
 					<InputGroup>
-						<Button
-							variant="dark"
-							onClick={() => setOpen(!open)}
-							aria-controls="example-collapse-text"
-							aria-expanded={open}>
-							<i className="fas fa-bars text-white" style={{ position: "relative", fontSize: "20pt" }} />
-						</Button>{" "}
-						<Link to="/">
-							<Navbar.Brand className="ml-3" href="#home">
-								<b>OurAppName</b>
-							</Navbar.Brand>
-						</Link>
+						{store.token !== null ? (
+							<Button
+								variant="dark"
+								onClick={() => setOpen(!open)}
+								aria-controls="example-collapse-text"
+								aria-expanded={open}>
+								<i
+									className="fas fa-bars text-white"
+									style={{ position: "relative", fontSize: "20pt" }}
+								/>
+							</Button>
+						) : null}
+
+						<Navbar.Brand className="ml-3" onClick={handleGoHome}>
+							<b>OurAppName</b>
+						</Navbar.Brand>
 					</InputGroup>
 				</Nav>
 				<Nav className="mr-auto  my-1">
