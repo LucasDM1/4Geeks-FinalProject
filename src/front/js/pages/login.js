@@ -76,7 +76,7 @@ export const Login = () => {
 										<div className="form-group">
 											<p className="text-center">
 												¿No estas registrado?{" "}
-												<a href="#" id="signup" onClick={() => history.push("/")}>
+												<a href="#" id="signup" onClick={() => history.push("/registro")}>
 													Registrate
 												</a>
 											</p>

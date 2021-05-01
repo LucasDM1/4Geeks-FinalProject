@@ -5,6 +5,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			registerProblem: null
 		},
 		actions: {
+			logOut: () => {
+				setStore({ token: null });
+				sessionStorage.setItem("token", null);
+			},
 			login: async (myEmail, myPassword) => {
 				const url = process.env.BACKEND_URL + "/api/login";
 
