@@ -8,9 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		actions: {
 			login: async (myEmail, myPassword) => {
-				
 				const url = process.env.BACKEND_URL + "/api/login";
-				
+
 				await fetch(url, {
 					method: "POST",
 					headers: {
