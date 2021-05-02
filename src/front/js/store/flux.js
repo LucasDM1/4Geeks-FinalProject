@@ -65,6 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.error("Error ", err));
 			},
 			handlePublication: async (nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max) => {
+				console.log("back", nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
 				const mytoken = sessionStorage.getItem("token");
 				await fetch(process.env.BACKEND_URL + "/api/publicar", {
 					method: "POST",

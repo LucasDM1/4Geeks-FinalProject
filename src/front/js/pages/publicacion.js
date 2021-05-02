@@ -22,14 +22,15 @@ export const Publish = () => {
 
 						<div className="row d-flex justify-content-center">
 							<div className="col-5">
-								<h5
-									htmlFor="nombrePublicacion"
-									className="form-h5"
-									onChange={e => setNombre(e.target.value)}
-									value={nombre}>
-									Nombre de la Publicación
-								</h5>
-								<input type="text" className="form-control mb-2" id="nombrePublicacion" />
+								<h5>Nombre de la Publicación</h5>
+								<input
+									type="text" //cambiar a file
+									name="nombre"
+									onChange={e => (setNombre(e.target.value), console.log(nombre))}
+									value={nombre}
+									className="form-control mb-2 p-1"
+									id="nombrePublicacion"
+								/>
 
 								<h5>Categoría</h5>
 								<select
@@ -175,8 +176,8 @@ export const Publish = () => {
 						<div className="row justify-content-center">
 							<button
 								type="button"
-								onClick={() =>
-									actions.handlePublication(
+								onClick={() => (
+									console.log(
 										nombre,
 										image,
 										categoria,
@@ -186,8 +187,19 @@ export const Publish = () => {
 										cerrado,
 										max,
 										min
+									),
+									actions.handlePublication(
+										nombre,
+										image,
+										categoria,
+										descripcion,
+										provincia,
+										abierto,
+										cerrado,
+										min,
+										max
 									)
-								}
+								)}
 								className="btn btn-primary">
 								Crear Publicación
 							</button>
