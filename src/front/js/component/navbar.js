@@ -31,7 +31,7 @@ export const NavBar = () => {
 			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
 				<Nav className="mr-auto my-1">
 					<InputGroup>
-						{token !== null ? (
+						{token !== "null" && token !== undefined && token !== null ? (
 							<Button
 								variant="dark"
 								onClick={() => setOpen(!open)}
@@ -97,7 +97,7 @@ export const NavBar = () => {
 					)}
 				</Nav>
 			</Navbar>
-			<Collapse in={open} timeout={25}>
+			<Collapse in={open} timeout={5}>
 				<div
 					style={{
 						position: "absolute",
@@ -117,7 +117,11 @@ export const NavBar = () => {
 									<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
 								</Link>
 
-								<ListGroup.Item>Mensajes</ListGroup.Item>
+								<Link to="/perfil">
+									<ListGroup.Item>Mi información</ListGroup.Item>
+								</Link>
+
+								{/* <ListGroup.Item>Mensajes</ListGroup.Item> */}
 							</ListGroup>
 						</Card.Body>
 					</Card>{" "}
