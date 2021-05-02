@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
+import { useHistory } from "react-router-dom";
 
 export const Publish = () => {
 	const { store, actions } = useContext(Context);
@@ -12,14 +13,50 @@ export const Publish = () => {
 	const [cerrado, setCerrado] = useState("");
 	const [min, setMin] = useState("");
 	const [max, setMax] = useState("");
+	const [notmissing, setNotmissing] = useState("");
 
+	const history = useHistory();
+
+	const handlePost = () => {
+		if (
+			nombre == "" ||
+			image == "" ||
+			categoria == "Elije una categoría..." ||
+			descripcion == "" ||
+			provincia == "Provincia..." ||
+			abierto == "Hora de Inicio..." ||
+			cerrado == "Hora de fin..." ||
+			min == "" ||
+			max == ""
+		) {
+			console.log(nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
+			setNotmissing(true);
+		} else {
+			setNotmissing(false);
+			actions.handlePublication(nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
+		}
+	};
+	const handleSuccess = () => {
+		(store.publicarSuccess = false), history.push("/perfildeservicio");
+	};
 	return (
 		<div className="container-fluid my-5 py-3 ">
 			<div className="row justify-content-center">
 				<div className="card w-100 m-5">
 					<div className="card-body justify-content-center">
 						<h1 className="container-fluid mb-3 pl-5 ">Cuéntanos sobre tu servicio</h1>
-
+						{store.publicarSuccess == true ? (
+							<div className="alert alert-success mx-5" role="alert">
+								<h5 onClick={handleSuccess}>
+									Se ha publicado tu servicio con exito, puedes revisarla en tu perfil de servicio
+								</h5>
+							</div>
+						) : null}
+						{notmissing == true ? (
+							<div className="alert alert-danger mx-5" role="alert">
+								<h5>Completa todos los campos para poder realizar tu publicación</h5>
+							</div>
+						) : null}
 						<div className="row d-flex justify-content-center">
 							<div className="col-5">
 								<h5>Nombre de la Publicación</h5>
@@ -174,33 +211,7 @@ export const Publish = () => {
 							</div>
 						</div>
 						<div className="row justify-content-center">
-							<button
-								type="button"
-								onClick={() => (
-									console.log(
-										nombre,
-										image,
-										categoria,
-										descripcion,
-										provincia,
-										abierto,
-										cerrado,
-										max,
-										min
-									),
-									actions.handlePublication(
-										nombre,
-										image,
-										categoria,
-										descripcion,
-										provincia,
-										abierto,
-										cerrado,
-										min,
-										max
-									)
-								)}
-								className="btn btn-primary">
+							<button type="button" onClick={handlePost} className="btn btn-primary">
 								Crear Publicación
 							</button>
 						</div>

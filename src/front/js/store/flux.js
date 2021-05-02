@@ -2,7 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			token: null,
-			registerProblem: null
+			registerProblem: null,
+			publicarSuccess: false
 		},
 
 		actions: {
@@ -54,10 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => {
-						if (res.status != 200) {
-						} else {
-							return res.json();
-						}
+						return res.json();
 					})
 					.then(data => {
 						console.log("data: ", data);
@@ -84,12 +82,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => {
-						// if (res.status != 200) {
-
-						// } else {
-
-						// }
-						return res.json();
+						if (res.status != 200) {
+							setStore({ publicarSuccess: false });
+						} else {
+							setStore({ publicarSuccess: true });
+							return res.json();
+						}
 					})
 					.then(data => {
 						console.log("data: ", data);
