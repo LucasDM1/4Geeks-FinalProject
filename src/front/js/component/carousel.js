@@ -69,7 +69,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title text-center">
-													<b>Card title</b>
+													<b>Carpintería</b>
 												</h5>
 											</div>
 										</div>
@@ -84,7 +84,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title text-center">
-													<b>Card title</b>
+													<b>Cerrajería</b>
 												</h5>
 											</div>
 										</div>
@@ -99,7 +99,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title text-center">
-													<b>Card title</b>
+													<b>Mecánica</b>
 												</h5>
 											</div>
 										</div>
@@ -114,7 +114,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title text-center">
-													<b>Card title</b>
+													<b>Albañilería</b>
 												</h5>
 											</div>
 										</div>
@@ -135,7 +135,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title">
-													<b>Card title</b>
+													<b>Fontanería</b>
 												</h5>
 											</div>
 										</div>
@@ -150,7 +150,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title">
-													<b>Card title</b>
+													<b>Soldaduras</b>
 												</h5>
 											</div>
 										</div>
@@ -165,7 +165,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title">
-													<b>Card title</b>
+													<b>Pintores de casas</b>
 												</h5>
 											</div>
 										</div>
@@ -180,7 +180,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title">
-													<b>Card title</b>
+													<b>Sastrería</b>
 												</h5>
 											</div>
 										</div>
@@ -201,7 +201,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title text-dark text-center">
-													<b>Card title</b>
+													<b>Choferes</b>
 												</h5>
 											</div>
 										</div>
@@ -216,7 +216,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title text-dark text-center">
-													<b>Card title</b>
+													<b>Cocineros</b>
 												</h5>
 											</div>
 										</div>
@@ -231,7 +231,7 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title text-dark text-center">
-													<b>Card title</b>
+													<b>Lavandería</b>
 												</h5>
 											</div>
 										</div>
@@ -246,7 +246,205 @@ export const Carousel = () => {
 											/>
 											<div className="card-img-overlay">
 												<h5 className="card-title text-dark text-center">
-													<b>Card title</b>
+													<b>Obrero</b>
+												</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className="carousel-item">
+								<div className="container">
+									<div className="row p-1">
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Locutor</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Animador</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Panadería</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Costureras</b>
+												</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className="carousel-item">
+								<div className="container">
+									<div className="row p-1">
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Mascotas</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Barbería</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Peluquería</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Zapateros</b>
+												</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className="carousel-item">
+								<div className="container">
+									<div className="row p-1">
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Niñeras</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Cuidadores</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Serígrafía</b>
+												</h5>
+											</div>
+										</div>
+										<div className="col-sm-12 col-lg-3">
+											<img
+												src="https://www.hola.com/imagenes/cocina/recetas/20201009176964/pan-de-leche-thermomix-casero/0-876-239/receta-pan-thermomix-bollo-leche-m.jpg"
+												className="card-img"
+												style={{
+													width: "250px",
+													height: "250px"
+												}}
+											/>
+											<div className="card-img-overlay">
+												<h5 className="card-title text-dark text-center">
+													<b>Imprenta</b>
 												</h5>
 											</div>
 										</div>

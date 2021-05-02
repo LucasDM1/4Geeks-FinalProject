@@ -21,9 +21,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => {
 						if (res.status != 200) {
-							setStore({ registerProblem: "Some fields are missing" });
-						} else {
 							setStore({ registerProblem: null });
+						} else {
+							setStore({ registerProblem: "success" });
 							return res.json();
 						}
 					})
