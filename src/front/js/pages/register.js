@@ -1,18 +1,54 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Validation } from "../component/registerValidation";
+import "../../styles/register.scss";
 
 export const Register = () => {
 	const { store, actions } = useContext(Context);
-	const [name, setName] = useState("");
-	const [lastname, setLastname] = useState("");
-	const [cedula, setCedula] = useState("");
-	const [phone, setPhone] = useState("");
-	const [password, setPassword] = useState("");
-	const [password1, setPassword1] = useState("");
-	const [email, setEmail] = useState("");
-	const [terminos, setTerminos] = useState(false);
-	const [alertP, setAlertP] = useState(false);
-	const [alertC, setAlertC] = useState(false);
+	const history = useHistory();
+
+	// programando validación
+	const [values, setValues] = useState({
+		name: "",
+		lastname: "",
+		cedula: "",
+		phone: "",
+		password: "",
+		password1: "",
+		email: "",
+		condiciones: false
+	});
+
+	const [errors, setErrors] = useState({});
+
+	const handleChange = e => {
+		setValues({
+			...values,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		setErrors(Validation(values));
+		console.log(errors);
+		if (values.errors == null) {
+			console.log(values.name, values.lastname, values.cedula, values.phone, values.email, values.password);
+			actions.handleRegister(
+				values.name,
+				values.lastname,
+				values.cedula,
+				values.phone,
+				values.email,
+				values.password
+			);
+		}
+	};
+	const handleSucc = () => {
+		(store.registerSuccess = false), history.push("/login");
+	};
 
 	return (
 		<div className="container-fluid" style={{ margin: "5rem 0 5rem 0" }}>
@@ -20,6 +56,16 @@ export const Register = () => {
 				<div className="card my-3">
 					<div className="card-body py-2">
 						<h1 className="card-title">Registrate</h1>
+						{store.registerSuccess == true ? (
+							<div className="alert alert-success" role="alert">
+								<h5 onClick={handleSucc}>Registo completo, click aquí para Iniciar Sesion</h5>
+							</div>
+						) : null}
+						{store.registerProblem == true ? (
+							<div className="alert alert-danger" role="alert">
+								Registo completo, click aquí para Iniciar Sesion
+							</div>
+						) : null}
 						<form>
 							<div className="row">
 								<div className="col-6">
@@ -29,12 +75,18 @@ export const Register = () => {
 										</label>
 										<input
 											type="text"
-											value={name}
-											onChange={e => setName(e.target.value)}
+											value={values.name}
+											name="name"
+											onChange={handleChange}
 											className="form-control"
 											id="name"
 											required
 										/>
+										{errors.name && (
+											<p className="error" style={{ color: "#942222" }}>
+												{errors.name}
+											</p>
+										)}
 									</div>
 								</div>
 								<div className="col-6">
@@ -44,12 +96,18 @@ export const Register = () => {
 										</label>
 										<input
 											type="text"
-											value={lastname}
-											onChange={e => setLastname(e.target.value)}
+											value={values.lastname}
+											name="lastname"
+											onChange={handleChange}
 											className="form-control"
 											id="lastname"
 											required
 										/>
+										{errors.lastname && (
+											<p className="error" style={{ color: "#942222" }}>
+												{errors.lastname}
+											</p>
+										)}
 									</div>
 								</div>
 							</div>
@@ -61,20 +119,19 @@ export const Register = () => {
 								<input
 									type="text"
 									className="form-control"
-									value={cedula}
-									onChange={e => setCedula(e.target.value)}
+									value={values.cedula}
+									name="cedula"
+									onChange={handleChange}
 									id="cedula"
 									placeholder="123456789"
 									required
 								/>
+								{errors.cedula && (
+									<p className="error" style={{ color: "#942222" }}>
+										{errors.cedula}
+									</p>
+								)}
 							</div>
-							{alertC == true ? (
-								<div className="alert alert-danger" role="alert">
-									Digite un número de cédula valido
-								</div>
-							) : (
-								""
-							)}
 							<div className="mb-3">
 								<label htmlFor="cedula" className="form-label">
 									Número de teléfono
@@ -82,12 +139,18 @@ export const Register = () => {
 								<input
 									type="text"
 									className="form-control"
-									value={phone}
-									onChange={e => setPhone(e.target.value)}
+									value={values.phone}
+									name="phone"
+									onChange={handleChange}
 									id="phone"
 									placeholder="88888888"
 									required
 								/>
+								{errors.phone && (
+									<p className="error" style={{ color: "#942222" }}>
+										{errors.phone}
+									</p>
+								)}
 							</div>
 							<div className="mb-3">
 								<label htmlFor="email" className="form-label">
@@ -95,12 +158,18 @@ export const Register = () => {
 								</label>
 								<input
 									type="email"
-									value={email}
-									onChange={e => setEmail(e.target.value)}
+									value={values.email}
+									name="email"
+									onChange={handleChange}
 									className="form-control"
 									id="email"
 									required
 								/>
+								{errors.email && (
+									<p className="error" style={{ color: "#942222" }}>
+										{errors.email}
+									</p>
+								)}
 							</div>
 							<div className="mb-3">
 								<label htmlFor="password" className="form-label">
@@ -108,33 +177,45 @@ export const Register = () => {
 								</label>
 								<input
 									type="password"
-									value={password}
-									onChange={e => setPassword(e.target.value)}
+									value={values.password}
+									name="password"
+									onChange={handleChange}
 									className="form-control"
 									id="password"
 									required
 								/>
+								{errors.password && (
+									<p className="error" style={{ color: "#942222" }}>
+										{errors.password}
+									</p>
+								)}
 							</div>
 
 							<div className="mb-3">
 								<label htmlFor="password" className="form-label">
-									Confirma la constraseña
+									Confirmar constraseña
 								</label>
 								<input
 									type="password"
-									value={password1}
-									onChange={e => setPassword1(e.target.value)}
+									value={values.password1}
+									name="password1"
+									onChange={handleChange}
 									className="form-control"
-									id="ConfirmPassword"
+									id="pasword1"
 									required
 								/>
+								{errors.password1 && (
+									<p className="error" style={{ color: "#942222" }}>
+										{errors.password1}
+									</p>
+								)}
 							</div>
-
 							<div className="mb-3 form-check">
 								<input
 									type="checkbox"
-									value={terminos}
-									onClick={e => setTerminos(e.target.checked)}
+									value={values.condiciones}
+									name="condiciones"
+									onClick={handleChange}
 									className="form-check-input"
 									id="condiciones"
 									required
@@ -142,21 +223,13 @@ export const Register = () => {
 								<label className="form-check-label" htmlFor="condiciones">
 									Acepto los <a href="#">Terminos de servicio y Condiciones</a>
 								</label>
+								{errors.condiciones && (
+									<p className="error" style={{ color: "#942222" }}>
+										{errors.condiciones}
+									</p>
+								)}
 							</div>
-							<button
-								type="submit"
-								onClick={e => {
-									e.preventDefault();
-									// if (password == password1) {
-									console.log(name, lastname, cedula, email, password, password1, terminos);
-									actions.handleRegister(name, lastname, cedula, phone, email, password); // 	setAlertP(false);
-									// 	//setAlertC(false);
-									// } else {
-									// 	setAlertP(true);
-									// 	//setAlertC(true);
-									// }
-								}}
-								className="btn btn-primary mr-auto">
+							<button type="submit" onClick={handleSubmit} className="btn btn-primary mr-auto">
 								Registrarse
 							</button>
 						</form>
