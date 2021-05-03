@@ -57,7 +57,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => {
-						return res.json();
+						if (res.status != 200) {
+							setStore({ registerSuccess: false });
+							setStore({ registerProblem: true });
+						} else {
+							setStore({ registerSuccess: true });
+							setStore({ registerProblem: false });
+
+							return res.json();
+						}
 					})
 					.then(data => {
 						console.log("data: ", data);
@@ -85,11 +93,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => {
 						if (res.status != 200) {
-							setStore({ registerSuccess: false });
-							setStore({ registerProblem: true });
+							setStore({ publicarSuccess: false });
 						} else {
-							setStore({ registerSuccess: true });
-							setStore({ registerProblem: false });
+							setStore({ publicarSuccess: true });
 
 							return res.json();
 						}
