@@ -43,7 +43,7 @@ class User(db.Model):
         user = User(name=request_body_user["name"], lastname=request_body_user["lastname"], cedula=request_body_user["cedula"], phone=request_body_user["phone"], email=request_body_user["email"], password=request_body_user["password"])
         db.session.add(user)
         db.session.commit()
-        return("The user has been created")
+        return("The user has been created"), 200
 
 
 class Post(db.Model):
@@ -53,7 +53,7 @@ class Post(db.Model):
     post_name =  db.Column(db.String(250), nullable=False)
     schedule =  db.Column( db.String(250), nullable=False)#hay que ver como se resive en el back(unir diferentes variables y mandarlas como un string)
     price_range =  db.Column( db.String(250), nullable=False)#(unir diferentes variables y mandarlas como un string)
-    descrition_service=  db.Column( db.String(250), nullable=False)
+    description_service=  db.Column( db.String(250), nullable=False)
     provincia =  db.Column( db.String(250), nullable=False)#valores posibles definidos en el front
     category = db.Column( db.String(250), nullable=False)#valores posibles definidos en el front
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
@@ -64,21 +64,34 @@ class Post(db.Model):
     
     def serialize(self):
         return {
-            "id": self.id_publi,
+            "id": self.id,
             "image":self.image_url,
             "name":self.post_name,
             "schedule":self.schedule,
             "price_range":self.price_range,
-            "description":self.descrition_service,
+            "description":self.description_service,
+            "provincia":self.provincia,
+            "categoria":self.category,
             "user_id" : self.user_id,
             "comments": list(map(lambda x: x.serialize(), self.comments))
             # do not serialize the password, its a security breach
         }
     
     def getAllservices():
-        users_query = Post.query.all()
-        all_users = list(map(lambda x: x.serialize(), users_query))
-        return(all_users)
+        service_query = Post.query.all()
+        all_service = list(map(lambda x: x.serialize(), service_query))
+        return(all_service)
+
+    def newService(post_body, userID):
+
+        service = Post(image_url=post_body["image"], post_name=post_body["nombre"], 
+        schedule=post_body["horario"], price_range=post_body["rango"], description_service=post_body["descripcion"],
+        provincia=post_body["provincia"], category=post_body["categoria"], user_id=userID)
+
+        db.session.add(service)
+        db.session.commit()
+        return("The service has been created"), 200
+
 
 
 class Comments (db.Model):
