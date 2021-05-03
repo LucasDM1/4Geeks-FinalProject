@@ -1,7 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			registerProblem: null
+			registerSuccess: false,
+			registerProblem: false,
+			registerError: null
 		},
 		actions: {
 			handleRegister: async (name, lastname, cedula, phone, email, password) => {
@@ -21,16 +23,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => {
 						if (res.status != 200) {
-							setStore({ registerProblem: null });
+							setStore({ registerSuccess: false });
+							setStore({ registerProblem: true });
 						} else {
-							setStore({ registerProblem: "success" });
+							setStore({ registerSuccess: true });
+							setStore({ registerProblem: false });
 							return res.json();
 						}
 					})
 					.then(data => {
 						console.log("data: ", data);
 					})
-					.catch(err => console.error("Error ", err));
+					.catch(err => (console.error("Error ", err), setStore()));
 			}
 		}
 	};

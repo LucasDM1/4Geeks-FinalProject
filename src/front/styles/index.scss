@@ -1,8 +1,17 @@
 /* 
     General Styles
 */
+// body{
+//     background: repeating-linear-gradient(-90deg, rgba(27, 196, 222, 0.877), rgba(55,206,230, 0.877), rgba(87,213,234, 0.877), rgba(119,221,238, 0.877), rgba(150,229,241, 0.877), rgba(255,225,137, 0.877), rgba(255,216,102, 0.877), rgba(255,207,66, 0.877), rgba(255,198,30, 0.877), rgba(249,187,0, 0.877));
+//     // background-repeat: no-repeat;
+//     background-size: cover;
+// }
+
 body{
-    background: linear-gradient(-90deg, rgba(27, 196, 222, 0.877), rgba(55,206,230, 0.877), rgba(87,213,234, 0.877), rgba(119,221,238, 0.877), rgba(150,229,241, 0.877), rgba(255,225,137, 0.877), rgba(255,216,102, 0.877), rgba(255,207,66, 0.877), rgba(255,198,30, 0.877), rgba(249,187,0, 0.877));
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: linear-gradient(45deg, rgba(27, 196, 222, 0.877), rgba(55,206,230, 0.877), rgba(87,213,234, 0.877), rgba(119,221,238, 0.877), rgba(150,229,241, 0.877), rgba(255,225,137, 0.877), rgba(255,216,102, 0.877), rgba(255,207,66, 0.877), rgba(255,198,30, 0.877), rgba(249,187,0, 0.877));
+    background: linear-gradient(-45deg, rgba(27, 196, 222, 0.877), rgba(55,206,230, 0.877), rgba(87,213,234, 0.877), rgba(119,221,238, 0.877), rgba(150,229,241, 0.877), rgba(255,225,137, 0.877), rgba(255,216,102, 0.877), rgba(255,207,66, 0.877), rgba(255,198,30, 0.877), rgba(249,187,0, 0.877));
+    background-position: top;
+    background-position: bottom;
+    // background-repeat: no-repeat;
+    // background-size: cover;
 }

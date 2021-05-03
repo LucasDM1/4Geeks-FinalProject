@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Validation } from "../component/registerValidation";
 import "../../styles/register.scss";
 
 export const Register = () => {
 	const { store, actions } = useContext(Context);
+	const history = useHistory();
 
 	// programando validación
 	const [values, setValues] = useState({
@@ -44,6 +46,9 @@ export const Register = () => {
 			);
 		}
 	};
+	const handleSucc = () => {
+		(store.registerSuccess = false), history.push("/login");
+	};
 
 	return (
 		<div className="container-fluid" style={{ margin: "5rem 0 5rem 0" }}>
@@ -51,11 +56,16 @@ export const Register = () => {
 				<div className="card my-3">
 					<div className="card-body py-2">
 						<h1 className="card-title">Registrate</h1>
-						{/* {store.registerProblem == !null ? (
+						{store.registerSuccess == true ? (
 							<div className="alert alert-success" role="alert">
-								<Link to="/login">Registo completo, click aquí para Iniciar Sesion</Link>
+								<h5 onClick={handleSucc}>Registo completo, click aquí para Iniciar Sesion</h5>
 							</div>
-						) : null} */}
+						) : null}
+						{store.registerProblem == true ? (
+							<div className="alert alert-danger" role="alert">
+								Registo completo, click aquí para Iniciar Sesion
+							</div>
+						) : null}
 						<form>
 							<div className="row">
 								<div className="col-6">
