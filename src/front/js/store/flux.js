@@ -1,15 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-
 			registerSuccess: false,
 			registerProblem: false,
-			registerError: null
-
+			registerError: null,
 			token: null,
-			
 			publicarSuccess: false
-
 		},
 
 		actions: {
@@ -89,7 +85,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => {
 						if (res.status != 200) {
-
 							setStore({ registerSuccess: false });
 							setStore({ registerProblem: true });
 						} else {
