@@ -46,7 +46,9 @@ class User(db.Model):
         return("The user has been created"), 200
 
     def change_password(request_body_user):
-        user = request_body_user
+        user = User.query.filter_by(email=request_body_user.email).first()
+        user.password = request_body_user.password
+        db.session.commit()
         return(f"Your password has been changed to {user.password} for {user.email}"),200
 
 

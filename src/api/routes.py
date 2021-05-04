@@ -1,7 +1,7 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-import os, json
+import os, json, string, secrets
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Post
 from api.utils import generate_sitemap, APIException
@@ -73,12 +73,12 @@ def publish_service():
 @api.route('/recovery', methods=['PUT'])
 def password_reset():
     email = request.json.get("email", None)
-    password = 'demotest82'
+    password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(9)))
     message = Mail(
     from_email='mailer@ismeta.net',
     to_emails=email,
     subject='Cambio de contraseña solicitado',
-    html_content=f'<strong>Hola, ya puedes loguearte con tu nueva contraseña: {password}</strong>')
+    html_content=f'Hola, ya puedes loguearte con tu nueva contraseña: <strong>{password}</strong>')
 
     user = User.query.filter_by(email=email).first()
     if user is None:
