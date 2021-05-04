@@ -5,7 +5,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			registerProblem: false,
 			registerError: null,
 			token: null,
-			publicarSuccess: false
+			publicarSuccess: false,
+			loginError: false,
+			servicios: [],
+			usuarios: []
 		},
 
 		actions: {
@@ -28,10 +31,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(resp => {
 						if (resp.status !== 200) {
-							alert("There was an error!!");
-							return false;
+							setStore({ loginError: true });
+							return resp.json();
+						} else {
+							setStore({ loginError: false });
+							return resp.json();
 						}
-						return resp.json();
 					})
 					.then(data => {
 						console.log("This came from the backend ", data);
@@ -104,6 +109,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("data: ", data);
 					})
 					.catch(err => (console.error("Error ", err), setStore()));
+			},
+			getServices: async () => {
+				await fetch(process.env.BACKEND_URL + "/api/servicios")
+					.then(res => res.json())
+					.then(data => setStore({ servicios: data }))
+					.catch(err => console.error(err));
+			},
+			getUsers: async () => {
+				await fetch(process.env.BACKEND_URL + "/api/users")
+					.then(res => res.json())
+					.then(data => setStore({ usuarios: data }))
+					.catch(err => console.error(err));
 			}
 		}
 	};

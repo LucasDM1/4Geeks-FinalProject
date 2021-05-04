@@ -76,7 +76,36 @@ export const Publish = () => {
 									value={categoria}
 									className="form-control mb-2">
 									<option value>Elije una categoría...</option>
-									<option>...</option>
+									<option>Carpintería</option>
+									<option>Cerrajería</option>
+									<option>Mecánica</option>
+									<option>Albañilería</option>
+									<option>Fontanería</option>
+									<option>Soldaduras</option>
+									<option>Pintores</option>
+									<option>Sastrería</option>
+									<option>Cocineros</option>
+									<option>Lavandería</option>
+									<option>Construcción</option>
+									<option>Locución</option>
+									<option>Animador de eventos</option>
+									<option>Panadería</option>
+									<option>Costurería</option>
+									<option>Peluquería</option>
+									<option>Zapateros</option>
+									<option>Niñeros</option>
+									<option>Cuidadores de adultos</option>
+									<option>Serigrafía</option>
+									<option>Fotocopiadora</option>
+									<option>Catering</option>
+									<option>Pastelería</option>
+									<option>Electricistas</option>
+									<option>Reparaciones</option>
+									<option>Diseño</option>
+									<option>Cuidado de uñas</option>
+									<option>Transporte</option>
+									<option>Limpieza</option>
+									<option>Tutorias</option>
 								</select>
 
 								<h5>¿Cómo se ven tus servicios?</h5>

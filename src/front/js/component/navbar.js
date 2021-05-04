@@ -22,9 +22,6 @@ export const NavBar = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
 	const token = sessionStorage.getItem("token");
-	const handleGoHome = () => {
-		token !== null ? history.push("/") : history.push("/login");
-	};
 
 	return (
 		<>
@@ -43,10 +40,13 @@ export const NavBar = () => {
 								/>
 							</Button>
 						) : null}
-
-						<Navbar.Brand className="ml-3" onClick={handleGoHome}>
-							<b>OurAppName</b>
-						</Navbar.Brand>
+						<Link to="/">
+							<Navbar.Brand className="ml-3">
+								<a href="https://3000-coral-mosquito-wpshiko2.ws-us03.gitpod.io/">
+									<b>OurAppName</b>
+								</a>
+							</Navbar.Brand>
+						</Link>
 					</InputGroup>
 				</Nav>
 				<Nav className="mr-auto  my-1">
@@ -79,17 +79,17 @@ export const NavBar = () => {
 				<Nav className="my-1">
 					{token !== "null" && token !== undefined && token !== null ? (
 						<Button onClick={() => actions.logOut()} variant="danger">
-							Log out
+							Cerrar sesión
 						</Button>
 					) : (
 						<>
 							<InputGroup>
 								<Link to="/login">
-									<Button variant="info">Login</Button>
+									<Button variant="info">Iniciar sesión</Button>
 								</Link>
 								<Link to="/registro">
 									<Button variant="warning" className="ml-3">
-										Register
+										Registrarse
 									</Button>
 								</Link>
 							</InputGroup>
