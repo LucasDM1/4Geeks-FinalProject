@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			publicarSuccess: false,
 			loginError: false,
 			servicios: [],
-			usuarios: []
+			usuarios: [],
+			perfilUsuario: []
 		},
 
 		actions: {
@@ -121,6 +122,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ usuarios: data }))
 					.catch(err => console.error(err));
+			},
+			handleGetUserProfile: async () => {
+				const mytoken = sessionStorage.getItem("token");
+				await fetch(process.env.BACKEND_URL + "/api/perfil", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + mytoken
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => {
+						console.log("This my data", data);
+						setStore({ perfilUsuario: data });
+					})
+					.catch(error => console.error(err));
 			}
 		}
 	};
