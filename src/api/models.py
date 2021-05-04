@@ -47,7 +47,7 @@ class User(db.Model):
 
     def change_password(request_body_user):
         user = request_body_user
-        return(f"Your password has been changed to {user.password}"),200
+        return(f"Your password has been changed to {user.password} for {user.email}"),200
 
 
 class Post(db.Model):
