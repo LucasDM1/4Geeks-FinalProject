@@ -1,9 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { Container, Row, Col, ListGroup, Image, Button, Card } from "react-bootstrap";
 import { Context } from "../store/appContext";
+import { useHistory } from "react-router-dom";
 
 export const PerfilUsuario = () => {
 	const { store, actions } = useContext(Context);
+	const history = useHistory();
 	useEffect(() => {
 		actions.handleGetUserProfile();
 	}, []);
@@ -30,7 +32,10 @@ export const PerfilUsuario = () => {
 								style={{ margin: "0 0 2rem 1rem" }}
 							/>
 							<Button className="float-right" variant="dark">
-								<i className="fas fa-edit"> Editar</i>
+								<i className="fas fa-edit" onClick={() => history.push("/perfiledicion")}>
+									{" "}
+									Editar
+								</i>
 							</Button>
 							<ListGroup variant="flush">
 								<ListGroup.Item>
