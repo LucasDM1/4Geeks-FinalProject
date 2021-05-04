@@ -32,7 +32,7 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<NavBar />
-					<Container fluid>
+					<Container>
 						<Switch>
 							<Route exact path="/">
 								<Carousel />
