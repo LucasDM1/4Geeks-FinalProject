@@ -88,6 +88,14 @@ export const Login = () => {
 												</a>
 											</p>
 										</div>
+										<div className="form-group">
+											<p className="text-center">
+												¿No recuerdas tu password?{" "}
+												<a href="#" id="recovery" onClick={() => history.push("/recovery")}>
+													Recuperar
+												</a>
+											</p>
+										</div>
 									</form>
 								</div>
 							</div>
