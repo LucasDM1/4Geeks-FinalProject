@@ -34,14 +34,12 @@ def create_token():
     access_token = create_access_token(identity=user.email)
     return jsonify({ "token": access_token, "user_id": user.id })
 
-@api.route('/user', methods=['GET'])
-def handle_allUsers():
-    print("estos son los usuarios")
-    return jsonify(User.getAllusers()), 200
+
 
 @api.route('/register', methods=['POST'])
 def handle_register():
     request_body_user=request.data
+    
     decoded_object = json.loads(request_body_user)
     return jsonify(User.add_user(decoded_object)), 200
 
@@ -49,6 +47,11 @@ def handle_register():
 def get_service():
    
   return jsonify(Post.getAllservices()), 200
+
+@api.route('/users', methods=['GET'])
+def handle_allUsers():
+    print("estos son los usuarios")
+    return jsonify(User.getAllusers()), 200
 
 @api.route('/publicar', methods=['POST'])
 @jwt_required()
@@ -65,12 +68,3 @@ def publish_service():
     return jsonify(Post.newService(decoded_publication, user.id)), 200
 
 
-
-@api.route('/hello', methods=['GET'])
-def handle_hello():
-
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend"
-    }
-
-    return jsonify(response_body), 200

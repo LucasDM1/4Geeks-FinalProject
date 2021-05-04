@@ -11,12 +11,14 @@ export const Login = () => {
 	const handleClick = () => {
 		actions.login(email, password).then(resp => {
 			if (store.token !== null && store.token !== undefined) {
+				store.loginError = false;
 				history.push("/");
-			} else {
-				null;
 			}
 		});
 	};
+
+	//const handleLoginError()
+
 	return (
 		<div className="container-fluid pt-3" style={{ margin: "6rem 0 8rem 0" }}>
 			{store.token !== null && store.token !== undefined ? (
@@ -30,6 +32,11 @@ export const Login = () => {
 									<div className="logo mb-3">
 										<div className="col-md-12 text-center">
 											<h1>Iniciar sesión</h1>
+											{store.loginError == true ? (
+												<div className="alert alert-danger" role="alert">
+													<h5>Email o contraseña incorrecta</h5>
+												</div>
+											) : null}
 										</div>
 									</div>
 									<form action="" method="post" name="login">
@@ -70,7 +77,7 @@ export const Login = () => {
 												type="button"
 												className=" btn btn-block mybtn btn-primary tx-tfm"
 												onClick={handleClick}>
-												Login
+												Iniciar sesión
 											</button>
 										</div>
 										<div className="form-group">

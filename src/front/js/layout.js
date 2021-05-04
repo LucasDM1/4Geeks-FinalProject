@@ -53,21 +53,16 @@ const Layout = () => {
 							<Route exact path="/publicar">
 								<Publish />
 							</Route>
-							<Route exact path="/service/:id">
-								<Service />
-							</Route>
 							<Route exact path="/perfiledicion">
 								<PerfilEdicion />
 							</Route>
 							<Route exact path="/perfildeservicio">
 								<ServiceProfile />
 							</Route>
-							<Route exact path="/servicio/:id">
+							<Route exact path="/servicio/:index">
 								<Service />
 							</Route>
-							<Route exact path="/single/:theid">
-								<Single />
-							</Route>
+
 							<Route>
 								<h1>Not found!</h1>
 							</Route>
