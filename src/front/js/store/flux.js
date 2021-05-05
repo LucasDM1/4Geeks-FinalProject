@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			publicarSuccess: false,
 			loginError: false,
 			servicios: [],
-			usuarios: []
+			usuarios: [],
+			perfilUsuario: []
 		},
 
 		actions: {
@@ -120,6 +121,74 @@ const getState = ({ getStore, getActions, setStore }) => {
 				await fetch(process.env.BACKEND_URL + "/api/users")
 					.then(res => res.json())
 					.then(data => setStore({ usuarios: data }))
+					.catch(err => console.error(err));
+			},
+			handleGetUserProfile: async () => {
+				const mytoken = sessionStorage.getItem("token");
+				await fetch(process.env.BACKEND_URL + "/api/perfil", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + mytoken
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => {
+						console.log("This my data", data);
+						setStore({ perfilUsuario: data });
+					})
+					.catch(err => console.error(err));
+			},
+			handleGetUserEditProfile: async () => {
+				const mytoken = sessionStorage.getItem("token");
+				await fetch(process.env.BACKEND_URL + "/api/perfiledicion", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + mytoken
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => {
+						console.log("This my data", data);
+						setStore({ perfilUsuario: data });
+					})
+					.catch(err => console.error(err));
+			},
+			deleteAccount: async () => {
+				const mytoken = sessionStorage.getItem("token");
+				await fetch(process.env.BACKEND_URL + "/api/perfiledicion", {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + mytoken
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => {
+						console.log(data);
+					})
+					.catch(err => console.error(err));
+			},
+			updateUserProfile: async (name, lastname, cedula, phone, email, password) => {
+				const mytoken = sessionStorage.getItem("token");
+				await fetch(process.env.BACKEND_URL + "/api/perfiledicion", {
+					method: "PUT",
+					body: JSON.stringify({
+						name: name,
+						lastname: lastname,
+						cedula: cedula,
+						phone: phone,
+						email: email,
+						password: password
+					}),
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + mytoken
+					}
+				})
+					.then(res => resp.json())
+					.then(data => console.log(data))
 					.catch(err => console.error(err));
 			}
 		}

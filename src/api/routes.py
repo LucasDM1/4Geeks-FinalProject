@@ -96,3 +96,40 @@ def password_reset():
     except Exception as e:
         print(e.message)
     return jsonify(User.change_password(user)), 200
+
+@api.route("/perfil", methods=["GET"])
+@jwt_required()
+def getUserInfo():
+    current_user_email = get_jwt_identity()
+    user=User.query.filter_by(email=current_user_email).first()
+    return jsonify(
+        name = user.name, lastname = user.lastname, cedula = user.cedula, phone = user.phone, description= user.description, email = user.email), 200
+
+@api.route("/perfiledicion", methods=["GET"])
+@jwt_required()
+def getUserEditInfo():
+    current_user_email = get_jwt_identity()
+    user=User.query.filter_by(email=current_user_email).first()
+    return jsonify(
+        name = user.name, lastname = user.lastname, cedula = user.cedula, phone = user.phone, description= user.description, email = user.email), 200
+
+@api.route("/perfiledicion", methods=["DELETE"])
+@jwt_required()
+def delete_user():
+    current_user_email = get_jwt_identity()
+    user=User.query.filter_by(email=current_user_email).first()
+    db.session.delete(user)
+    db.session.commit()
+    
+    return jsonify({ "msg": "User deleted successfully!!" })
+
+@api.route("/perfiledicion", methods=["PUT"])
+@jwt_required()
+def update_user():
+    current_user_email = get_jwt_identity()
+    old_user=User.query.filter_by(email=current_user_email).first()
+    new_user=request.data
+    new_user = json.loads(new_user)
+    db.session.delete(old_user)
+    db.session.commit()
+    return jsonify(User.add_user(new_user)), 200
