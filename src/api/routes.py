@@ -1,11 +1,13 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-import os
-import json
+import os, json, string, secrets
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Post
 from api.utils import generate_sitemap, APIException
+
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -66,6 +68,34 @@ def publish_service():
     print(user.id, decoded_publication)
 
     return jsonify(Post.newService(decoded_publication, user.id)), 200
+
+# Passoword recovery route is implemented using sendgrid API with sendgrid dependencies installed
+@api.route('/recovery', methods=['PUT'])
+def password_reset():
+    email = request.json.get("email", None)
+    password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(9)))
+    message = Mail(
+    from_email='mailer@ismeta.net',
+    to_emails=email,
+    subject='Cambio de contraseña solicitado',
+    html_content=f'Hola, ya puedes loguearte con tu nueva contraseña: <strong>{password}</strong>')
+
+    user = User.query.filter_by(email=email).first()
+    if user is None:
+        # the user was not found on the database
+        return jsonify({"msg": "Password reset link was sent to registered email ; )"}), 200
+    
+    # actual password reset
+    user.password = password
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print(e.message)
+    return jsonify(User.change_password(user)), 200
 
 @api.route("/perfil", methods=["GET"])
 @jwt_required()

@@ -8,6 +8,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
+import { Recovery } from "./pages/change_pass";
 import { PerfilUsuario } from "./pages/perfilUsuario";
 import { PerfilEdicion } from "./pages/perfilEdicion";
 import { ServiceProfile } from "./pages/serviceprofile";
@@ -46,6 +47,9 @@ const Layout = () => {
 							</Route>
 							<Route exact path="/login">
 								<Login />
+							</Route>
+							<Route exact path="/recovery">
+								<Recovery />
 							</Route>
 							<Route exact path="/perfil">
 								<PerfilUsuario />

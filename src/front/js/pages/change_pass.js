@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router";
 import { Context } from "../store/appContext";
 
-export const Login = () => {
+export const Recovery = () => {
 	const { store, actions } = useContext(Context);
 	const [email, setEmail] = useState(null);
 	const [password, setPassword] = useState(null);
@@ -31,7 +31,7 @@ export const Login = () => {
 								<div className="myform form">
 									<div className="logo mb-3">
 										<div className="col-md-12 text-center">
-											<h1>Iniciar sesión</h1>
+											<h1>Recuperar contraseña</h1>
 											{store.loginError == true ? (
 												<div className="alert alert-danger" role="alert">
 													<h5>Email o contraseña incorrecta</h5>
@@ -53,31 +53,12 @@ export const Login = () => {
 												onChange={e => setEmail(e.target.value)}
 											/>
 										</div>
-										<div className="form-group">
-											<label>Contraseña</label>
-											<input
-												type="password"
-												name="password"
-												id="password"
-												className="form-control"
-												aria-describedby="emailHelp"
-												placeholder=""
-												value={password}
-												onChange={e => setPassword(e.target.value)}
-											/>
-										</div>
-										<div className="form-group">
-											<p className="text-center">
-												Al registrase o loguearse usted esta aceptando nuestros{" "}
-												<a href="#">Terminos y Condiciones</a>
-											</p>
-										</div>
 										<div className="col-md-12 text-center ">
 											<button
 												type="button"
 												className=" btn btn-block mybtn btn-primary tx-tfm"
 												onClick={handleClick}>
-												Iniciar sesión
+												Iniciar recuperación
 											</button>
 										</div>
 										<div className="form-group">
@@ -85,14 +66,6 @@ export const Login = () => {
 												¿No estas registrado?{" "}
 												<a href="#" id="signup" onClick={() => history.push("/registro")}>
 													Registrate
-												</a>
-											</p>
-										</div>
-										<div className="form-group">
-											<p className="text-center">
-												¿No recuerdas tu contraseña?{" "}
-												<a href="#" id="recovery" onClick={() => history.push("/recovery")}>
-													Recuperar
 												</a>
 											</p>
 										</div>
