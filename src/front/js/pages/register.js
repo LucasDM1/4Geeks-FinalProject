@@ -52,10 +52,10 @@ export const Register = () => {
 
 	return (
 		<div className="container-fluid" style={{ margin: "5rem 0 5rem 0" }}>
-			<div className="row d-flex justify-content-center">
-				<div className="card my-3">
+			<div id="shadow" className="row d-flex justify-content-center">
+				<div id="RegisterForm" className="card">
 					<div className="card-body py-2">
-						<h1 className="card-title">Registrate</h1>
+						<h1 className="card-title text-center">Registrate</h1>
 						{store.registerSuccess == true ? (
 							<div className="alert alert-success" role="alert">
 								<h5 onClick={handleSucc}>Registo completo, click aquí para Iniciar Sesion</h5>
@@ -229,7 +229,7 @@ export const Register = () => {
 									</p>
 								)}
 							</div>
-							<button type="submit" onClick={handleSubmit} className="btn btn-primary mr-auto">
+							<button type="submit" onClick={handleSubmit} className="btn mr-auto" id="RegistrarseForm">
 								Registrarse
 							</button>
 						</form>

@@ -4,7 +4,7 @@ import {
 	Nav,
 	Navbar,
 	Button,
-	Container,
+	// Container,
 	Row,
 	Col,
 	Collapse,
@@ -37,7 +37,8 @@ export const NavBar = () => {
 					<InputGroup>
 						{token !== "null" && token !== undefined && token !== null ? (
 							<Button
-								variant="dark"
+								// variant="dark"
+								id="hamburguer"
 								onClick={() => setOpen(!open)}
 								aria-controls="example-collapse-text"
 								aria-expanded={open}>
@@ -50,7 +51,7 @@ export const NavBar = () => {
 						<Link to="/">
 							<Navbar.Brand className="ml-3">
 								<a href="https://3000-coral-mosquito-wpshiko2.ws-us03.gitpod.io/">
-									<b>OurAppName</b>
+									<b style={{ color: "black" }}>TicoServices</b>
 								</a>
 							</Navbar.Brand>
 						</Link>
@@ -93,17 +94,17 @@ export const NavBar = () => {
 				</Nav>
 				<Nav className="my-1">
 					{token !== "null" && token !== undefined && token !== null ? (
-						<Button onClick={() => actions.logOut()} variant="danger">
+						<Button onClick={() => actions.logOut()} id="LogOut">
 							Cerrar sesión
 						</Button>
 					) : (
 						<>
 							<InputGroup>
 								<Link to="/login">
-									<Button variant="info">Iniciar sesión</Button>
+									<Button id="LogIn">Iniciar sesión</Button>
 								</Link>
 								<Link to="/registro">
-									<Button variant="warning" className="ml-3">
+									<Button id="Register" className="ml-3">
 										Registrarse
 									</Button>
 								</Link>
@@ -112,16 +113,16 @@ export const NavBar = () => {
 					)}
 				</Nav>
 			</Navbar>
-			<Collapse in={open} timeout={5}>
+			<Collapse id="collapse" in={open} timeout={5}>
 				<div
 					style={{
 						position: "absolute",
 						zIndex: "1",
 						width: "12rem",
-						marginTop: "54px",
+						marginTop: "68px",
 						height: "680px"
 					}}>
-					<Card bg="dark" style={{ width: "18rem", height: window.outerHeight }}>
+					<Card id="collapsecard" style={{ width: "18rem", height: window.outerHeight }}>
 						<Card.Body>
 							<ListGroup>
 								<Link to="/publicar">
