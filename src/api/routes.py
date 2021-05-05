@@ -73,7 +73,7 @@ def publish_service():
 @api.route('/recovery', methods=['PUT'])
 def password_reset():
     email = request.json.get("email", None)
-    password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(9)))
+    password = ''.join((secrets.choice(string.ascii_letters + string.digits) for i in range(9)))
     message = Mail(
     from_email='mailer@ismeta.net',
     to_emails=email,
