@@ -7,12 +7,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null,
 			publicarSuccess: false,
 			loginError: false,
+			passwordReset: false,
 			servicios: [],
 			usuarios: [],
 			perfilUsuario: []
 		},
 
 		actions: {
+			resetStore: () => {
+				setStore({ passwordReset: false });
+			},
 			logOut: () => {
 				setStore({ token: null });
 				sessionStorage.setItem("token", null);
@@ -61,7 +65,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(resp => {
 						if (resp.status !== 200) return resp.json();
-						else return resp.json();
+						else {
+							setStore({ passwordReset: true });
+							return resp.json();
+						}
 					})
 					.then(data => {
 						console.log("This came from the backend ", data);
