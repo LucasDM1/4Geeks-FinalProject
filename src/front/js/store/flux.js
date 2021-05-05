@@ -7,8 +7,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null,
 			publicarSuccess: false,
 			loginError: false,
+			filtrolleno: false,
 			servicios: [],
-			usuarios: []
+			usuarios: [],
+			ultimabusqueda: []
 		},
 
 		actions: {
@@ -121,6 +123,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ usuarios: data }))
 					.catch(err => console.error(err));
+			},
+			getPostProv: provincia => {
+				let s = getStore();
+				let filtro = s.servicios.filter(post => post.provincia == provincia);
+				if (filtro != []) {
+					setStore({ ultimabusqueda: filtro });
+					setStore({ filtrolleno: true });
+				} else {
+					setStore({ filtrolleno: false });
+				}
 			}
 		}
 	};
