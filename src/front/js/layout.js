@@ -33,45 +33,46 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<NavBar />
-					<Container>
-						<Switch>
-							<Route exact path="/">
-								<Carousel />
-								<Home />
-							</Route>
-							<Route exact path="/demo">
-								<Demo />
-							</Route>
-							<Route exact path="/registro">
-								<Register />
-							</Route>
-							<Route exact path="/login">
-								<Login />
-							</Route>
-							<Route exact path="/recovery">
+					{/* <Container fluid> */}
+					<Switch>
+						<Route exact path="/">
+							{/* <Carousel /> */}
+							<Home />
+						</Route>
+						<Route exact path="/demo">
+							<Demo />
+						</Route>
+						<Route exact path="/registro">
+							<Register />
+						</Route>
+						<Route exact path="/login">
+							<Login />
+						</Route>
+            <Route exact path="/recovery">
 								<Recovery />
 							</Route>
-							<Route exact path="/perfil">
-								<PerfilUsuario />
-							</Route>
-							<Route exact path="/publicar">
-								<Publish />
-							</Route>
-							<Route exact path="/perfiledicion">
-								<PerfilEdicion />
-							</Route>
-							<Route exact path="/perfildeservicio">
-								<ServiceProfile />
-							</Route>
-							<Route exact path="/servicio/:index">
-								<Service />
-							</Route>
+						<Route exact path="/perfil">
+							<PerfilUsuario />
+						</Route>
+						<Route exact path="/publicar">
+							<Publish />
+						</Route>
+						<Route exact path="/perfiledicion">
+							<PerfilEdicion />
+						</Route>
+						<Route exact path="/perfildeservicio">
+							<ServiceProfile />
+						</Route>
+						<Route exact path="/servicio/:index">
+							<Service />
+						</Route>
 
-							<Route>
-								<h1>Not found!</h1>
-							</Route>
-						</Switch>
-					</Container>
+
+						<Route>
+							<h1>Not found!</h1>
+						</Route>
+					</Switch>
+					{/* </Container> */}
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>

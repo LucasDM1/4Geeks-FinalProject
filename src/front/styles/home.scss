@@ -1,2 +1,134 @@
-// .container-fluid{
-//     background: linear-gradient("-45deg", rgb(27,195,222), rgb(55,206,230), rgb(87,213,234), rgb(119,221,238), rgb(150,229,241), rgb(255,225,137), rgb(255,216,102), rgb(255,207,66), rgb(255,198,30), rgb(249,187,0));}
+#pageheader{
+    background-image: linear-gradient(90deg, rgb(89,144,232), rgb(57,123,227), rgb(106,52,232), rgb(84,24,225), rgb(60,17,161), rgb(60,17,161));
+    padding: 0;
+    opacity: 0.8;
+    // height: 181px;
+    height: 350px;
+}
+.carousel-inner{
+    // background: linear-gradient(90deg, rgb(89,144,232), rgb(57,123,227), rgb(106,52,232), rgb(84,24,225), rgb(60,17,161), rgb(60,17,161));
+    background-color: none;
+    height: 220px;
+    // box-shadow: 0 7px 9px rgba(0,0,0,0.5)
+}
+
+.categoria{
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+// .categoryicon{
+//     color: #fff;
+//     // box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+// }
+.categorytitle{
+    color: #fff;
+    // box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%,-50%);
+    // text-align: center;
+    // padding: 25px 30px;
+    // color: #fff;
+    // overflow: hidden;
+    // // background: rgba(255, 255, 255, 0.2);
+    // // background-color: linear-gradient(90deg, rgba(3, 169, 244, 0.1), #f441a5, #ffeb3bdc, #03a9f4);
+    // // opacity: 0.6;
+    // box-shadow: 0 7px 9px rgba(0,0,0,0.3)
+// }
+// .categoria:before{
+//     content: "";
+//     position: relative;
+//     top: 0;
+//     left: 0;
+//     width: 50%;
+//     height: 100%;
+//     background: rgba(175, 195, 238, 0.336);
+// }
+// .categoria:after{
+//     content: "";
+//     position: relative;
+//     top: 0;
+//     // left: -100%;
+//     width: 100%;
+//     height: 100%;
+//     background: linear-gradient(90deg, transparent, rgba(255,255,255, 0.4), transparent );
+//     transition: 0.5s;
+// }
+// .categoria:hover:after{
+//     left: 100%;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#slogan{
+    color: white;
+	font-Size: 150px;
+    text-Shadow: 7px 9px 11px rgba(0,0,0,0.7);
+}
+// #newads{
+//     color: black;
+//     font-Size: 100px;
+//     text-Shadow: 7px 9px 11px rgba(0,0,0,0.7);
+// }
+#adshome{
+    // margin-top: 165px;
+    margin-top: 150px;
+}
