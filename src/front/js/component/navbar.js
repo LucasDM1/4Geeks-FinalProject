@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import AppIcon from "../../img/Emprendelo.png";
 import {
 	InputGroup,
 	Nav,
@@ -44,7 +45,8 @@ export const NavBar = () => {
 						<Link to="/">
 							<Navbar.Brand className="ml-3">
 								<a href="https://3000-coral-mosquito-wpshiko2.ws-us03.gitpod.io/">
-									<b style={{ color: "black" }}>TicoServices</b>
+									{/* <b>TicoServices</b> */}
+									<img src={AppIcon} style={{ width: "150px" }} />
 								</a>
 							</Navbar.Brand>
 						</Link>
@@ -88,10 +90,9 @@ export const NavBar = () => {
 								<Link to="/login">
 									<Button id="LogIn">Iniciar sesión</Button>
 								</Link>
+								<div id="separacion" />
 								<Link to="/registro">
-									<Button id="Register" className="ml-3">
-										Registrarse
-									</Button>
+									<Button id="Register">Registrarse</Button>
 								</Link>
 							</InputGroup>
 						</>
