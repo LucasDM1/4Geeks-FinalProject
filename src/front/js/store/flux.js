@@ -12,7 +12,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			servicios: [],
 			usuarios: [],
 			perfilUsuario: []
-
 		},
 
 		actions: {
@@ -154,13 +153,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ usuarios: data }))
 					.catch(err => console.error(err));
 			},
-			getPostProv: provincia => {
-				let s = getStore();
-				let filtro = s.servicios.filter(post => post.provincia == provincia);
-				if (filtro != []) {
-					setStore({ ultimabusqueda: filtro });
-					
-				},
 			handleGetUserProfile: async () => {
 				const mytoken = sessionStorage.getItem("token");
 				await fetch(process.env.BACKEND_URL + "/api/perfil", {
@@ -228,7 +220,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => resp.json())
 					.then(data => console.log(data))
 					.catch(err => console.error(err));
-
+			},
+			getPostProv: provincia => {
+				let s = getStore();
+				let filtro = s.servicios.filter(post => post.provincia == provincia);
+				if (filtro != []) {
+					setStore({ ultimabusqueda: filtro });
+				}
 			}
 		}
 	};

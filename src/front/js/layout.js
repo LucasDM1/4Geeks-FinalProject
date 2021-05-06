@@ -49,9 +49,9 @@ const Layout = () => {
 						<Route exact path="/login">
 							<Login />
 						</Route>
-            <Route exact path="/recovery">
-								<Recovery />
-							</Route>
+						<Route exact path="/recovery">
+							<Recovery />
+						</Route>
 						<Route exact path="/perfil">
 							<PerfilUsuario />
 						</Route>
@@ -67,7 +67,7 @@ const Layout = () => {
 						<Route exact path="/servicio/:index">
 							<Service />
 						</Route>
-            <Route exact path="/servicios/:provincia">
+						<Route exact path="/servicios/:provincia">
 							<StateService />
 						</Route>
 						<Route>
