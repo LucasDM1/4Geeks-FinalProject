@@ -7,12 +7,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null,
 			publicarSuccess: false,
 			loginError: false,
+			ultimabusqueda: [],
+			passwordReset: false,
 			servicios: [],
 			usuarios: [],
 			perfilUsuario: []
 		},
 
 		actions: {
+			resetStore: () => {
+				setStore({ passwordReset: false });
+			},
 			logOut: () => {
 				setStore({ token: null });
 				sessionStorage.setItem("token", null);
@@ -46,6 +51,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return true;
 					})
 					.catch(error => console.error("There has been an error login in!!", error));
+			},
+			precover: async myEmail => {
+				const url = process.env.BACKEND_URL + "/api/recovery";
+
+				await fetch(url, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						email: myEmail
+					})
+				})
+					.then(resp => {
+						if (resp.status !== 200) return resp.json();
+						else {
+							setStore({ passwordReset: true });
+							return resp.json();
+						}
+					})
+					.then(data => {
+						console.log("This came from the backend ", data);
+						return true;
+					})
+					.catch(error => console.error("There has been an error somewhere", error));
 			},
 			handleRegister: async (name, lastname, cedula, phone, email, password) => {
 				await fetch(process.env.BACKEND_URL + "/api/register", {
@@ -191,6 +221,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => resp.json())
 					.then(data => console.log(data))
 					.catch(err => console.error(err));
+			},
+			getPostProv: provincia => {
+				let s = getStore();
+				let filtro = s.servicios.filter(post => post.provincia == provincia);
+				setStore({ ultimabusqueda: filtro });
+			},
+			getPostCat: categoria => {
+				let s = getStore();
+				let filtroCat = s.servicios.filter(post => post.categoria == categoria);
+				setStore({ ultimabusqueda: filtroCat });
 			}
 		}
 	};

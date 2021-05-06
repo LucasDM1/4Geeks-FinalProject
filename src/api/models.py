@@ -46,6 +46,7 @@ class User(db.Model):
         db.session.commit()
         return("The user has been created"), 200
 
+
     def edit_user(request_body_user, old_user):
         if request_body_user["name"] != None:
             old_user.name = request_body_user["name"]
@@ -70,6 +71,12 @@ class User(db.Model):
             db.session.commit()
 
         return ("User updated!!"), 200  
+
+    def change_password(request_body_user):
+        user = User.query.filter_by(email=request_body_user.email).first()
+        user.password = request_body_user.password
+        db.session.commit()
+        return(f"Your password has been changed to {user.password} for {user.email}"),200
 
 class Post(db.Model):
     __tablename__='post'
