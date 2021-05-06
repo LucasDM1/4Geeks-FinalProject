@@ -10,6 +10,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_refresh_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
@@ -34,9 +35,8 @@ def create_token():
     
     # create a new token with the user id inside
     access_token = create_access_token(identity=user.email)
-    return jsonify({ "token": access_token, "user_id": user.id })
-
-
+    
+    return jsonify(access_token=access_token, user_id=user.id)
 
 @api.route('/register', methods=['POST'])
 def handle_register():
