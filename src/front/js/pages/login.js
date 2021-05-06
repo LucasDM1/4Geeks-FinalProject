@@ -22,7 +22,7 @@ export const Login = () => {
 	//const handleLoginError()
 
 	return (
-		<div className="container-fluid pt-3" style={{ margin: "6rem 0 8rem 0" }}>
+		<div className="container-fluid h-100 pt-3" style={{ margin: "6rem 0 8rem 0" }}>
 			{store.token !== null && store.token !== undefined ? (
 				history.push("/")
 			) : (

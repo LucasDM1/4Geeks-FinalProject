@@ -15,7 +15,8 @@ export const PerfilUsuario = () => {
 			style={{
 				display: "flex",
 				justifyContent: "center",
-				alignItems: "center"
+				alignItems: "center",
+				height: "100%"
 			}}>
 			<Row
 				style={{

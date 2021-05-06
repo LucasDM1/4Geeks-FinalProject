@@ -7,21 +7,26 @@ export const Service = () => {
 	const [proveedor, setProveedor] = useState({});
 	const params = useParams();
 
-	let service = store.servicios.filter(post => post.id == params.index);
+	const sessObj = JSON.parse(sessionStorage.getItem("servicio"));
+	let servicios = sessObj["servicios"];
+	const sessUser = JSON.parse(sessionStorage.getItem("usuarios"));
+	let usuarios = sessUser["usuarios"];
+
+	let service = servicios.filter(post => post.id == params.index);
 	const userID = service[0].user_id;
 	console.log(service);
 
 	const getUser = () => {
 		console.log(userID);
 
-		let usuario = store.usuarios.filter(user => user.id == userID);
+		let usuario = usuarios.filter(user => user.id == userID);
 		setProveedor(usuario[0]);
 		console.log("user: ", usuario[0]);
 		console.log(proveedor);
 	};
 
 	return (
-		<div className="container-fluid pt-3" style={{ margin: "6rem 0 6rem 0" }}>
+		<div className="container-fluid h-100 pt-3" style={{ margin: "6rem 0 6rem 0" }}>
 			<div className="row justify-content-center">
 				<div className="col-10">
 					<div className="card" style={{ width: "100%" }}>

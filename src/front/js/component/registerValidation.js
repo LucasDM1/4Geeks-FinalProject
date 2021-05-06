@@ -52,6 +52,6 @@ export const Validation = values => {
 	if (values.condiciones == false) {
 		errors.condiciones = "Debe aceptar los terminos y condiciones";
 	}
-
+	console.log(errors);
 	return errors;
 };

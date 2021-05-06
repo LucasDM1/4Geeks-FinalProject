@@ -2,12 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Validation } from "../component/registerValidation";
+//import { Validation } from "../component/registerValidation";
 import "../../styles/register.scss";
 
 export const Register = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
+	const [errors, setErrors] = useState({});
+	let myErrors = {};
 
 	// programando validación
 	const [values, setValues] = useState({
@@ -21,8 +23,6 @@ export const Register = () => {
 		condiciones: false
 	});
 
-	const [errors, setErrors] = useState({});
-
 	const handleChange = e => {
 		setValues({
 			...values,
@@ -30,12 +30,11 @@ export const Register = () => {
 		});
 	};
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		setErrors(Validation(values));
-		console.log(errors);
-		if (values.errors == null) {
-			console.log(values.name, values.lastname, values.cedula, values.phone, values.email, values.password);
+	const handleSubmit = () => {
+		//e.preventDefault();
+		Validation(values);
+		if (Object.keys(myErrors).length == 0) {
+			//console.log(values.name, values.lastname, values.cedula, values.phone, values.email, values.password);
 			actions.handleRegister(
 				values.name,
 				values.lastname,
@@ -50,15 +49,74 @@ export const Register = () => {
 		(store.registerSuccess = false), history.push("/login");
 	};
 
+	const Validation = values => {
+		myErrors = {};
+		setErrors({});
+
+		if (!values.name) {
+			myErrors.name = "Es necesario un Nombre";
+		}
+
+		if (!values.lastname) {
+			myErrors.lastname = "Es necesario un Apellido";
+		}
+
+		if (!values.cedula) {
+			myErrors.cedula = "Es necesario colocar un número de cédula";
+		}
+
+		if (values.cedula.length < 9) {
+			myErrors.cedula = "La cédula debe tener 9 digitos";
+		}
+
+		if (!values.phone) {
+			myErrors.phone = "Es necesario un número de teléfono";
+		}
+
+		if (values.phone.length < 8) {
+			myErrors.phone = "El número debe tener 8 digitos";
+		}
+
+		if (values.password.length < 8) {
+			myErrors.password = "La contraseña debe tener al menos 8 digitos";
+		}
+
+		if (values.password.length > 16) {
+			myErrors.password = "La contraseña no puede ser mayor a 16 digitos";
+		}
+
+		if (!values.password1) {
+			myErrors.password1 = "Confirme su contraseña";
+		}
+
+		if (values.password1 !== values.password) {
+			myErrors.password1 = "Las contraseñas no coinciden";
+		}
+
+		if (!values.email) {
+			myErrors.email = "Es necesario un correo electrónico";
+		}
+
+		if (!values.email.includes("@")) {
+			myErrors.email = "Ingrese un correo electrónico valido";
+		}
+
+		if (values.condiciones == false) {
+			myErrors.condiciones = "Debe aceptar los terminos y condiciones";
+		}
+
+		setErrors(myErrors);
+	};
+
 	return (
-		<div className="container-fluid" style={{ margin: "5rem 0 5rem 0" }}>
+		<div className="container-fluid h-100" style={{ margin: "5rem 0 5rem 0" }}>
 			<div id="shadow" className="row d-flex justify-content-center">
 				<div id="RegisterForm" className="card">
 					<div className="card-body py-2">
 						<h1 className="card-title text-center">Registrate</h1>
 						{store.registerSuccess == true ? (
 							<div className="alert alert-success" role="alert">
-								<h5 onClick={handleSucc}>Registo completo, click aquí para Iniciar Sesion</h5>
+								<h6 onClick={handleSucc}>Registo completo, click aquí para Iniciar Sesion</h6>
 							</div>
 						) : null}
 						{store.registerProblem == true ? (
@@ -229,7 +287,7 @@ export const Register = () => {
 									</p>
 								)}
 							</div>
-							<button type="submit" onClick={handleSubmit} className="btn mr-auto" id="RegistrarseForm">
+							<button type="button" onClick={handleSubmit} className="btn mr-auto" id="RegistrarseForm">
 								Registrarse
 							</button>
 						</form>

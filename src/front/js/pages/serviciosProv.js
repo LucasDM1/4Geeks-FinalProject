@@ -7,17 +7,21 @@ export const StateService = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
-	console.log(store.ultimabusqueda.length);
+	const sessProv = JSON.parse(sessionStorage.getItem("provs"));
 
-	if (store.ultimabusqueda.length != 0) {
+	let ultimabusqueda = sessProv["ultimabusqueda"];
+
+	console.log(ultimabusqueda.length);
+
+	if (ultimabusqueda.length != 0) {
 		return (
-			<div className="container-fluid pt-5" style={{ marginBottom: "5rem" }}>
+			<div className="container-fluid h-100 pt-5" style={{ marginBottom: "5rem" }}>
 				<div className="row mb-3 pl-3">
 					<h2>{"Publicaciones en " + params.provincia + ": "}</h2>
 				</div>
 
 				<div className="card-columns">
-					{store.ultimabusqueda.map((servicio, index) => {
+					{ultimabusqueda.map((servicio, index) => {
 						return (
 							<div key={index} className="card mb-3" style={{ maxwidth: "540px" }}>
 								<div className="row g-0">
@@ -55,7 +59,7 @@ export const StateService = () => {
 		);
 	} else {
 		return (
-			<div className="container-fluid d-flex justify-content-center mt-5 pt-5">
+			<div className="container-fluid d-flex h-100 justify-content-center mt-5 pt-5">
 				<div className="row ">
 					<div className="col-2" />
 					<div className="col-8">

@@ -6,13 +6,11 @@ import { Container } from "react-bootstrap";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
 import { Recovery } from "./pages/change_pass";
 import { PerfilUsuario } from "./pages/perfilUsuario";
 import { PerfilEdicion } from "./pages/perfilEdicion";
 import { ServiceProfile } from "./pages/serviceprofile";
-import { Single } from "./pages/single";
 import { Register } from "./pages/register";
 import { Service } from "./pages/service";
 import { Publish } from "./pages/publicacion";
@@ -41,9 +39,7 @@ const Layout = () => {
 							{/* <Carousel /> */}
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
+
 						<Route exact path="/registro">
 							<Register />
 						</Route>

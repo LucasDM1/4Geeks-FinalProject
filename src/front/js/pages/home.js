@@ -11,13 +11,21 @@ import carpinteriaIcon from "../../img/carpinteria.png";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
+
+	//const sessServ = sessionStorage.getItem("servicio");
+	const sessObj = JSON.parse(sessionStorage.getItem("servicio"));
+	let servicios = sessObj["servicios"];
+
+	//console.log(typeof sessServ, sessServ);
+	console.log(typeof sessObj, sessObj["servicios"]);
+
 	const handleCategoria = categoria => {
 		actions.getPostCat(categoria);
 		history.push("/serviciosC/" + categoria);
 	};
 
 	return (
-		<div className="container-fluid p-0" style={{ marginBottom: "5rem", margin: "50px, 0" }}>
+		<div className="container-fluid h-100 p-0" style={{ marginBottom: "5rem", margin: "50px, 0" }}>
 			<div id="pageheader">
 				<div id="slogan" className="mb-5 text-center">
 					<h1>Inserte slogan casual que convenza a cualquiera</h1>
@@ -873,7 +881,7 @@ export const Home = () => {
 					<h2>Nuevas publicaciones</h2>
 				</div> */}
 				<div className="card-columns">
-					{store.servicios.map((servicio, index) => {
+					{servicios.map((servicio, index) => {
 						return (
 							<div key={index} className="card mb-3 p-0" style={{ maxwidth: "540px" }}>
 								<div className="row g-0">

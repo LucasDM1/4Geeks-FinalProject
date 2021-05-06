@@ -13,7 +13,7 @@ export const ServiceProfile = () => {
 	const publications = store.servicios.filter(servicio => servicio.user_id == store.perfilUsuario.uid);
 
 	return (
-		<div className="container-fluid" style={{ margin: "6rem 0 4rem 0" }}>
+		<div className="container-fluid h-100" style={{ margin: "6rem 0 4rem 0" }}>
 			<h2 className="text-center text-muted">
 				Hola {store.perfilUsuario.name}! Estas son tus publicaciones activas 😉
 			</h2>
