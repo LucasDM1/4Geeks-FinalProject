@@ -31,6 +31,7 @@ class User(db.Model):
             "description":self.description,
             "posts": list(map(lambda x: x.serialize(), self.post)),
             "comments": list(map(lambda x: x.serialize(), self.comments))
+            
             # do not serialize the password, its a security breach 
         }
         
@@ -45,6 +46,30 @@ class User(db.Model):
         db.session.commit()
         return("The user has been created"), 200
 
+    def edit_user(request_body_user, old_user):
+        if request_body_user["name"] != None:
+            old_user.name = request_body_user["name"]
+            db.session.commit()
+        if request_body_user["lastname"] != None:
+            old_user.lastname = request_body_user["lastname"]
+            db.session.commit()
+        if request_body_user["cedula"] != None:
+            old_user.cedula = request_body_user["cedula"]
+            db.session.commit()
+        if request_body_user["phone"] != None:
+            old_user.phone = request_body_user["phone"]
+            db.session.commit()
+        if request_body_user["description"] != None:
+            old_user.description = request_body_user["description"]
+            db.session.commit()
+        if request_body_user["email"] != None:
+            old_user.email = request_body_user["email"]
+            db.session.commit()
+        if request_body_user["password"] != None:
+            old_user.password = request_body_user["password"]
+            db.session.commit()
+
+        return ("User updated!!"), 200  
 
 class Post(db.Model):
     __tablename__='post'

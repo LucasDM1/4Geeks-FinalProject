@@ -28,7 +28,7 @@ export const NavBar = () => {
 			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
 				<Nav className="mr-auto my-1">
 					<InputGroup>
-						{token !== "null" && token !== undefined && token !== null ? (
+						{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 							<Button
 								variant="dark"
 								onClick={() => setOpen(!open)}
@@ -77,7 +77,7 @@ export const NavBar = () => {
 					</Form>
 				</Nav>
 				<Nav className="my-1">
-					{token !== "null" && token !== undefined && token !== null ? (
+					{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 						<Button onClick={() => actions.logOut()} variant="danger">
 							Cerrar sesión
 						</Button>
