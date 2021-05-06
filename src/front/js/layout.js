@@ -17,6 +17,7 @@ import { Register } from "./pages/register";
 import { Service } from "./pages/service";
 import { Publish } from "./pages/publicacion";
 import { StateService } from "./pages/serviciosProv";
+import { CatService } from "./pages/serviciosCat";
 import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
@@ -67,8 +68,11 @@ const Layout = () => {
 						<Route exact path="/servicio/:index">
 							<Service />
 						</Route>
-						<Route exact path="/servicios/:provincia">
+						<Route exact path="/serviciosP/:provincia">
 							<StateService />
+						</Route>
+						<Route exact path="/serviciosC/:categoria">
+							<CatService />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

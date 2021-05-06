@@ -224,9 +224,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getPostProv: provincia => {
 				let s = getStore();
 				let filtro = s.servicios.filter(post => post.provincia == provincia);
-				if (filtro != []) {
-					setStore({ ultimabusqueda: filtro });
-				}
+				setStore({ ultimabusqueda: filtro });
+			},
+			getPostCat: categoria => {
+				let s = getStore();
+				let filtroCat = s.servicios.filter(post => post.categoria == categoria);
+				setStore({ ultimabusqueda: filtroCat });
 			}
 		}
 	};

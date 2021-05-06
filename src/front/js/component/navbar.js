@@ -27,7 +27,7 @@ export const NavBar = () => {
 	const handleProvincia = () => {
 		if (provincia != "Provincia") {
 			actions.getPostProv(provincia);
-			history.push("/servicios/" + provincia);
+			history.push("/serviciosP/" + provincia);
 		}
 	};
 	return (
@@ -35,7 +35,7 @@ export const NavBar = () => {
 			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
 				<Nav className="mr-auto my-1">
 					<InputGroup>
-						{token !== "null" && token !== undefined && token !== null ? (
+						{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 							<Button
 								// variant="dark"
 								id="hamburguer"
@@ -93,7 +93,7 @@ export const NavBar = () => {
 					</Form>
 				</Nav>
 				<Nav className="my-1">
-					{token !== "null" && token !== undefined && token !== null ? (
+					{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 						<Button onClick={() => actions.logOut()} id="LogOut">
 							Cerrar sesión
 						</Button>
