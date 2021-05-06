@@ -46,8 +46,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(data => {
 						console.log("This came from the backend ", data);
-						sessionStorage.setItem("token", data.token);
-						setStore({ token: data.token });
+						sessionStorage.setItem("token", data.access_token);
+						setStore({ token: data.access_token });
 						return true;
 					})
 					.catch(error => console.error("There has been an error login in!!", error));

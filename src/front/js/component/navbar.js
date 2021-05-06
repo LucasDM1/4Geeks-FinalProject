@@ -94,9 +94,7 @@ export const NavBar = () => {
 				</Nav>
 				<Nav className="my-1">
 					{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
-
 						<Button onClick={() => actions.logOut()} id="LogOut">
-
 							Cerrar sesión
 						</Button>
 					) : (
