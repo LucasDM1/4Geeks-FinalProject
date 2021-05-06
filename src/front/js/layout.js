@@ -8,6 +8,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
+import { Recovery } from "./pages/change_pass";
 import { PerfilUsuario } from "./pages/perfilUsuario";
 import { PerfilEdicion } from "./pages/perfilEdicion";
 import { ServiceProfile } from "./pages/serviceprofile";
@@ -15,6 +16,8 @@ import { Single } from "./pages/single";
 import { Register } from "./pages/register";
 import { Service } from "./pages/service";
 import { Publish } from "./pages/publicacion";
+import { StateService } from "./pages/serviciosProv";
+import { CatService } from "./pages/serviciosCat";
 import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
@@ -47,6 +50,9 @@ const Layout = () => {
 						<Route exact path="/login">
 							<Login />
 						</Route>
+						<Route exact path="/recovery">
+							<Recovery />
+						</Route>
 						<Route exact path="/perfil">
 							<PerfilUsuario />
 						</Route>
@@ -62,7 +68,12 @@ const Layout = () => {
 						<Route exact path="/servicio/:index">
 							<Service />
 						</Route>
-
+						<Route exact path="/serviciosP/:provincia">
+							<StateService />
+						</Route>
+						<Route exact path="/serviciosC/:categoria">
+							<CatService />
+						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

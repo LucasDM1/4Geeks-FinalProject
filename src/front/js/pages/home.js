@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import $ from "jquery";
 import Popper from "popper.js";
+import { useHistory } from "react-router";
 import carpinteriaIcon from "../../img/carpinteria.png";
 import albañilIcon from "../../img/Albañil.png";
 import cateringIcon from "../../img/catering.png";
@@ -36,6 +37,11 @@ import otrosIcon from "../../img/otros.png";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	const history = useHistory();
+	const handleCategoria = categoria => {
+		actions.getPostCat(categoria);
+		history.push("/serviciosC/" + categoria);
+	};
 
 	return (
 		<div className="container-fluid p-0" style={{ marginBottom: "5rem", margin: "50px, 0" }}>
@@ -112,6 +118,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Carpintería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -124,7 +133,7 @@ export const Home = () => {
 																paddingTop: "15px"
 															}}
 														/>
-														{/* <i className="fas fa-birthday-cake fa-5x text-center p-1 " /> */}
+
 														<div className="card-body m-0">
 															<h5 className="text-center text-white categorytitle">
 																<b>Carpintería</b>
@@ -132,9 +141,13 @@ export const Home = () => {
 														</div>
 													</div>
 												</div>
+
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Cerrajería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -157,6 +170,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Mecánica");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -179,6 +195,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Albañilería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -201,6 +220,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Fontanería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -223,6 +245,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Soldadura");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -251,6 +276,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Pintores");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -274,6 +302,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Sastrería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -297,6 +328,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Cocineros");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -320,6 +354,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Lavandería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -343,6 +380,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Locución");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -366,6 +406,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Animador de eventos");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -395,6 +438,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Panadería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -423,6 +469,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Costurería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -446,6 +495,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Peluquería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -469,6 +521,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Zapatero");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -492,6 +547,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Niñeros");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -515,6 +573,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Cuidadores de adultos");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -544,6 +605,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Serigrafía");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -567,6 +631,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Catering");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -591,6 +658,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Pastelería");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -614,6 +684,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Electricistas");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -637,6 +710,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Reparaciones");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -660,6 +736,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Diseño");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -689,6 +768,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Cuidado de uñas");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -712,6 +794,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Transporte");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -735,6 +820,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Tutorías");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -758,6 +846,9 @@ export const Home = () => {
 												<div className="col-sm-12 col-lg-2 ">
 													<div
 														className="card categoria p-1"
+														onClick={() => {
+															handleCategoria("Otros");
+														}}
 														style={{
 															width: "160px",
 															height: "160px"
@@ -836,7 +927,7 @@ export const Home = () => {
 												</p>
 											</p>
 											<p className="card-text">
-												<Link to={"/servicio/" + index}>
+												<Link to={"/servicio/" + servicio.id}>
 													<button type="button" className="btn btn-outline-dark">
 														Lo necesito!
 													</button>

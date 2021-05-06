@@ -23,13 +23,20 @@ export const NavBar = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
 	const token = sessionStorage.getItem("token");
+	const [provincia, setProvincia] = useState("Provincia");
 
+	const handleProvincia = () => {
+		if (provincia != "Provincia") {
+			actions.getPostProv(provincia);
+			history.push("/serviciosP/" + provincia);
+		}
+	};
 	return (
 		<>
 			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
 				<Nav className="mr-auto my-1">
 					<InputGroup>
-						{token !== "null" && token !== undefined && token !== null ? (
+						{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 							<Button
 								// variant="dark"
 								id="hamburguer"
@@ -45,7 +52,6 @@ export const NavBar = () => {
 						<Link to="/">
 							<Navbar.Brand className="ml-3">
 								<a href="https://3000-coral-mosquito-wpshiko2.ws-us03.gitpod.io/">
-									{/* <b>TicoServices</b> */}
 									<img src={AppIcon} style={{ width: "150px" }} />
 								</a>
 							</Navbar.Brand>
@@ -57,12 +63,18 @@ export const NavBar = () => {
 						<InputGroup>
 							<Form>
 								<Form.Group controlId="exampleForm.SelectCustom">
-									<FormControl
+									{/* <FormControl
 										placeholder="Buscar"
 										aria-label="buscar"
 										aria-describedby="basic-addon2"
-									/>
-									<Form.Control className="ml-2" as="select" custom>
+									/> */}
+									<Form.Control
+										className="ml-2"
+										as="select"
+										onChange={e => setProvincia(e.target.value)}
+										value={provincia}
+										custom>
+										<option>Provincia</option>
 										<option>San José</option>
 										<option>Alajuela</option>
 										<option>Heredia</option>
@@ -71,7 +83,9 @@ export const NavBar = () => {
 										<option>Puntarenas</option>
 										<option>Guanacaste</option>
 									</Form.Control>
-									<Button className="ml-2" variant="info">
+									{/* <Link to={provincia == "Provincia" ? null : "/servicios/" + provincia}></Link> */}
+									{/* Hay que reparar esto */}
+									<Button className="ml-2" onClick={() => handleProvincia()} variant="info">
 										<i className="fas fa-search" />
 									</Button>
 								</Form.Group>
@@ -80,7 +94,7 @@ export const NavBar = () => {
 					</Form>
 				</Nav>
 				<Nav className="my-1">
-					{token !== "null" && token !== undefined && token !== null ? (
+					{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 						<Button onClick={() => actions.logOut()} id="LogOut">
 							Cerrar sesión
 						</Button>
