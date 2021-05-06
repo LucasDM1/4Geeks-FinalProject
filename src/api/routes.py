@@ -73,7 +73,7 @@ def publish_service():
 @api.route('/recovery', methods=['PUT'])
 def password_reset():
     email = request.json.get("email", None)
-    password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(9)))
+    password = ''.join((secrets.choice(string.ascii_letters + string.digits) for i in range(9)))
     message = Mail(
     from_email='mailer@ismeta.net',
     to_emails=email,
@@ -103,7 +103,7 @@ def getUserInfo():
     current_user_email = get_jwt_identity()
     user=User.query.filter_by(email=current_user_email).first()
     return jsonify(
-        name = user.name, lastname = user.lastname, cedula = user.cedula, phone = user.phone, description= user.description, email = user.email), 200
+        name = user.name, lastname = user.lastname, cedula = user.cedula, phone = user.phone, description= user.description, email = user.email, uid = user.id), 200
 
 @api.route("/perfiledicion", methods=["GET"])
 @jwt_required()
