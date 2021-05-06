@@ -200,7 +200,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err));
 			},
-			updateUserProfile: async (name, lastname, cedula, phone, email, password) => {
+			updateUserProfile: async (name, lastname, cedula, phone, description, email, password) => {
 				const mytoken = sessionStorage.getItem("token");
 				await fetch(process.env.BACKEND_URL + "/api/perfiledicion", {
 					method: "PUT",
@@ -209,6 +209,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						lastname: lastname,
 						cedula: cedula,
 						phone: phone,
+						description: description,
 						email: email,
 						password: password
 					}),

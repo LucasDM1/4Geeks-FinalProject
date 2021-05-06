@@ -13,6 +13,8 @@ export const Login = () => {
 			if (store.token !== null && store.token !== undefined) {
 				store.loginError = false;
 				history.push("/");
+			} else {
+				null;
 			}
 		});
 	};

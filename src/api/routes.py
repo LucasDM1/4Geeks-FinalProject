@@ -128,8 +128,10 @@ def delete_user():
 def update_user():
     current_user_email = get_jwt_identity()
     old_user=User.query.filter_by(email=current_user_email).first()
-    new_user=request.data
-    new_user = json.loads(new_user)
-    db.session.delete(old_user)
-    db.session.commit()
-    return jsonify(User.add_user(new_user)), 200
+    print(request.data)
+    new_data_user=request.data
+    new_data_user = json.loads(new_data_user)
+    # db.session.delete(old_user)
+    # db.session.commit()
+    # return jsonify(User.add_user(new_user)), 200
+    return jsonify(User.edit_user(new_data_user, old_user)), 200

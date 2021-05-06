@@ -1,30 +1,27 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Container, Row, Col, Image, Button, Card, Tooltip, OverlayTrigger, Form, Modal } from "react-bootstrap";
+import { Container, Row, Col, Image, Button, Card, Form, Modal, Alert } from "react-bootstrap";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
 
 export const PerfilEdicion = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
+
 	useEffect(() => {
 		actions.handleGetUserEditProfile();
 	}, []);
+
 	const profile = store.perfilUsuario;
+
 	const handleDeleteAccount = () => {
 		actions.deleteAccount();
 		actions.logOut();
-		if (store.token === null) {
+		if (store.token === null || store.token === undefined) {
 			history.push("/");
 		}
 	};
-	const renderTooltip = props => (
-		<Tooltip id="button-tooltip" {...props}>
-			Cambiar foto de perfil
-		</Tooltip>
-	);
 
 	const [show, setShow] = useState(false);
-
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
@@ -38,6 +35,34 @@ export const PerfilEdicion = () => {
 		}
 
 		setValidated(true);
+	};
+
+	const [values, setValues] = useState({
+		name: profile.name,
+		lastname: profile.lastname,
+		cedula: profile.cedula,
+		phone: profile.phone,
+		email: profile.email,
+		description: profile.description
+	});
+
+	const handleChange = e => {
+		setValues({
+			...values,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const handleUpdateUserProfile = () => {
+		actions.updateUserProfile(
+			values.name,
+			values.lastname,
+			values.cedula,
+			values.phone,
+			values.description,
+			values.email
+		);
+		history.push("/perfil");
 	};
 	return (
 		<>
@@ -55,6 +80,7 @@ export const PerfilEdicion = () => {
 					</Button>
 				</Modal.Footer>
 			</Modal>
+
 			<Container
 				style={{
 					display: "flex",
@@ -70,13 +96,6 @@ export const PerfilEdicion = () => {
 					<Col>
 						<Card style={{ width: "54rem", margin: "3rem 0 6rem 0" }}>
 							<Card.Body>
-								<OverlayTrigger
-									placement="right"
-									delay={{ show: 250, hide: 400 }}
-									overlay={renderTooltip}>
-									<Image src="https://fakeimg.pl/100x100/?text=Profile Pic" rounded />
-								</OverlayTrigger>
-
 								<Form className="mt-3" noValidate validated={validated} onSubmit={handleSubmit}>
 									<Form.Row>
 										<Form.Group as={Col} md="12" controlId="validationCustom01">
@@ -86,8 +105,10 @@ export const PerfilEdicion = () => {
 											<Form.Control
 												required
 												type="text"
-												placeholder="Nombre"
-												defaultValue={profile.name}
+												name="name"
+												placeholder={profile.name}
+												value={values.name}
+												onChange={handleChange}
 											/>
 										</Form.Group>
 										<Form.Group as={Col} md="12" controlId="validationCustom02">
@@ -97,8 +118,10 @@ export const PerfilEdicion = () => {
 											<Form.Control
 												required
 												type="text"
-												placeholder="Apellido"
-												defaultValue={profile.lastname}
+												name="lastname"
+												placeholder={profile.lastname}
+												value={values.lastname}
+												onChange={handleChange}
 											/>
 										</Form.Group>
 										<Form.Group as={Col} md="12" controlId="validationCustom03">
@@ -108,8 +131,10 @@ export const PerfilEdicion = () => {
 											<Form.Control
 												required
 												type="text"
-												placeholder="000000000"
-												defaultValue={profile.cedula}
+												name="cedula"
+												placeholder={profile.cedula}
+												value={values.cedula}
+												onChange={handleChange}
 											/>
 										</Form.Group>
 										<Form.Group as={Col} md="12" controlId="validationCustom04">
@@ -119,8 +144,10 @@ export const PerfilEdicion = () => {
 											<Form.Control
 												required
 												type="email"
-												placeholder="Email"
-												defaultValue={profile.email}
+												name="email"
+												placeholder={profile.email}
+												value={values.email}
+												onChange={handleChange}
 											/>
 										</Form.Group>
 										<Form.Group as={Col} md="12" controlId="validationCustom05">
@@ -130,8 +157,23 @@ export const PerfilEdicion = () => {
 											<Form.Control
 												required
 												type="text"
-												placeholder="88888888"
-												defaultValue={profile.phone}
+												name="phone"
+												placeholder={profile.phone}
+												value={values.phone}
+												onChange={handleChange}
+											/>
+										</Form.Group>
+										<Form.Group as={Col} md="12" controlId="validationCustom06">
+											<Form.Label>
+												<b>Descripción</b>
+											</Form.Label>
+											<Form.Control
+												required
+												type="text"
+												name="description"
+												placeholder={profile.description}
+												value={values.description}
+												onChange={handleChange}
 											/>
 										</Form.Group>
 									</Form.Row>
@@ -141,7 +183,7 @@ export const PerfilEdicion = () => {
 								<Button className="mr-3" variant="danger" onClick={handleShow}>
 									Eliminar Cuenta
 								</Button>
-								<Button type="submit" variant="success">
+								<Button type="submit" variant="success" onClick={handleUpdateUserProfile}>
 									Guardar Cambios
 								</Button>
 							</Card.Footer>

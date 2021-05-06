@@ -26,11 +26,6 @@ export const PerfilUsuario = () => {
 				<Col>
 					<Card style={{ width: "54rem", margin: "3rem 0 3rem 0" }}>
 						<Card.Body>
-							<Image
-								src="https://fakeimg.pl/100x100/?text=Profile Pic"
-								rounded
-								style={{ margin: "0 0 2rem 1rem" }}
-							/>
 							<Button className="float-right" variant="dark">
 								<i className="fas fa-edit" onClick={() => history.push("/perfiledicion")}>
 									{" "}
@@ -52,6 +47,9 @@ export const PerfilUsuario = () => {
 								</ListGroup.Item>
 								<ListGroup.Item>
 									<b style={{ marginRight: "7.5rem" }}>Tel:</b> {profile.phone}
+								</ListGroup.Item>
+								<ListGroup.Item>
+									<b style={{ marginRight: "3.4rem" }}>Descripción:</b> {profile.description}
 								</ListGroup.Item>
 							</ListGroup>
 						</Card.Body>
