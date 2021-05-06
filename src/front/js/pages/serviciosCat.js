@@ -6,18 +6,22 @@ import { Link, useParams } from "react-router-dom";
 export const CatService = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
-	console.log(params.categoria);
-	console.log(store.ultimabusqueda.length);
 
-	if (store.ultimabusqueda.length != 0) {
+	const sessCats = JSON.parse(sessionStorage.getItem("cats"));
+	let ultimabusqueda = sessCats["ultimabusqueda"];
+
+	// console.log(params.categoria);
+	// console.log(store.ultimabusqueda.length);
+
+	if (ultimabusqueda.length != 0) {
 		return (
-			<div className="container-fluid pt-5" style={{ marginBottom: "5rem" }}>
+			<div className="container-fluid h-100 pt-5" style={{ marginBottom: "5rem" }}>
 				<div className="row mb-3 pl-3">
 					<h2>{"Publicaciones de " + params.categoria + ": "}</h2>
 				</div>
 
 				<div className="card-columns">
-					{store.ultimabusqueda.map((servicio, index) => {
+					{ultimabusqueda.map((servicio, index) => {
 						return (
 							<div key={index} className="card mb-3" style={{ maxwidth: "540px" }}>
 								<div className="row g-0">
@@ -55,7 +59,7 @@ export const CatService = () => {
 		);
 	} else {
 		return (
-			<div className="container-fluid d-flex justify-content-center mt-5 pt-5">
+			<div className="container-fluid d-flex justify-content-center h-100 mt-5 pt-5">
 				<div className="row ">
 					<div className="col-2" />
 					<div className="col-8">

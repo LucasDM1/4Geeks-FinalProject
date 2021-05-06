@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Container, Col } from "react-bootstrap";
 
 export const Footer = () => (
-	<Navbar sticky="bottom" style={{ height: "3rem" }}>
+	<Navbar bg="dark" variant="dark" sticky="bottom">
 		<Container fluid>
 			<Col className="text-center">
 				<Navbar.Text href="#home">Emprendelo</Navbar.Text>

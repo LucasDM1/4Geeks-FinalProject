@@ -30,7 +30,7 @@ export const Publish = () => {
 			min == "" ||
 			max == ""
 		) {
-			console.log(nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
+			// console.log(nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
 			setNotmissing(true);
 		} else {
 			setNotmissing(false);
@@ -42,7 +42,7 @@ export const Publish = () => {
 	};
 
 	return (
-		<div className="container-fluid my-5 py-3 ">
+		<div className="container-fluid h-100 my-5 py-3 ">
 			<div className="row justify-content-center">
 				<div className="card w-100 m-5">
 					<div className="card-body justify-content-center">
@@ -65,7 +65,8 @@ export const Publish = () => {
 								<input
 									type="text" //cambiar a file
 									name="nombre"
-									onChange={e => (setNombre(e.target.value), console.log(nombre))}
+									onChange={e => setNombre(e.target.value)}
+									placeholder="Describe brevemente lo que haces"
 									value={nombre}
 									className="form-control mb-2 p-1"
 									id="nombrePublicacion"
@@ -77,7 +78,7 @@ export const Publish = () => {
 									onChange={e => setCategoria(e.target.value)}
 									value={categoria}
 									className="form-control mb-2">
-									<option value>Elije una categoría...</option>
+									<option value>Elige una categoría...</option>
 									<option>Carpintería</option>
 									<option>Cerrajería</option>
 									<option>Mecánica</option>
@@ -115,8 +116,9 @@ export const Publish = () => {
 								<input
 									type="text" //cambiar a file
 									name="imagen"
-									onChange={e => (SetImage(e.target.value), console.log(image))}
+									onChange={e => SetImage(e.target.value)}
 									value={image}
+									placeholder="Utiliza una dirección de url, con las terminaciones .jpg, .png, o .svc"
 									className="form-control mb-2 p-1"
 									id="imagenPublicacion"
 								/>
@@ -192,7 +194,7 @@ export const Publish = () => {
 										</select>
 									</div>
 								</div>
-								<h5>¿En donde puedes brindar tu servicio?</h5>
+								<h5>¿En dónde puedes brindar tu servicio?</h5>
 								<select
 									id="Provincia"
 									className="form-control mb-2"

@@ -144,13 +144,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getServices: async () => {
 				await fetch(process.env.BACKEND_URL + "/api/servicios")
 					.then(res => res.json())
-					.then(data => setStore({ servicios: data }))
+					.then(data => {
+						setStore({ servicios: data });
+						sessionStorage.setItem("servicio", JSON.stringify({ servicios: data }));
+					})
 					.catch(err => console.error(err));
 			},
 			getUsers: async () => {
 				await fetch(process.env.BACKEND_URL + "/api/users")
 					.then(res => res.json())
-					.then(data => setStore({ usuarios: data }))
+					.then(data => {
+						setStore({ usuarios: data });
+						sessionStorage.setItem("usuarios", JSON.stringify({ usuarios: data }));
+					})
 					.catch(err => console.error(err));
 			},
 			handleGetUserProfile: async () => {
@@ -226,11 +232,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let s = getStore();
 				let filtro = s.servicios.filter(post => post.provincia == provincia);
 				setStore({ ultimabusqueda: filtro });
+				sessionStorage.setItem("provs", JSON.stringify({ ultimabusqueda: filtro }));
 			},
 			getPostCat: categoria => {
 				let s = getStore();
 				let filtroCat = s.servicios.filter(post => post.categoria == categoria);
 				setStore({ ultimabusqueda: filtroCat });
+				sessionStorage.setItem("cats", JSON.stringify({ ultimabusqueda: filtroCat }));
 			}
 		}
 	};
