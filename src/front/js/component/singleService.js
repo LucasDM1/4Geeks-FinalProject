@@ -19,7 +19,8 @@ export const SService = props => {
 								<b>Nombre del servicio</b>
 							</h5>
 							<p>
-								<b>Categoria</b>
+								<b>Categoria:</b>
+								{local_data.categoria}
 							</p>
 							<p>
 								<b>Ubicacion</b>

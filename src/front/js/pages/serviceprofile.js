@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
+import { Link } from "react-router-dom";
 import { SService } from "../component/singleService";
 
 export const ServiceProfile = () => {
@@ -9,16 +10,27 @@ export const ServiceProfile = () => {
 		actions.handleGetUserProfile();
 	}, []);
 
+	const publications = store.servicios.filter(servicio => servicio.user_id == store.perfilUsuario.uid);
+
 	return (
 		<div className="container-fluid" style={{ margin: "6rem 0 4rem 0" }}>
 			<h2 className="text-center text-muted">
 				Hola {store.perfilUsuario.name}! Estas son tus publicaciones activas 😉
 			</h2>
 			<div className="row m-4">
-				<SService />
-				{/* {store.usuarios.map((user, idx) => {
+				{// Lets get our user services if any:
+				publications.length ? (
+					publications.map((item, idx) => <SService key={idx} content={item} />)
+				) : (
+					<Link to="publicar">Vaya vaya... parece que aun no existen publicaciones, te animas?</Link>
+				)}
+				{
+					// console.log(`Debug: ${publications.map((item, idx) => item.name)}`)}
+					// <SService />
+					/* {store.usuarios.map((user, idx) => {
 					return user.name;
-				})} */}
+				})} */
+				}
 			</div>
 			<div className="row m-4"></div>
 			<div className="row m-4">
