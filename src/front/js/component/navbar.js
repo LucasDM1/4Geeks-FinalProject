@@ -33,12 +33,11 @@ export const NavBar = () => {
 	};
 	return (
 		<>
-			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
+			<Navbar collapseOnSelect expand="lg">
 				<Nav className="mr-auto my-1">
 					<InputGroup>
 						{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 							<Button
-								// variant="dark"
 								id="hamburguer"
 								onClick={() => setOpen(!open)}
 								aria-controls="example-collapse-text"
