@@ -3,17 +3,17 @@ import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { Link, useParams } from "react-router-dom";
 
-export const StateService = () => {
+export const CatService = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
-
+	console.log(params.categoria);
 	console.log(store.ultimabusqueda.length);
 
 	if (store.ultimabusqueda.length != 0) {
 		return (
 			<div className="container-fluid pt-5" style={{ marginBottom: "5rem" }}>
 				<div className="row mb-3 pl-3">
-					<h2>{"Publicaciones en " + params.provincia + ": "}</h2>
+					<h2>{"Publicaciones de " + params.categoria + ": "}</h2>
 				</div>
 
 				<div className="card-columns">
@@ -61,7 +61,7 @@ export const StateService = () => {
 					<div className="col-8">
 						<div className="card w-100">
 							<div className="card-body">
-								<h2 className="card-title mb-2">No hay publicaciones para esta provincia aún</h2>
+								<h2 className="card-title mb-2">No hay publicaciones para esta categoria aún</h2>
 								<h5>
 									Ayúdanos expandiendo la plataforma, crea tus publicaciones y compartelas con tus
 									amigos y conocidos, así nos ayudas y te ayudamos a salir adelante.
@@ -69,7 +69,7 @@ export const StateService = () => {
 								<Link to="/">
 									<button type="button" className="btn btn-warning my-3">
 										{" "}
-										<b>Regresar a la pagina principal</b>
+										<b>Regresar a la página principal</b>
 									</button>
 								</Link>
 							</div>

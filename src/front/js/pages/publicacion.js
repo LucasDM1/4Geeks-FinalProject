@@ -105,7 +105,8 @@ export const Publish = () => {
 									<option>Cuidado de uñas</option>
 									<option>Transporte</option>
 									<option>Limpieza</option>
-									<option>Tutorias</option>
+									<option>Tutorías</option>
+									<option>Otros</option>
 								</select>
 
 								<h5>¿Cómo se ven tus servicios?</h5>

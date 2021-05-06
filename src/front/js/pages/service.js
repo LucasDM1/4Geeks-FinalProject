@@ -6,7 +6,10 @@ export const Service = () => {
 	const { store, actions } = useContext(Context);
 	const [proveedor, setProveedor] = useState({});
 	const params = useParams();
-	const userID = store.servicios[params.index].user_id;
+
+	let service = store.servicios.filter(post => post.id == params.index);
+	const userID = service[0].user_id;
+	console.log(service);
 
 	const getUser = () => {
 		console.log(userID);
@@ -23,15 +26,11 @@ export const Service = () => {
 				<div className="col-10">
 					<div className="card" style={{ width: "100%" }}>
 						<div className="card-body justify-content-center">
-							<h3 className="card-title my-3">{store.servicios[params.index].name}</h3>
+							<h3 className="card-title my-3">{service[0].name}</h3>
 							<div className="row">
 								<div className="col-4 p-2">
 									<div className="row">
-										<img
-											className="m-3"
-											style={{ width: "90%" }}
-											src={store.servicios[params.index].image}
-										/>
+										<img className="m-3" style={{ width: "90%" }} src={service[0].image} />
 									</div>
 
 									<div className="row justify-content-center">
@@ -73,28 +72,28 @@ export const Service = () => {
 												<i className="fas fa-map-marker-alt mr-1" />
 												Ubicación
 											</h5>
-											<h5>{store.servicios[params.index].provincia}</h5>
+											<h5>{service[0].provincia}</h5>
 										</div>
 										<div className="col-4">
 											<h5>
 												<i className="far fa-clock mr-1" />
 												Horario
 											</h5>
-											<h5>{store.servicios[params.index].schedule}</h5>
+											<h5>{service[0].schedule}</h5>
 										</div>
 										<div className="col-4">
 											<h5>
 												<i className="fas fa-dollar-sign mr-1" />
 												Rango de precios
 											</h5>
-											<h5>{store.servicios[params.index].price_range}</h5>
+											<h5>{service[0].price_range}</h5>
 										</div>
 									</div>
 									<div className="row mb-2 px-2">
 										<div className="card" style={{ width: "100%" }}>
 											<div className="card-body justify-content-center">
 												<h5>Descripcion</h5>
-												<p>{store.servicios[params.index].description}</p>
+												<p>{service[0].description}</p>
 											</div>
 										</div>
 									</div>
