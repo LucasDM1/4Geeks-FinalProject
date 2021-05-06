@@ -4,6 +4,9 @@
     background: linear-gradient(90deg, rgb(89,144,232), rgb(57,123,227), rgb(106,52,232), rgb(84,24,225), rgb(60,17,161), rgb(60,17,161));
     opacity: 0.8;
 }
+#separacion{
+    margin-left: 20px;
+}
 #collapsecard{
     opacity: 0.92;
 }
@@ -23,7 +26,7 @@ box-sizing: border-box;
 background: linear-gradient(90deg, #f44141, #fabf1e, #fa941e, #f44141);
 background-size: 400%;
 border-radius: 15px;
-// z-index: 1;
+// z-index: -1;
 border-color: none;
 }
 #LogOut:hover{
@@ -39,7 +42,7 @@ border-color: none;
 }
 #LogOut:before{
     content: "";
-    position: absolute;
+    // position: absolute;
     top: -5px;
     left: -5px;
     right: -5px;
@@ -115,8 +118,9 @@ box-sizing: border-box;
 background: linear-gradient(90deg, #e233a8, #f781cf, #f48941, #e233a8);
 background-size: 400%;
 border-radius: 15px;
-z-index: 1;
+z-index: -1;
 border-color: none;
+// margin-left: 15px;
 }
 #Register:hover{
     animation: animate 8s linear infinite;
