@@ -95,7 +95,13 @@ export const NavBar = () => {
 				</Nav>
 				<Nav className="my-1">
 					{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
-						<Button onClick={() => actions.logOut()} id="LogOut">
+						<Button
+							onClick={() => {
+								actions.logOut();
+								setOpen(false);
+								history.push("/");
+							}}
+							id="LogOut">
 							Cerrar sesión
 						</Button>
 					) : (
@@ -126,15 +132,15 @@ export const NavBar = () => {
 						<Card.Body>
 							<ListGroup>
 								<Link to="/publicar">
-									<ListGroup.Item>Crear Publicación</ListGroup.Item>
+									<ListGroup.Item onClick={() => setOpen(false)}>Crear Publicación</ListGroup.Item>
 								</Link>
 
 								<Link to="/perfildeservicio">
-									<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
+									<ListGroup.Item onClick={() => setOpen(false)}>Perfil de Servicio</ListGroup.Item>
 								</Link>
 
 								<Link to="/perfil">
-									<ListGroup.Item>Mi información</ListGroup.Item>
+									<ListGroup.Item onClick={() => setOpen(false)}>Mi información</ListGroup.Item>
 								</Link>
 
 								{/* <ListGroup.Item>Mensajes</ListGroup.Item> */}
