@@ -51,7 +51,7 @@ export const NavBar = () => {
 						<Link to="/">
 							<Navbar.Brand className="ml-3">
 								<a href="https://3000-coral-mosquito-wpshiko2.ws-us03.gitpod.io/">
-									<b style={{ color: "black" }}>TicoServices</b>
+									<b style={{ color: "black" }}>Emprendelo</b>
 								</a>
 							</Navbar.Brand>
 						</Link>
@@ -94,9 +94,7 @@ export const NavBar = () => {
 				</Nav>
 				<Nav className="my-1">
 					{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
-
 						<Button onClick={() => actions.logOut()} id="LogOut">
-
 							Cerrar sesión
 						</Button>
 					) : (
