@@ -7,6 +7,33 @@ import $ from "jquery";
 import Popper from "popper.js";
 import { useHistory } from "react-router";
 import carpinteriaIcon from "../../img/carpinteria.png";
+import albañilIcon from "../../img/Albañil.png";
+import cateringIcon from "../../img/catering.png";
+import electricistaIcon from "../../img/electricista2.png";
+import fontaneriaIcon from "../../img/Fontaneria.png";
+import llaveIcon from "../../img/llave.png";
+import maskweldIcon from "../../img/maskweld.png";
+import mecanicaIcon from "../../img/Mecanica.png";
+import pintorIcon from "../../img/Pintores2.png";
+import reparacionIcon from "../../img/Reparaciones.png";
+import serigrafiaIcon from "../../img/serigrafia.png";
+import transporteIcon from "../../img/transporte.png";
+import tutoriaIcon from "../../img/tutorias.png";
+import nailsIcon from "../../img/uñas.png";
+import zapateroIcon from "../../img/zapatero.png";
+import lavanderiaIcon from "../../img/lavanderia.png";
+import costuraIcon from "../../img/costura.png";
+import sastreIcon from "../../img/sastre.png";
+import cocinaIcon from "../../img/cocina.png";
+import niñeroIcon from "../../img/niñe.png";
+import oldIcon from "../../img/old.png";
+import animadorIcon from "../../img/animador.png";
+import panIcon from "../../img/pan.png";
+import peluqueriaIcon from "../../img/peluqueria.png";
+import locutorIcon from "../../img/locutor.png";
+import pastelIcon from "../../img/pastel.png";
+import diseñoIcon from "../../img/diseño.png";
+import otrosIcon from "../../img/otros.png";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -110,7 +137,7 @@ export const Home = () => {
 															src={carpinteriaIcon}
 															style={{
 																width: "85px",
-																height: "85px",
+																height: "88px",
 																paddingTop: "15px"
 															}}
 														/>
@@ -134,9 +161,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={llaveIcon}
 															style={{
-																width: "85px",
+																width: "38px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -159,9 +186,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={mecanicaIcon}
 															style={{
-																width: "85px",
+																width: "60px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -184,9 +211,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={albañilIcon}
 															style={{
-																width: "85px",
+																width: "70px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -209,10 +236,10 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={fontaneriaIcon}
 															style={{
-																width: "85px",
-																height: "85px",
+																width: "75px",
+																height: "93px",
 																paddingTop: "15px"
 															}}
 														/>
@@ -234,9 +261,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={maskweldIcon}
 															style={{
-																width: "85px",
+																width: "60px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -265,7 +292,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={pintorIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -291,7 +318,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={sastreIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -317,7 +344,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={cocinaIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -343,10 +370,10 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={lavanderiaIcon}
 															style={{
-																width: "85px",
-																height: "85px",
+																width: "55px",
+																height: "83px",
 																paddingTop: "15px"
 															}}
 														/>
@@ -369,7 +396,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={locutorIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -395,10 +422,10 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={animadorIcon}
 															style={{
-																width: "85px",
-																height: "85px",
+																width: "28px",
+																height: "88px",
 																paddingTop: "15px"
 															}}
 														/>
@@ -427,16 +454,21 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={panIcon}
 															style={{
 																width: "85px",
-																height: "85px",
-																paddingTop: "15px"
+																height: "60px",
+																paddingTop: "40px",
+																paddingBotton: "30px"
 															}}
 														/>
 														{/* <i className="fas fa-birthday-cake fa-5x text-center p-1 " /> */}
 														<div className="card-body m-0">
-															<h5 className="text-center text-white categorytitle">
+															<h5
+																className="text-center text-white categorytitle"
+																style={{
+																	paddingTop: "25px"
+																}}>
 																<b>Panadería</b>
 															</h5>
 														</div>
@@ -453,9 +485,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={costuraIcon}
 															style={{
-																width: "85px",
+																width: "75px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -479,7 +511,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={peluqueriaIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -505,9 +537,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={zapateroIcon}
 															style={{
-																width: "85px",
+																width: "60px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -531,9 +563,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={niñeroIcon}
 															style={{
-																width: "85px",
+																width: "80px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -557,9 +589,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={oldIcon}
 															style={{
-																width: "85px",
+																width: "65px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -567,7 +599,7 @@ export const Home = () => {
 														{/* <i className="fas fa-birthday-cake fa-5x text-center p-1 " /> */}
 														<div className="card-body m-0">
 															<h5 className="text-center text-white categorytitle">
-																<b>Cuidadores de adultos</b>
+																<b>Cuidadores</b>
 															</h5>
 														</div>
 													</div>
@@ -589,7 +621,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={serigrafiaIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -615,10 +647,11 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={cateringIcon}
 															style={{
+																marginTop: "15px",
 																width: "85px",
-																height: "85px",
+																height: "70px",
 																paddingTop: "15px"
 															}}
 														/>
@@ -641,9 +674,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={pastelIcon}
 															style={{
-																width: "85px",
+																width: "65px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -667,9 +700,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={electricistaIcon}
 															style={{
-																width: "85px",
+																width: "55px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -693,7 +726,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={reparacionIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -719,10 +752,10 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={diseñoIcon}
 															style={{
-																width: "85px",
-																height: "85px",
+																width: "95px",
+																height: "95px",
 																paddingTop: "15px"
 															}}
 														/>
@@ -751,9 +784,9 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={nailsIcon}
 															style={{
-																width: "85px",
+																width: "90px",
 																height: "85px",
 																paddingTop: "15px"
 															}}
@@ -777,7 +810,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={transporteIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -803,7 +836,7 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={tutoriaIcon}
 															style={{
 																width: "85px",
 																height: "85px",
@@ -829,11 +862,11 @@ export const Home = () => {
 															height: "160px"
 														}}>
 														<img
-															src={carpinteriaIcon}
+															src={otrosIcon}
 															style={{
-																width: "85px",
-																height: "85px",
-																paddingTop: "15px"
+																width: "100px",
+																height: "90px",
+																paddingTop: "20px"
 															}}
 														/>
 														{/* <i className="fas fa-birthday-cake fa-5x text-center p-1 " /> */}

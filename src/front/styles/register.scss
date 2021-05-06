@@ -1,5 +1,86 @@
-// body{
-//     background: linear-gradient(-60deg, rgba(27, 196, 222, 0.877), rgba(55,206,230, 0.877), rgba(87,213,234, 0.877), rgba(119,221,238, 0.877), rgba(150,229,241, 0.877), rgba(255,225,137, 0.877), rgba(255,216,102, 0.877), rgba(255,207,66, 0.877), rgba(255,198,30, 0.877), rgba(249,187,0, 0.877));
-//     background-repeat: no-repeat;
-//     background-size: auto;
+// Botón formulario de registro
+
+#RegistrarseForm{
+    align-content: center;
+    height: 38px;
+    width: 470px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #e233a8, #f781cf, #f48941, #e233a8);
+    background-size: 400%;
+    border-radius: 15px;
+    z-index: 1;
+    border-color: none;
+}
+#RegistrarseForm:hover{
+    animation: animate 8s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+#RegistrarseForm:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    // background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3bdc, #03a9f4);
+    // background-size: 400%;
+    // border-radius: 15px;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0,5s;
+}
+#RegistrarseForm:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
+
+// Formulario detalles
+
+// #RegisterForm{
+//     // position: absolute;
+//     // top: 50%;
+//     // left: 50%;
+//     // transform: translate(-50%,-50%);
+// //     // text-align: center;
+// //     padding: 25px 30px;
+// //     // color: #fff;
+//     overflow: hidden;
+// //     // background: rgba(255, 255, 255, 0.1);
+// //     // background-color: linear-gradient(90deg, rgba(3, 169, 244, 0.1), #f441a5, #ffeb3bdc, #03a9f4);
+// //     // opacity: 0.6;
+// //     // box-shadow: 0 5px 7px rgba(0,0,0,0.3)
+//     box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+// }
+// // // #RegisterForm:before{
+// // //     content: "";
+// // //     position: absolute;
+// // //     top: 0;
+// // //     left: 0;
+// // //     width: 50%;
+// // //     height: 100%;
+// // //     background: rgba(175, 195, 238, 0.336);
+// // // }
+// #RegisterForm:after{
+//     content: "";
+//     // position: absolute;
+//     // top: 0;
+//     // left: -100%;
+//     // width: 100%;
+//     // height: 100%;
+//     background: linear-gradient(90deg, transparent, rgba(255,255,255, 0.4), transparent );
+//     transition: 0.5s;
+// }
+// #RegisterForm:hover:after{
+//     left: 100%;
 // }

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import AppIcon from "../../img/Emprendelo.png";
 import {
 	InputGroup,
 	Nav,
@@ -32,12 +33,11 @@ export const NavBar = () => {
 	};
 	return (
 		<>
-			<Navbar bg="dark" collapseOnSelect expand="lg" variant="dark">
+			<Navbar collapseOnSelect expand="lg">
 				<Nav className="mr-auto my-1">
 					<InputGroup>
 						{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 							<Button
-								// variant="dark"
 								id="hamburguer"
 								onClick={() => setOpen(!open)}
 								aria-controls="example-collapse-text"
@@ -51,7 +51,7 @@ export const NavBar = () => {
 						<Link to="/">
 							<Navbar.Brand className="ml-3">
 								<a href="https://3000-coral-mosquito-wpshiko2.ws-us03.gitpod.io/">
-									<b style={{ color: "black" }}>Emprendelo</b>
+									<img src={AppIcon} style={{ width: "150px" }} />
 								</a>
 							</Navbar.Brand>
 						</Link>
@@ -94,7 +94,13 @@ export const NavBar = () => {
 				</Nav>
 				<Nav className="my-1">
 					{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
-						<Button onClick={() => actions.logOut()} id="LogOut">
+						<Button
+							onClick={() => {
+								actions.logOut();
+								setOpen(false);
+								history.push("/");
+							}}
+							id="LogOut">
 							Cerrar sesión
 						</Button>
 					) : (
@@ -103,10 +109,9 @@ export const NavBar = () => {
 								<Link to="/login">
 									<Button id="LogIn">Iniciar sesión</Button>
 								</Link>
+								<div id="separacion" />
 								<Link to="/registro">
-									<Button id="Register" className="ml-3">
-										Registrarse
-									</Button>
+									<Button id="Register">Registrarse</Button>
 								</Link>
 							</InputGroup>
 						</>
@@ -126,15 +131,15 @@ export const NavBar = () => {
 						<Card.Body>
 							<ListGroup>
 								<Link to="/publicar">
-									<ListGroup.Item>Crear Publicación</ListGroup.Item>
+									<ListGroup.Item onClick={() => setOpen(false)}>Crear Publicación</ListGroup.Item>
 								</Link>
 
 								<Link to="/perfildeservicio">
-									<ListGroup.Item>Perfil de Servicio</ListGroup.Item>
+									<ListGroup.Item onClick={() => setOpen(false)}>Perfil de Servicio</ListGroup.Item>
 								</Link>
 
 								<Link to="/perfil">
-									<ListGroup.Item>Mi información</ListGroup.Item>
+									<ListGroup.Item onClick={() => setOpen(false)}>Mi información</ListGroup.Item>
 								</Link>
 
 								{/* <ListGroup.Item>Mensajes</ListGroup.Item> */}

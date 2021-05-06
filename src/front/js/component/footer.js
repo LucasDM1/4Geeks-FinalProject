@@ -5,12 +5,12 @@ export const Footer = () => (
 	<Navbar bg="dark" variant="dark" sticky="bottom">
 		<Container fluid>
 			<Col className="text-center">
-				<Navbar.Text href="#home">OurAppName</Navbar.Text>
+				<Navbar.Text href="#home">Emprendelo</Navbar.Text>
 			</Col>
 			<Col className="text-center">
 				<Navbar.Text style={{ fontSize: "12pt" }}>
 					<i className="far fa-copyright" />
-					Copyright OurCompany 2021
+					Copyright Emprendelo 2021
 				</Navbar.Text>
 			</Col>
 			<Col className="text-center">
