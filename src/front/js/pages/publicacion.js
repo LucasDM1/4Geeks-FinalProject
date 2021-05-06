@@ -16,6 +16,7 @@ export const Publish = () => {
 	const [notmissing, setNotmissing] = useState("");
 
 	const history = useHistory();
+	const token = sessionStorage.getItem("token");
 
 	const handlePost = () => {
 		if (
@@ -39,6 +40,7 @@ export const Publish = () => {
 	const handleSuccess = () => {
 		(store.publicarSuccess = false), history.push("/perfildeservicio");
 	};
+
 	return (
 		<div className="container-fluid my-5 py-3 ">
 			<div className="row justify-content-center">
@@ -94,7 +96,7 @@ export const Publish = () => {
 									<option>Peluquería</option>
 									<option>Zapateros</option>
 									<option>Niñeros</option>
-									<option>Cuidadores de adultos</option>
+									<option>Cuidadores</option>
 									<option>Serigrafía</option>
 									<option>Fotocopiadora</option>
 									<option>Catering</option>
