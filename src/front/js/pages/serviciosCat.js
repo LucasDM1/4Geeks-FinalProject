@@ -13,6 +13,9 @@ export const CatService = () => {
 
 	// console.log(params.categoria);
 	// console.log(store.ultimabusqueda.length);
+	useEffect(() => {
+		actions.closeMenu();
+	}, []);
 
 	if (ultimabusqueda.length != 0) {
 		return (

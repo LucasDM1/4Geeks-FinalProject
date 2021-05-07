@@ -33,14 +33,19 @@ export const Publish = () => {
 		) {
 			// console.log(nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
 			setNotmissing(true);
+			actions.closeMenu();
 		} else {
 			setNotmissing(false);
+			actions.closeMenu();
 			actions.handlePublication(nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
 		}
 	};
 	const handleSuccess = () => {
 		(store.publicarSuccess = false), history.push("/perfildeservicio");
 	};
+	useEffect(() => {
+		actions.closeMenu();
+	}, []);
 
 	return (
 		<div className="container-fluid h-100 my-5">

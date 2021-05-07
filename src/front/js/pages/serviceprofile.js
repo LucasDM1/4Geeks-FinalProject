@@ -7,6 +7,13 @@ import "../../styles/home.scss";
 
 export const ServiceProfile = () => {
 	const { store, actions } = useContext(Context);
+	const deletePost = pub => {
+		actions.pubRm(pub).then(resp => {
+			if (store.passwordReset) {
+			}
+		});
+	};
+
 	useEffect(() => {
 		actions.handleGetUserProfile();
 	}, []);
@@ -51,6 +58,15 @@ export const ServiceProfile = () => {
 															type="button"
 															className="btn btn-outline-dark">
 															Lo necesito!
+                            </button>
+													</Link>
+													<Link to={"/"}>
+														<button
+															type="button"
+															className="btn btn-outline-dark"
+															onClick={() => deletePost(item.id)}>
+															{" "}
+															Eliminar
 														</button>
 													</Link>
 												</p>

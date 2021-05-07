@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			registerSuccess: false,
+			menuState: false,
 			registerProblem: false,
 			registerError: null,
 			token: null,
@@ -17,6 +18,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			resetStore: () => {
 				setStore({ passwordReset: false });
+			},
+			toggleMenu: state => {
+				setStore({ menuState: state });
+			},
+			closeMenu: () => {
+				setStore({ menuState: false });
+			},
+			openMenu: () => {
+				setStore({ menuState: true });
 			},
 			logOut: () => {
 				setStore({ token: null });
@@ -68,6 +78,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (resp.status !== 200) return resp.json();
 						else {
 							setStore({ passwordReset: true });
+							return resp.json();
+						}
+					})
+					.then(data => {
+						console.log("This came from the backend ", data);
+						return true;
+					})
+					.catch(error => console.error("There has been an error somewhere", error));
+			},
+			pubRm: async pub => {
+				const url = process.env.BACKEND_URL + "/api/rmserv";
+				const mytoken = sessionStorage.getItem("token");
+
+				await fetch(url, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + mytoken
+					},
+					body: JSON.stringify({
+						id: pub
+					})
+				})
+					.then(resp => {
+						if (resp.status !== 200) return resp.json();
+						else {
 							return resp.json();
 						}
 					})

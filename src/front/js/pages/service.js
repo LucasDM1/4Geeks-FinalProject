@@ -19,12 +19,16 @@ export const Service = () => {
 
 	const getUser = () => {
 		console.log(userID);
+		actions.closeMenu();
 
 		let usuario = usuarios.filter(user => user.id == userID);
 		setProveedor(usuario[0]);
 		console.log("user: ", usuario[0]);
 		console.log(proveedor);
 	};
+	useEffect(() => {
+		actions.closeMenu();
+	}, []);
 
 	return (
 		<div className="container-fluid h-100 pt-3" style={{ margin: "6rem 0 6rem 0" }}>

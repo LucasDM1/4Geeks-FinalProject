@@ -65,6 +65,9 @@ export const PerfilEdicion = () => {
 		);
 		history.push("/perfil");
 	};
+	useEffect(() => {
+		actions.closeMenu();
+	}, []);
 	return (
 		<>
 			<Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
