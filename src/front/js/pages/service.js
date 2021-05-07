@@ -18,6 +18,7 @@ export const Service = () => {
 
 	const getUser = () => {
 		console.log(userID);
+		actions.closeMenu();
 
 		let usuario = usuarios.filter(user => user.id == userID);
 		setProveedor(usuario[0]);

@@ -32,8 +32,10 @@ export const Publish = () => {
 		) {
 			// console.log(nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
 			setNotmissing(true);
+			actions.closeMenu();
 		} else {
 			setNotmissing(false);
+			actions.closeMenu();
 			actions.handlePublication(nombre, image, categoria, descripcion, provincia, abierto, cerrado, min, max);
 		}
 	};
