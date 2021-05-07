@@ -40,6 +40,9 @@ export const Publish = () => {
 	const handleSuccess = () => {
 		(store.publicarSuccess = false), history.push("/perfildeservicio");
 	};
+	useEffect(() => {
+		actions.closeMenu();
+	}, []);
 
 	return (
 		<div className="container-fluid h-100 my-5 py-3 ">

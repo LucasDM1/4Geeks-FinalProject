@@ -24,6 +24,9 @@ export const Service = () => {
 		console.log("user: ", usuario[0]);
 		console.log(proveedor);
 	};
+	useEffect(() => {
+		actions.closeMenu();
+	}, []);
 
 	return (
 		<div className="container-fluid h-100 pt-3" style={{ margin: "6rem 0 6rem 0" }}>
