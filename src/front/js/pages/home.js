@@ -40,11 +40,11 @@ export const Home = () => {
 	const history = useHistory();
 
 	//const sessServ = sessionStorage.getItem("servicio");
-	const sessObj = JSON.parse(sessionStorage.getItem("servicio"));
-	let servicios = sessObj["servicios"];
+	// const sessObj = JSON.parse(sessionStorage.getItem("servicio"));
+	// let servicios = sessObj["servicios"];
 
 	//console.log(typeof sessServ, sessServ);
-	console.log(typeof sessObj, sessObj["servicios"]);
+	//console.log(typeof sessObj, sessObj["servicios"]);
 
 	const handleCategoria = categoria => {
 		actions.getPostCat(categoria);
@@ -914,7 +914,7 @@ export const Home = () => {
 					<h2>Nuevas publicaciones</h2>
 				</div> */}
 				<div className="card-columns">
-					{servicios.map((servicio, index) => {
+					{store.servicios.map((servicio, index) => {
 						return (
 							<div key={index} className="card mb-3 p-0" style={{ maxwidth: "540px" }}>
 								<div className="row g-0">
