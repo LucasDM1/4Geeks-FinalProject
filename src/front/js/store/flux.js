@@ -87,6 +87,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.error("There has been an error somewhere", error));
 			},
+			pubRm: async pub => {
+				const url = process.env.BACKEND_URL + "/api/rmserv";
+				const mytoken = sessionStorage.getItem("token");
+
+				await fetch(url, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + mytoken
+					},
+					body: JSON.stringify({
+						id: pub
+					})
+				})
+					.then(resp => {
+						if (resp.status !== 200) return resp.json();
+						else {
+							return resp.json();
+						}
+					})
+					.then(data => {
+						console.log("This came from the backend ", data);
+						return true;
+					})
+					.catch(error => console.error("There has been an error somewhere", error));
+			},
 			handleRegister: async (name, lastname, cedula, phone, email, password) => {
 				await fetch(process.env.BACKEND_URL + "/api/register", {
 					method: "POST",
