@@ -33,7 +33,10 @@ export const ServiceProfile = () => {
 					<div className="card-columns">
 						{publications.map((item, idx) => {
 							return (
-								<div key={idx} className="card mb-3 p-0" style={{ maxwidth: "540px" }}>
+								<div
+									key={idx}
+									className="card mb-3 p-0"
+									style={{ maxwidth: "540px", boxShadow: "10px 10px 20px rgba(0,0,0,0.5)" }}>
 									<div className="row g-0">
 										<div className="col-md-4">
 											<img src={item.image} style={{ width: "200px", height: "200px" }} />
@@ -58,10 +61,11 @@ export const ServiceProfile = () => {
 															type="button"
 															className="btn btn-outline-dark">
 															Lo necesito!
-                            </button>
+														</button>
 													</Link>
 													<Link to={"/"}>
 														<button
+															id="nonecesito"
 															type="button"
 															className="btn btn-outline-dark"
 															onClick={() => deletePost(item.id)}>

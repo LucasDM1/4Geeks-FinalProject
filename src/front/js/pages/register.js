@@ -111,8 +111,8 @@ export const Register = () => {
 	return (
 		<div className="container-fluid h-100" style={{ margin: "5rem 0 5rem 0" }}>
 			<div className="row d-flex justify-content-center">
-				<div id="RegisterForm" className="card">
-					<div className="card-body py-2">
+				<div className="card">
+					<div id="RegisterForm" className="card-body py-2">
 						<h1 className="card-title text-center">Registrate</h1>
 						{store.registerSuccess == true ? (
 							<div className="alert alert-success" role="alert">
