@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { Link, useParams } from "react-router-dom";
+import "../../styles/serviciosPyC.scss";
 
 export const StateService = () => {
 	const { store, actions } = useContext(Context);
@@ -43,7 +44,10 @@ export const StateService = () => {
 											</p>
 											<p className="card-text">
 												<Link to={"/servicio/" + servicio.id}>
-													<button type="button" className="btn btn-outline-dark">
+													<button
+														id="necesito"
+														type="button"
+														className="btn btn-outline-dark">
 														Lo necesito!
 													</button>
 												</Link>
@@ -71,7 +75,7 @@ export const StateService = () => {
 									amigos y conocidos, así nos ayudas y te ayudamos a salir adelante.
 								</h5>
 								<Link to="/">
-									<button type="button" className="btn btn-warning my-3">
+									<button type="button" className="btn backpage my-3">
 										{" "}
 										<b>Regresar a la pagina principal</b>
 									</button>

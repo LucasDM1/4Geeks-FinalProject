@@ -30,7 +30,51 @@
     // box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
+#newads{
+    margin-top: 800px;
+}
 
+#necesito{
+    align-content: center;
+    height: 38px;
+    width: 150px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 15px;
+    z-index: 1;
+    border-color: none;
+}
+#necesito:hover{
+    animation: animate 8s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+#necesito:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    // filter: blur(20px);
+    opacity: 0;
+    transition: 0,5s;
+}
+#necesito:hover:before{
+    // filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
 
 
 

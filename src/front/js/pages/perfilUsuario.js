@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Container, Row, Col, ListGroup, Image, Button, Card } from "react-bootstrap";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
+import "../../styles/perfilUsuario.scss";
 
 export const PerfilUsuario = () => {
 	const { store, actions } = useContext(Context);
@@ -25,9 +26,9 @@ export const PerfilUsuario = () => {
 					alignItems: "center"
 				}}>
 				<Col>
-					<Card style={{ width: "54rem", margin: "3rem 0 3rem 0" }}>
+					<Card id="usuarioCard" style={{ width: "54rem", height: "30rem", margin: "3rem 0 3rem 0" }}>
 						<Card.Body>
-							<Button className="float-right" variant="dark">
+							<Button id="edicion" className="float-right">
 								<i className="fas fa-edit" onClick={() => history.push("/perfiledicion")}>
 									{" "}
 									Editar

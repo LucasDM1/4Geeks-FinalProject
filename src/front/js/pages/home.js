@@ -55,7 +55,7 @@ export const Home = () => {
 		<div className="container-fluid h-100 p-0" style={{ marginBottom: "5rem", margin: "50px, 0" }}>
 			<div id="pageheader">
 				<div id="slogan" className="mb-5 text-center">
-					<h1>Inserte slogan casual que convenza a cualquiera</h1>
+					<h1>Abriendo el camino al pequeño empresario</h1>
 				</div>
 				<div id="backcarousel" className="mt-5 mb-5">
 					<div className="row justify-content-center">
@@ -904,50 +904,52 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-
-			<div id="adshome" className="container-fluid">
-				{/* <div id="newads" className="mb-5 text-center">
+			{/* <div id="adshome" className="container-fluid"> */}
+			{/* <div id="newads" className="mb-5 text-center">
 					<h2>Nuevas publicaciones</h2>
 				</div> */}{" "}
-				<div id="newads" className="mb-5 text-center">
+			{/* <div id="newads" className="mb-5 text-center">
 					<h2>Nuevas publicaciones</h2>
-				</div>
-				<div className="card-columns">
-					{store.servicios.map((servicio, index) => {
-						return (
-							<div key={index} className="card mb-3 p-0" style={{ maxwidth: "540px" }}>
-								<div className="row g-0">
-									<div className="col-md-4">
-										<img src={servicio.image} style={{ width: "200px", height: "200px" }} />
-									</div>
-									<div className="col-md-8">
-										<div className="card-body">
-											<h5 className="card-title">
-												<b>{servicio.name}</b>
-											</h5>
+				</div> */}
+			{/* <div id="newads">
+				<h1>Publicaciones recientes:</h1>
+			</div> */}
+			<div className="card-columns p-3">
+				{store.servicios.map((servicio, index) => {
+					return (
+						<div key={index} className="card mb-3 p-0" style={{ maxwidth: "540px" }}>
+							<div className="row g-0">
+								<div className="col-md-4">
+									<img src={servicio.image} style={{ width: "200px", height: "200px" }} />
+								</div>
+								<div className="col-md-8">
+									<div className="card-body">
+										<h5 className="card-title">
+											<b>{servicio.name}</b>
+										</h5>
+										<p>
+											<b>{servicio.categoria}</b>
+										</p>
+										<p>
 											<p>
-												<b>{servicio.categoria}</b>
+												<i className="fas fa-map-marker-alt" /> {" " + servicio.provincia}
 											</p>
-											<p>
-												<p>
-													<i className="fas fa-map-marker-alt" /> {" " + servicio.provincia}
-												</p>
-											</p>
-											<p className="card-text">
-												<Link to={"/servicio/" + servicio.id}>
-													<button type="button" className="btn btn-outline-dark">
-														Lo necesito!
-													</button>
-												</Link>
-											</p>
-										</div>
+										</p>
+										<p className="card-text">
+											<Link to={"/servicio/" + servicio.id}>
+												<button id="necesito" type="button" className="btn">
+													Lo necesito!
+												</button>
+											</Link>
+										</p>
 									</div>
 								</div>
 							</div>
-						);
-					})}
-				</div>
+						</div>
+					);
+				})}
 			</div>
+			{/* </div> */}
 		</div>
 	);
 };

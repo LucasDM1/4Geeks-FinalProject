@@ -84,7 +84,7 @@ export const NavBar = () => {
 									</Form.Control>
 									{/* <Link to={provincia == "Provincia" ? null : "/servicios/" + provincia}></Link> */}
 									{/* Hay que reparar esto */}
-									<Button className="ml-2" onClick={() => handleProvincia()} variant="info">
+									<Button id="buscar" onClick={() => handleProvincia()}>
 										<i className="fas fa-search" />
 									</Button>
 								</Form.Group>

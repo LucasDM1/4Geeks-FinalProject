@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { Link } from "react-router-dom";
 import { SService } from "../component/singleService";
+import "../../styles/home.scss";
 
 export const ServiceProfile = () => {
 	const { store, actions } = useContext(Context);
@@ -45,7 +46,10 @@ export const ServiceProfile = () => {
 												</p>
 												<p className="card-text">
 													<Link to={"/servicio/" + item.id}>
-														<button type="button" className="btn btn-outline-dark">
+														<button
+															id="necesito"
+															type="button"
+															className="btn btn-outline-dark">
 															Lo necesito!
 														</button>
 													</Link>

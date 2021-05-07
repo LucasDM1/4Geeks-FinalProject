@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Image, Button, Card, Form, Modal, Alert } from "react-bootstrap";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
+import "../../styles/perfilUsuario.scss";
 
 export const PerfilEdicion = () => {
 	const { store, actions } = useContext(Context);
@@ -72,10 +73,10 @@ export const PerfilEdicion = () => {
 				</Modal.Header>
 				<Modal.Body>La cuenta de usuario será eliminada permanentemente. Desea continuar?</Modal.Body>
 				<Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>
+					<Button id="cancelar" onClick={handleClose}>
 						Cancelar
 					</Button>
-					<Button variant="primary" onClick={handleDeleteAccount}>
+					<Button id="aceptar" onClick={handleDeleteAccount}>
 						Aceptar
 					</Button>
 				</Modal.Footer>
@@ -180,10 +181,10 @@ export const PerfilEdicion = () => {
 								</Form>
 							</Card.Body>
 							<Card.Footer>
-								<Button className="mr-3" variant="danger" onClick={handleShow}>
+								<Button className="mr-3" id="deleteaccount" onClick={handleShow}>
 									Eliminar Cuenta
 								</Button>
-								<Button type="submit" variant="success" onClick={handleUpdateUserProfile}>
+								<Button type="submit" id="savechanges" onClick={handleUpdateUserProfile}>
 									Guardar Cambios
 								</Button>
 							</Card.Footer>
