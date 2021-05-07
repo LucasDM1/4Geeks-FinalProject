@@ -123,6 +123,13 @@ def delete_user():
     
     return jsonify({ "msg": "User deleted successfully!!" })
 
+@api.route("/rmserv", methods=["DELETE"])
+@jwt_required()
+def delete_publicacion():
+    current_user_email = get_jwt_identity()
+    postid = request.json.get("id", None)
+    return jsonify(Post.delService(postid)), 200
+
 @api.route("/perfiledicion", methods=["PUT"])
 @jwt_required()
 def update_user():

@@ -124,6 +124,12 @@ class Post(db.Model):
         db.session.commit()
         return("The service has been created"), 200
 
+    def delService(post_id):
+        post = Post.query.filter_by(id=post_id).first()
+        db.session.delete(post)
+        db.session.commit()
+        return("Service removed"),200
+
 
 
 class Comments (db.Model):

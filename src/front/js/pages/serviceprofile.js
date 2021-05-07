@@ -6,6 +6,13 @@ import { SService } from "../component/singleService";
 
 export const ServiceProfile = () => {
 	const { store, actions } = useContext(Context);
+	const deletePost = pub => {
+		actions.pubRm(pub).then(resp => {
+			if (store.passwordReset) {
+			}
+		});
+	};
+
 	useEffect(() => {
 		actions.handleGetUserProfile();
 	}, []);
@@ -44,9 +51,13 @@ export const ServiceProfile = () => {
 													</p>
 												</p>
 												<p className="card-text">
-													<Link to={"/servicio/" + item.id}>
-														<button type="button" className="btn btn-outline-dark">
-															Lo necesito!
+													<Link to={"/"}>
+														<button
+															type="button"
+															className="btn btn-outline-dark"
+															onClick={() => deletePost(item.id)}>
+															{" "}
+															Eliminar
 														</button>
 													</Link>
 												</p>
