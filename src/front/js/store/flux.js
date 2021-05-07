@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			registerSuccess: false,
+			menuState: false,
 			registerProblem: false,
 			registerError: null,
 			token: null,
@@ -17,6 +18,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			resetStore: () => {
 				setStore({ passwordReset: false });
+			},
+			toggleMenu: state => {
+				setStore({ menuState: state });
+			},
+			closeMenu: () => {
+				setStore({ menuState: false });
+			},
+			openMenu: () => {
+				setStore({ menuState: true });
 			},
 			logOut: () => {
 				setStore({ token: null });

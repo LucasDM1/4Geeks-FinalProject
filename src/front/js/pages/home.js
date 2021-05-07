@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { Link, useParams } from "react-router-dom";
@@ -51,6 +51,9 @@ export const Home = () => {
 		history.push("/serviciosC/" + categoria);
 	};
 
+	useEffect(() => {
+		actions.closeMenu();
+	}, []);
 	return (
 		<div className="container-fluid h-100 p-0" style={{ marginBottom: "5rem", margin: "50px, 0" }}>
 			<div id="pageheader">

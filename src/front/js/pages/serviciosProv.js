@@ -12,6 +12,9 @@ export const StateService = () => {
 	let ultimabusqueda = sessProv["ultimabusqueda"];
 
 	console.log(ultimabusqueda.length);
+	useEffect(() => {
+		actions.closeMenu();
+	}, []);
 
 	if (ultimabusqueda.length != 0) {
 		return (

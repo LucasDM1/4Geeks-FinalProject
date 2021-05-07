@@ -19,7 +19,7 @@ import { Context } from "../store/appContext";
 import { useHistory } from "react-router";
 
 export const NavBar = () => {
-	const [open, setOpen] = useState(false);
+	//const [open, setOpen] = useState(false);
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
 	const token = sessionStorage.getItem("token");
@@ -39,9 +39,9 @@ export const NavBar = () => {
 						{token !== "null" && token !== "undefined" && token !== undefined && token !== null ? (
 							<Button
 								id="hamburguer"
-								onClick={() => setOpen(!open)}
+								onClick={() => actions.toggleMenu(!store.menuState)}
 								aria-controls="example-collapse-text"
-								aria-expanded={open}>
+								aria-expanded={store.menuState}>
 								<i
 									className="fas fa-bars text-white"
 									style={{ position: "relative", fontSize: "20pt" }}
@@ -97,7 +97,7 @@ export const NavBar = () => {
 						<Button
 							onClick={() => {
 								actions.logOut();
-								setOpen(false);
+								actions.closeMenu();
 								history.push("/");
 							}}
 							id="LogOut">
@@ -118,7 +118,7 @@ export const NavBar = () => {
 					)}
 				</Nav>
 			</Navbar>
-			<Collapse id="collapse" in={open} timeout={5}>
+			<Collapse id="collapse" in={store.menuState} timeout={5}>
 				<div
 					style={{
 						position: "absolute",
@@ -131,15 +131,19 @@ export const NavBar = () => {
 						<Card.Body>
 							<ListGroup>
 								<Link to="/publicar">
-									<ListGroup.Item onClick={() => setOpen(false)}>Crear Publicación</ListGroup.Item>
+									<ListGroup.Item onClick={() => actions.closeMenu()}>
+										Crear Publicación
+									</ListGroup.Item>
 								</Link>
 
 								<Link to="/perfildeservicio">
-									<ListGroup.Item onClick={() => setOpen(false)}>Perfil de Servicio</ListGroup.Item>
+									<ListGroup.Item onClick={() => actions.closeMenu()}>
+										Perfil de Servicio
+									</ListGroup.Item>
 								</Link>
 
 								<Link to="/perfil">
-									<ListGroup.Item onClick={() => setOpen(false)}>Mi información</ListGroup.Item>
+									<ListGroup.Item onClick={() => actions.closeMenu()}>Mi información</ListGroup.Item>
 								</Link>
 
 								{/* <ListGroup.Item>Mensajes</ListGroup.Item> */}
