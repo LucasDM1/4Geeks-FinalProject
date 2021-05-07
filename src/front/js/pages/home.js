@@ -905,14 +905,13 @@ export const Home = () => {
 				</div>
 			</div>
 
-			<div id="newads" className="mb-5 text-center">
-				<h2>Nuevas publicaciones</h2>
-			</div>
-
 			<div id="adshome" className="container-fluid">
 				{/* <div id="newads" className="mb-5 text-center">
 					<h2>Nuevas publicaciones</h2>
-				</div> */}
+				</div> */}{" "}
+				<div id="newads" className="mb-5 text-center">
+					<h2>Nuevas publicaciones</h2>
+				</div>
 				<div className="card-columns">
 					{store.servicios.map((servicio, index) => {
 						return (

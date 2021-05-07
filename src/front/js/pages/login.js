@@ -50,7 +50,7 @@ export const Login = () => {
 												className="form-control"
 												id="email"
 												aria-describedby="emailHelp"
-												placeholder="Indique su correo electronico"
+												placeholder="Indica tu correo electronico"
 												value={email}
 												onChange={e => setEmail(e.target.value)}
 											/>
@@ -63,7 +63,7 @@ export const Login = () => {
 												id="password"
 												className="form-control"
 												aria-describedby="emailHelp"
-												placeholder=""
+												placeholder="Ingresa tu contraseña"
 												value={password}
 												onChange={e => setPassword(e.target.value)}
 											/>
