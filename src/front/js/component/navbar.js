@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import AppIcon from "../../img/Emprendelo.png";
+import AppIcon from "../../img/EMPRENDELO.png";
 import {
 	InputGroup,
 	Nav,
@@ -51,7 +51,7 @@ export const NavBar = () => {
 						<Link to="/">
 							<Navbar.Brand className="ml-3">
 								<a href="https://3000-coral-mosquito-wpshiko2.ws-us03.gitpod.io/">
-									<img src={AppIcon} style={{ width: "150px" }} />
+									<img src={AppIcon} style={{ width: "200px" }} />
 								</a>
 							</Navbar.Brand>
 						</Link>
