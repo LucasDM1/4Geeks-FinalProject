@@ -1,0 +1,240 @@
+// Card usuario
+
+#usuarioCard{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    }
+#usuarioCard:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255, 0.4), transparent );
+    transition: 0.5s;
+}
+#usuarioCard:hover:after{
+    left: 100%;
+}
+
+// Boton editar perfil usuario
+#edicion{
+    align-content: center;
+    height: 38px;
+    width: 100px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #7f33e2, #b694ee, #f892ca, #7f33e2);
+    background-size: 400%;
+    border-radius: 15px;
+    z-index: 1;
+    border-color: none;
+}
+#edicion:hover{
+    animation: animate 8s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+#edicion:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0,5s;
+}
+#edicion:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
+
+
+// boton guardar cambios cuenta
+#savechanges{
+    align-content: center;
+    height: 38px;
+    width: 150px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #3353e2, #7ebdf8, #68e1ff, #3353e2);
+    background-size: 400%;
+    border-radius: 15px;
+    z-index: 1;
+    border-color: none;
+}
+#savechanges:hover{
+    animation: animate 8s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+#savechanges:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0,5s;
+}
+#savechanges:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
+
+// boton eliminar cuenta
+
+#deleteaccount{
+    align-content: center;
+    height: 38px;
+    width: 150px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #ff1414, #f8827e, #ff9868, #ff1414);
+    background-size: 400%;
+    border-radius: 15px;
+    z-index: 1;
+    border-color: none;
+}
+#deleteaccount:hover{
+    animation: animate 8s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+#deleteaccount:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0,5s;
+}
+#deleteaccount:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
+
+// alerta aceptar eliminar cuenta
+#cancelar{
+    align-content: center;
+    height: 38px;
+    width: 100px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #2fad5f, #a0f15e, #ffe868, #2fad5f);
+    background-size: 400%;
+    border-radius: 15px;
+    z-index: 1;
+    border-color: none;
+}
+#cancelar:hover{
+    animation: animate 8s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+#cancelar:before{
+    content: "";
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0,5s;
+}
+#cancelar:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
+
+
+// alerta cancelar eliminar cuenta
+
+#aceptar{
+    align-content: center;
+    height: 38px;
+    width: 100px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #ff5e14, #f1ad5e, #ffe868, #ff5e14);
+    background-size: 400%;
+    border-radius: 15px;
+    z-index: 1;
+    border-color: none;
+}
+#aceptar:hover{
+    animation: animate 8s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+#aceptar:before{
+    content: "";
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0,5s;
+}
+#aceptar:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}

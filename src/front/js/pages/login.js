@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router";
 import { Context } from "../store/appContext";
+import "../../styles/login.scss";
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
@@ -26,7 +27,7 @@ export const Login = () => {
 			{store.token !== null && store.token !== undefined ? (
 				history.push("/")
 			) : (
-				<div className="col-md-5 mx-auto">
+				<div className="col-md-5 mx-auto p-0" id="loginCard">
 					<div className="card">
 						<div className="card-body">
 							<div id="first">
@@ -76,6 +77,7 @@ export const Login = () => {
 										</div>
 										<div className="col-md-12 text-center ">
 											<button
+												id="loginButtonCard"
 												type="button"
 												className=" btn btn-block mybtn btn-primary tx-tfm"
 												onClick={handleClick}>

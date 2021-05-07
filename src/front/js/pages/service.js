@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
+import "../../styles/service.scss";
 
 export const Service = () => {
 	const { store, actions } = useContext(Context);
@@ -32,23 +33,28 @@ export const Service = () => {
 	return (
 		<div className="container-fluid h-100 pt-3" style={{ margin: "6rem 0 6rem 0" }}>
 			<div className="row justify-content-center">
-				<div className="col-10">
+				<div id="servicioindividual" className="col-10 p-0">
 					<div className="card" style={{ width: "100%" }}>
 						<div className="card-body justify-content-center">
-							<h3 className="card-title my-3">{service[0].name}</h3>
+							<h3 className="card-title my-3 text-center">{service[0].name}</h3>
+							<br></br>
 							<div className="row">
 								<div className="col-4 p-2">
-									<div className="row">
-										<img className="m-3" style={{ width: "90%" }} src={service[0].image} />
+									<div className="row justify-content-center">
+										<img
+											className="m-3 "
+											style={{ width: "350px", height: "350px" }}
+											src={service[0].image}
+										/>
 									</div>
 
 									<div className="row justify-content-center">
 										<div className="accordion" id="accordionExample">
 											<div className="card">
-												<div className="card-header w-80 bg-info" id="headingOne">
-													<h2 className="mb-0">
+												<div className="card-header pb-2 w-80" id="headingOne">
+													<h2 className="m-1">
 														<button
-															className="btn btn-block text-left text-white w-100"
+															className="btn text-white"
 															onClick={getUser}
 															type="button"
 															data-toggle="collapse"
@@ -67,6 +73,7 @@ export const Service = () => {
 													data-parent="#accordionExample">
 													<div className="card-body">
 														<p>Publicante: {proveedor.name + " " + proveedor.lastname} </p>
+														<br></br>
 														<p>Telefono: {"+506 " + proveedor.phone} </p>
 													</div>
 												</div>
@@ -76,37 +83,44 @@ export const Service = () => {
 								</div>
 								<div className="col-8">
 									<div className="row">
-										<div className="col-4">
+										<div className="col-4 text-center">
 											<h5>
 												<i className="fas fa-map-marker-alt mr-1" />
 												Ubicación
 											</h5>
+											<br></br>
 											<h5>{service[0].provincia}</h5>
+											<br></br>
 										</div>
-										<div className="col-4">
+										<div className="col-4 text-center">
 											<h5>
 												<i className="far fa-clock mr-1" />
 												Horario
 											</h5>
+											<br></br>
 											<h5>{service[0].schedule}</h5>
+											<br></br>
 										</div>
-										<div className="col-4">
+										<div className="col-4 text-center">
 											<h5>
 												<i className="fas fa-dollar-sign mr-1" />
 												Rango de precios
 											</h5>
+											<br></br>
 											<h5>{service[0].price_range}</h5>
+											<br></br>
 										</div>
 									</div>
 									<div className="row mb-2 px-2">
 										<div className="card" style={{ width: "100%" }}>
 											<div className="card-body justify-content-center">
 												<h5>Descripcion</h5>
+												<br></br>
 												<p>{service[0].description}</p>
 											</div>
 										</div>
 									</div>
-									<div className="row mb-2 px-2">
+									{/* <div className="row mb-2 px-2">
 										<div className="card" style={{ width: "100%" }}>
 											<div className="card-body justify-content-center">
 												<h5>Cometarios</h5>
@@ -123,7 +137,7 @@ export const Service = () => {
 										<button type="button" className="btn btn-outline-success">
 											Agregar un nuevo cometario ＋
 										</button>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>

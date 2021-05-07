@@ -162,5 +162,49 @@ body{
     min-height: 100%;
 }
 
+// boton busqueda
 
-
+#buscar{
+    align-content: center;
+    height: 38px;
+    width: 38px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #2ceead, #55fcd2, #2fe0ff, #2ceead);
+    background-size: 400%;
+    // border-radius: 15px;
+    z-index: 1;
+    border-color: none;
+}
+#buscar:hover{
+    animation: animate 8s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+#buscar:before{
+    content: "";
+    // position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    // background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3bdc, #03a9f4);
+    // background-size: 400%;
+    // border-radius: 15px;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0,5s;
+}
+#buscar:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
+import "../../styles/publicacion.scss";
 
 export const Publish = () => {
 	const { store, actions } = useContext(Context);
@@ -47,11 +48,11 @@ export const Publish = () => {
 	}, []);
 
 	return (
-		<div className="container-fluid h-100 my-5 py-3 ">
+		<div className="container-fluid h-100 my-5">
 			<div className="row justify-content-center">
-				<div className="card w-100 m-5">
+				<div id="crearpublicacion" className="card">
 					<div className="card-body justify-content-center">
-						<h1 className="container-fluid mb-3 pl-5 ">Cuéntanos sobre tu servicio</h1>
+						<h1 className="container-fluid mb-3 pl-5 text-center">Cuéntanos sobre tu servicio</h1>
 						{store.publicarSuccess == true ? (
 							<div className="alert alert-success mx-5" role="alert">
 								<h5 onClick={handleSuccess}>
@@ -250,7 +251,11 @@ export const Publish = () => {
 							</div>
 						</div>
 						<div className="row justify-content-center">
-							<button type="button" onClick={handlePost} className="btn btn-primary">
+							<button
+								id="botoncrearpubliacacion"
+								type="button"
+								onClick={handlePost}
+								className="btn btn-primary">
 								Crear Publicación
 							</button>
 						</div>
